@@ -1,0 +1,28 @@
+.actionBarTop{
+    margin: 0;
+    h2{margin-bottom: 0px !important;}
+}
+.cameraView{
+    height: 60vh;
+}
+.actionBar{
+    height: 90px;
+    margin: -45px 16px 0 16px;
+    display: flex;
+    align-items: center;
+}
+::ng-deep {
+
+    zxing-scanner {
+      /* Root component needs to have height: 100% */
+      height: 100%;
+      /* Optional : you probably want full-width as well for landscape orientation or tablets */
+      width: 100%;
+  
+    }
+  
+    video {
+      /* !important because component already sets height property */
+      height: 100% !important;
+    }
+  }

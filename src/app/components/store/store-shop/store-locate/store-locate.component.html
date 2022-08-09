@@ -1,0 +1,145 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-100">
+            <div class="whole">
+                <div class="header">
+                    <div class="left">
+                        <p>{{addressList.length}} other stores of {{storeName}}</p>
+                    </div>
+                    <span class="divide"></span>
+                    <div class="right">
+                        <button mat-icon-button (click)="onNoClick()">
+                            <mat-icon>
+                                close
+                            </mat-icon>
+                        </button>
+                    </div>
+                </div>
+                <!--div class="view_all_loc">
+                    <p>View all locations</p>
+                </div-->
+
+                <div class="locations">
+
+
+
+
+                    <div class="store_loc" *ngFor="let a of addressList">
+                        <div class="d-flex">
+                            <div>
+                                <p>{{ a.locality + ", " + a.zip }}</p>
+                            </div>
+                            <span class="divide"></span>
+                            <div>
+                                <a mat-icon-button color="primary" target="_" [href]=" mapLink(a.lat, a.lon)  ">
+                                    <mat-icon>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+                                                fill="#8200ff" />
+                                        </svg>
+
+                                    </mat-icon>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--div class="store_address">
+                            <p [ngClass]="{'limitTextHeight': isReadMore}">{{a.line1}},<br>{{a.city}}, {{a.region}}</p>
+                            < !--p class="read_more" (click)="showText()">{{
+                                isReadMore ? 'Read More': 'Read Less' }}</p-- >
+                        </div-->
+                        <div class="contact_number">
+
+                            <a mat-button color="primary" target="_" [href]=" 'tel:' + phone ">
+                                <mat-icon>call</mat-icon> {{phone}}
+                            </a>
+                        </div>
+                        <!-- <div class="store_address ">
+                            <p class="km">0-3 kms</p>
+                        </div> -->
+                    </div>
+
+
+<!--
+                    <div class="store_loc">
+                        <div class="d-flex">
+                            <div>
+                                <p>Vaibhav, Andheri East</p>
+                            </div>
+                            <span class="divide"></span>
+                            <div>
+                                <a mat-icon-button color="primary">
+                                    <mat-icon>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+                                                fill="#8200ff" />
+                                        </svg>
+
+                                    </mat-icon>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="store_address">
+                            <p [ngClass]="{'limitTextHeight': isReadMore}">Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit. Totam est vitae incidunt
+                                cupiditate quam ea consequatur nemo numquam magnam nihil aut ipsa voluptatibus vero
+                                asperiores fugit, deserunt quos libero? Tempore.</p>
+                            <p class="read_more" (click)="showText()">{{
+                                isReadMore ? 'Read More': 'Read Less' }}</p>
+                        </div>
+                        <div class="contact_number">
+
+                            <a mat-button color="primary">
+                                <mat-icon>call</mat-icon> +1234568790
+                            </a>
+                        </div>
+                    </div>
+                    <div class="store_loc">
+                        <div class="d-flex">
+                            <div>
+                                <p>Vaibhav, Andheri East</p>
+                            </div>
+                            <span class="divide"></span>
+                            <div>
+                                <a mat-icon-button color="primary">
+                                    <mat-icon>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z"
+                                                fill="#8200ff" />
+                                        </svg>
+
+                                    </mat-icon>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="store_address">
+                            <p [ngClass]="{'limitTextHeight': isReadMore}">Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit. Totam est vitae incidunt
+                                cupiditate quam ea consequatur nemo numquam magnam nihil aut ipsa voluptatibus vero
+                                asperiores fugit, deserunt quos libero? Tempore.</p>
+                            <p class="read_more" (click)="showText()">{{
+                                isReadMore ? 'Read More': 'Read Less' }}</p>
+                        </div>
+                        <div class="contact_number">
+
+                            <a mat-button color="primary">
+                                <mat-icon>call</mat-icon> +1234568790
+                            </a>
+                        </div>
+                    </div>
+                -->
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

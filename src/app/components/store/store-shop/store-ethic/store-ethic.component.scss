@@ -1,0 +1,112 @@
+.top {
+    margin: 0 !important;
+  }
+  
+  .main {
+    background: #fff;
+    margin-top: 2px;
+    //   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .header {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .header-details {
+    display: flex;
+    justify-content: center;
+    // text-align: center;
+    width: 100%;
+    margin-right: 10%;
+  }
+  
+  .header-img {
+    margin-left: 9px;
+  }
+  
+  //
+  
+  .box {
+    margin: 10px 0;
+  }
+  
+  .double_cashback {
+    text-align: center;
+    max-width: 300px;
+    margin: 20px auto;
+    svg {
+      margin-bottom: -7px;
+    }
+    span {
+      font-family: "Jost";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px !important;
+      line-height: 20px !important;
+      text-align: center;
+      color: #000000;
+      margin-left: 5px;
+    }
+  }
+  
+  .redeem {
+    p {
+      font-family: "Jost";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px !important;
+      line-height: 23px !important;
+  
+      color: #000000;
+    }
+  }
+  
+  .stores {
+    margin: 19px 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .store {
+      // width: 343px;
+      // height: 64px;
+  
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      // align-items: center;
+      padding: 5px 0 8px 0;
+      p {
+        font-family: "Jost";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px !important;
+        line-height: 22px !important;
+        color: #000000;
+        width: 70%;
+        margin: 10px 0 5px 9px !important;
+      }
+      svg {
+        margin-right: 10px;
+      }
+    }
+  }
+  
+  .termslists {
+    ol {
+      padding: 0 10px 0 30px !important;
+      li {
+        font-family: "Jost";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px !important;
+        line-height: 23px !important;
+  
+        color: #000000;
+      }
+    }
+  }

@@ -1,0 +1,440 @@
+<div class="col col-100">
+
+    <div>
+        <div class="header" (click)="closeDialog()">
+            <div mat-icon-button class="header-img">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+                </svg>
+            </div>
+
+            <div class="header-details">
+                <p class="identity pro-details">MyCart</p>
+
+            </div>
+
+            <span class="divide"></span>
+<!--
+            <div class="left">
+                <div class="coins">
+                    <button mat-raised-button *ngIf="auth.user$ | async as mine" matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
+                        
+                        <svg class="coin-img" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                fill="#FECB00" />
+                            <path
+                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                fill="#EFA900" />
+                            <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z" fill="#E19100" />
+                            <path d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                fill="#E19100" />
+                            <path d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                fill="#FECB00" />
+                            <path d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                fill="#FECB00" />
+                            <path d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                fill="#E19100" />
+                            <path d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                fill="#E19100" />
+                            <path d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                fill="#FECB00" />
+                            <path d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                fill="#FECB00" />
+                        </svg>
+                        <span class="coin-number">{{mine.acBalC}}</span>
+                    </button>
+                </div>
+            </div>
+        -->
+        </div>
+
+
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+
+        <!--div class="caret col col-100">
+            <div class="card1" *ngFor="let p of cartProducts">
+                <div class="card-size col col-50 col-sm-80 col-card">
+                    <div class="card-box">
+                        <div class="card-main">
+
+                            <div class="product-img" *ngIf="p.banners?.length > 0">
+                                <img [src]="p.banners[0]" alt="No Image">
+                            </div>
+
+                            <div class="prod-content">
+                                <p class="prod-name">{{p.title}}</p>
+                                < !--div class="price">
+                                    <h5 class="rupee">₹{{p.price}}</h5>
+                                    <h5 class="rup">₹{{p.cost}}</h5>
+                                    <h5 class="off rup">{{ ( p.price / p.cost ) * 100 }}% off</h5>
+                                </div-- >
+
+                                <div class="prod-btn">
+                                    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                                        <mat-icon> <span class="minus">remove</span> </mat-icon>
+
+                                    </button>
+                                    <span>1</span>
+                                    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                                        <mat-icon> <span class="minus">add </span> </mat-icon>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <span class="divide"></span>
+                            <div>
+                                <mat-icon>close</mat-icon>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div-->
+
+
+
+        <ng-container *ngIf="step == 1">
+
+            <div class="caret col col-100">
+                <div class="card1" *ngFor="let p of cartProducts">
+
+
+
+                    <div class="card-size col col-50 col-sm-80 col-card">
+
+
+
+                        <div class="card-box">
+                            <div class="card-main">
+
+
+                                <div class="prod-content">
+                                    <p class="prod-name">{{p.title}}</p>
+                                    <!-- <p class="desc">Description</p> -->
+                                    <p class="rup">₹{{p.cost}} <span *ngIf="p.vX.length > 0">&nbsp;&nbsp;&nbsp;({{p.vX.length}} Varients)</span></p>
+                                    <div class="price">
+                                        <!-- <h5 class="rupee">₹500</h5> -->
+                                        <!-- <h5 class="off rup">10% off</h5> -->
+                                    </div>
+
+                                    <div class="prod-btn">
+                                        <p class="add-remove">
+                                            <button mat-icon-button (click)="showAndHideAddToCard(p.id, p.variants, false, p)" [disabled]="makeChanges">
+                                            <mat-icon> <span class="minus">remove</span> </mat-icon>
+
+                                        </button>
+
+                                            <span>{{p.Q}}</span>
+
+                                            <button mat-icon-button (click)="showAndHideAddToCard(p.id, p.variants, true, p)" [disabled]="makeChanges">
+                                            <mat-icon> <span class="minus">add </span> </mat-icon>
+                                        </button>
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                <div class="product-img" *ngIf="!burnMode && p.banners?.length > 0">
+                                    <img [src]="p.banners[0]" alt="">
+                                </div>
+                                <div class="product-img" *ngIf="burnMode && p.burnPic">
+                                    <img [src]="p.burnPic" alt="">
+                                </div>
+
+                                <!-- <span class="divide"></span>
+                            <div>
+                                <mat-icon>close</mat-icon>
+                            </div> -->
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </ng-container>
+
+            <ng-container *ngIf="step == 0">
+            <div class="caret col col-100">
+                <div class="ship-add" style="margin-top: 10px;">
+                    <span> Contact Details</span>
+                </div>
+                <div class="details fullWidth">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput [(ngModel)]="userDetails.name" type="text" placeholder="Your Name" autocomplete="off" required>
+                        <mat-error>Enter proper name</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mobile</mat-label>
+                        <input #phone matInput [(ngModel)]="userDetails.mobile" type="tel" placeholder="10 Digit Mobile Number" minlength="10" maxlength="10" autocomplete="off" required>
+                        <span matPrefix>+91 &nbsp;</span>
+                        <mat-error>Enter proper mobile number</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email address</mat-label>
+                        <input matInput [(ngModel)]="userDetails.email" type="email" placeholder="example@domain.com" autocomplete="off" required>
+                        <mat-error>Enter proper email</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <div class="caret col col-100">
+                <div class="ship-add" class="place-order-btn">
+
+                    <button class="submit" mat-raised-button [disabled]="makeChanges" (click)="sign()">Next</button>
+
+                </div>
+            </div>
+
+        </ng-container>
+
+
+
+
+
+
+
+
+
+
+        <ng-container *ngIf="step == 1">
+
+            <div class="caret col col-100">
+                <div class="ship-add">
+                    <div class="ship-change">
+
+                        <span>Shipping Address</span>
+                        <button mat-button class="change" *ngIf="addrList.length > 0" (click)="startChangeAddress()">{{!createAddress ? 'Add new' : 'Change'}}</button>
+                        <!-- <span class="change">Change</span> -->
+                    </div>
+                    <ng-container *ngIf="auth.user$ | async as mine">
+                        <p *ngFor=" let a of addrList " (click)="createAddress = false; userDetails.address = a;"><svg class="checkbox" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="#000000">
+                    <path *ngIf="userDetails.address !== a" d="M9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Z"/>
+                    <path *ngIf="userDetails.address == a" d="M9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39ZM20.95 31.35Q21.25 31.35 21.5 31.25Q21.75 31.15 22 30.9L34.35 18.55Q34.75 18.15 34.775 17.5Q34.8 16.85 34.35 16.4Q33.9 15.95 33.275 15.95Q32.65 15.95 32.2 16.4L20.95 27.65L16.05 22.75Q15.65 22.35 15.025 22.325Q14.4 22.3 13.95 22.75Q13.5 23.2 13.5 23.825Q13.5 24.45 13.95 24.9L19.9 30.9Q20.15 31.15 20.4 31.25Q20.65 31.35 20.95 31.35ZM9 39Q9 39 9 39Q9 39 9 39V9Q9 9 9 9Q9 9 9 9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Z"/>
+                </svg> {{a.type}}<br>{{a.address}} {{a.zip}}</p>
+                    </ng-container>
+                </div>
+
+                <div class="details fullWidth" *ngIf="createAddress">
+
+                    <!--mat-form-field appearance="outline">
+                    <mat-label>Floor (Optional)</mat-label>
+                    <input matInput type="text" autocomplete="off" required>
+                </mat-form-field-->
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Complete address</mat-label>
+                        <input matInput type="text" [(ngModel)]="userDetails.newAddress.address" autocomplete="off" required>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nearby landmark</mat-label>
+                        <input matInput type="text" [(ngModel)]="userDetails.newAddress.landmark" autocomplete="off" required>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Pin code</mat-label>
+                        <input matInput type="number" [(ngModel)]="userDetails.newAddress.zip" maxlength="6" minlength="6" min="100000" max="999999" autocomplete="off" required>
+                    </mat-form-field>
+
+                </div>
+            </div>
+
+            <div class="caret col col-100" *ngIf="createAddress">
+                <div class="ship-add">
+                    <span>Save Address As</span>
+
+                </div>
+
+                <div class="save-add-btn save-add">
+
+                    <button class="home" (click)=" userDetails.type = 'home' " [class.b_primary]=" userDetails.type == 'home' " [class.c_white]=" userDetails.type == 'home' " mat-button matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
+                    <span>Home</span>
+                </button>
+                    <button class="home" (click)=" userDetails.type = 'work' " [class.b_primary]=" userDetails.type == 'work' " [class.c_white]=" userDetails.type == 'work' " mat-button matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
+                    <span>Work</span>
+                </button>
+                    <button class="home" (click)=" userDetails.type = 'other' " [class.b_primary]=" userDetails.type == 'other' " [class.c_white]=" userDetails.type == 'other' " mat-button matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
+                    <span>Other</span>
+                </button>
+                </div>
+            </div>
+
+
+            <div class="caret col col-100">
+                <div class="cashback ship-add" *ngIf="!burnMode">
+                    <span>
+                    Get 5% cashback for recommending this business.
+                </span>
+                </div>
+
+
+
+                <div class="ship-add" style="margin-bottom: 15px;margin-top: 20px; display: flex;">
+                    <span>Order Summary</span>
+                    <span class="divide"></span>
+                    <div class="left">
+                        <div class="coins">
+                            <button mat-raised-button *ngIf="auth.user$ | async as mine" matTooltip="Info about the action" aria-label="Button that displays a tooltip when focused or hovered over">
+                                
+                                <svg class="coin-img" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                        fill="#FECB00" />
+                                    <path
+                                        d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                        fill="#EFA900" />
+                                    <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z" fill="#E19100" />
+                                    <path d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                        fill="#E19100" />
+                                    <path d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                        fill="#FECB00" />
+                                    <path d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                        fill="#FECB00" />
+                                    <path d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                        fill="#E19100" />
+                                    <path d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                        fill="#E19100" />
+                                    <path d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                        fill="#FECB00" />
+                                    <path d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                        fill="#FECB00" />
+                                </svg>
+                                <span class="coin-number">{{mine.acBalC}}</span>
+                            </button>
+                        </div>
+                    </div>
+        
+                </div>
+
+                <div class="bill">
+                    <div class="table">
+
+                        <p class="bill-order">Order Total</p>
+                        <p class="bill-order">₹{{ totalPrice() }}</p>
+                    </div>
+                    <div class="table">
+
+                        <p class="bill-order">Discount</p>
+                        <p class="off bill-order">- ₹{{ (totalPrice() || 0) - (totalCost() || 0) }}</p>
+                    </div>
+
+                    <div class="table" style="margin-bottom: 6px;">
+
+                        <p class="bill-order">Delivery Charges</p>
+                        <p class="bill-order">₹{{ delivery() }}</p>
+                    </div>
+
+
+
+                    <div class="table" (click)="show = !show">
+
+                        <p class="drop-down table bill-order">Other Charges
+                            <mat-icon><span>
+                                arrow_drop_down
+                            </span></mat-icon>
+                        </p>
+                        <p class="bill-order">₹{{ taxes() + packaging() }}</p>
+                    </div>
+                    <div *ngIf="show" class="drop-down-content">
+
+
+                        <div class="table">
+
+                            <p class="other-charges bill-order">Restaurant Packaging Charges</p>
+                            <p class="off bill-order other-charges">₹{{ packaging() }}</p>
+                        </div>
+                        <div class="table">
+
+                            <p class="other-charges bill-order">Taxes</p>
+                            <p class="off bill-order other-charges">₹{{ taxes() }}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <ng-container *ngIf="auth.user$ | async as mine">
+                    <div class="pay">
+                        <div class="refr">
+                            <button mat-button (click)=" useRefrCash( mine.acBalC ) " [disabled]="makeChanges"><svg class="checkbox" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="#000000">
+                        <path *ngIf="!invoice.useRefrCash" d="M9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Z"/>
+                        <path *ngIf="invoice.useRefrCash" d="M9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39ZM20.95 31.35Q21.25 31.35 21.5 31.25Q21.75 31.15 22 30.9L34.35 18.55Q34.75 18.15 34.775 17.5Q34.8 16.85 34.35 16.4Q33.9 15.95 33.275 15.95Q32.65 15.95 32.2 16.4L20.95 27.65L16.05 22.75Q15.65 22.35 15.025 22.325Q14.4 22.3 13.95 22.75Q13.5 23.2 13.5 23.825Q13.5 24.45 13.95 24.9L19.9 30.9Q20.15 31.15 20.4 31.25Q20.65 31.35 20.95 31.35ZM9 39Q9 39 9 39Q9 39 9 39V9Q9 9 9 9Q9 9 9 9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Z"/>
+                    </svg> Use Refr Cash</button>
+                        </div>
+
+                        <input type="number" class="ent-amount" placeholder="Enter amount" [disabled]="!invoice.useRefrCash" [(ngModel)]="invoice.amtRefrCash" [max]=" mine.acBalC " [min]="0" [class.b_warn]=" invoice.amtRefrCash && invoice.useRefrCash > mine.acBalC  " required>
+                    </div>
+                </ng-container>
+
+            </div>
+
+            <div class="caret col col-100">
+                <div class="payable table">
+
+                    <p class="off">Payable Amount</p>
+                    <p class="off">₹{{ ((totalCost() || 0) + (delivery() || 0) + (packaging() || 0) + (taxes() || 0)) - invoice.amtRefrCash }} </p>
+                </div>
+            </div>
+
+            <div class="caret col col-100" *ngIf=" (((totalCost() || 0) + (delivery() || 0) + (packaging() || 0) + (taxes() || 0)) - invoice.amtRefrCash) !== 0 " >
+
+                <div class="ship-add" style="margin-bottom: 15px;margin-top:10px;">
+                    Pay Using
+                </div>
+
+                <div class="cash">
+                    <button mat-button (click)="invoice.COD = true" [disabled]="makeChanges">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                            <path d="M24 44Q19.9 44 16.25 42.425Q12.6 40.85 9.875 38.125Q7.15 35.4 5.575 31.75Q4 28.1 4 23.95Q4 19.85 5.575 16.2Q7.15 12.55 9.875 9.85Q12.6 7.15 16.25 5.575Q19.9 4 24.05 4Q28.15 4 31.8 5.575Q35.45 7.15 38.15 9.85Q40.85 12.55 42.425 16.2Q44 19.85 44 24Q44 28.1 42.425 31.75Q40.85 35.4 38.15 38.125Q35.45 40.85 31.8 42.425Q28.15 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31.1 41 36.05 36.025Q41 31.05 41 24Q41 16.9 36.05 11.95Q31.1 7 24 7Q16.95 7 11.975 11.95Q7 16.9 7 24Q7 31.05 11.975 36.025Q16.95 41 24 41Z"/>
+                            <path *ngIf="invoice.COD" d="M24 33.3Q27.9 33.3 30.6 30.6Q33.3 27.9 33.3 24Q33.3 20.1 30.6 17.4Q27.9 14.7 24 14.7Q20.1 14.7 17.4 17.4Q14.7 20.1 14.7 24Q14.7 27.9 17.4 30.6Q20.1 33.3 24 33.3ZM24 44Q19.9 44 16.25 42.425Q12.6 40.85 9.875 38.125Q7.15 35.4 5.575 31.75Q4 28.1 4 24Q4 19.9 5.575 16.25Q7.15 12.6 9.875 9.875Q12.6 7.15 16.25 5.575Q19.9 4 24 4Q28.1 4 31.75 5.575Q35.4 7.15 38.125 9.875Q40.85 12.6 42.425 16.25Q44 19.9 44 24Q44 28.1 42.425 31.75Q40.85 35.4 38.125 38.125Q35.4 40.85 31.75 42.425Q28.1 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31 41 36 36Q41 31 41 24Q41 17 36 12Q31 7 24 7Q17 7 12 12Q7 17 7 24Q7 31 12 36Q17 41 24 41Z"/>
+                        </svg>
+                        <span> COD</span>
+                    </button>
+                    <button mat-button (click)="invoice.COD = false" [disabled]="makeChanges">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                            <path d="M24 44Q19.9 44 16.25 42.425Q12.6 40.85 9.875 38.125Q7.15 35.4 5.575 31.75Q4 28.1 4 23.95Q4 19.85 5.575 16.2Q7.15 12.55 9.875 9.85Q12.6 7.15 16.25 5.575Q19.9 4 24.05 4Q28.15 4 31.8 5.575Q35.45 7.15 38.15 9.85Q40.85 12.55 42.425 16.2Q44 19.85 44 24Q44 28.1 42.425 31.75Q40.85 35.4 38.15 38.125Q35.45 40.85 31.8 42.425Q28.15 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31.1 41 36.05 36.025Q41 31.05 41 24Q41 16.9 36.05 11.95Q31.1 7 24 7Q16.95 7 11.975 11.95Q7 16.9 7 24Q7 31.05 11.975 36.025Q16.95 41 24 41Z"/>
+                            <path *ngIf="!invoice.COD" d="M24 33.3Q27.9 33.3 30.6 30.6Q33.3 27.9 33.3 24Q33.3 20.1 30.6 17.4Q27.9 14.7 24 14.7Q20.1 14.7 17.4 17.4Q14.7 20.1 14.7 24Q14.7 27.9 17.4 30.6Q20.1 33.3 24 33.3ZM24 44Q19.9 44 16.25 42.425Q12.6 40.85 9.875 38.125Q7.15 35.4 5.575 31.75Q4 28.1 4 24Q4 19.9 5.575 16.25Q7.15 12.6 9.875 9.875Q12.6 7.15 16.25 5.575Q19.9 4 24 4Q28.1 4 31.75 5.575Q35.4 7.15 38.125 9.875Q40.85 12.6 42.425 16.25Q44 19.9 44 24Q44 28.1 42.425 31.75Q40.85 35.4 38.125 38.125Q35.4 40.85 31.75 42.425Q28.1 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31 41 36 36Q41 31 41 24Q41 17 36 12Q31 7 24 7Q17 7 12 12Q7 17 7 24Q7 31 12 36Q17 41 24 41Z"/>
+                        </svg>
+                        <span> Online Payment</span>
+                    </button>
+                </div>
+
+
+            </div>
+
+            <div class="caret col col-100">
+                <div class="ship-add" class="place-order-btn">
+
+                    <ng-container *ngIf="auth.user$ | async as mine">
+                        <button class="submit" mat-raised-button [disabled]="makeChanges || !mine" (click)="createOrder(mine)">Place Order</button>
+                    </ng-container>
+
+                </div>
+            </div>
+
+        </ng-container>
+
+
+
+    </div>
+
+
+</div>

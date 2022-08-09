@@ -1,0 +1,222 @@
+.container,
+button {
+    font-family: "Jost", sans-serif !important;
+}
+
+.font-family {
+    font-family: "Jost", sans-serif !important;
+}
+
+.m-auto {
+    margin: auto;
+    max-width: 400px;
+}
+
+.m-0 {
+    margin: 0px !important;
+}
+
+.p-0 {
+    padding: 0px !important;
+}
+
+.p-1 {
+    padding: 1rem !important;
+}
+
+.px-1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mt-3 {
+    margin-top: 3rem;
+}
+
+.mt-2 {
+    margin-top: 2rem !important;
+}
+
+.mt-1 {
+    margin-top: 1rem !important;
+}
+
+.mt-small {
+    margin-top: 0.5rem !important;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.fs-22 {
+    font-size: 22px !important;
+}
+
+.fs-20 {
+    font-size: 20px !important;
+}
+
+.fs-18 {
+    font-size: 18px !important;
+}
+
+.fs-14 {
+    font-size: 14px !important;
+    font-weight: 500;
+}
+
+.fs-12 {
+    font-size: 12px !important;
+    font-weight: 500;
+}
+
+.fs-10 {
+    font-size: 10px !important;
+}
+
+.relative {
+    position: relative;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.row {
+    align-items: center !important;
+    display: flex !important;
+}
+
+.align-items-end {
+    align-items: end !important;
+}
+
+.text-end {
+    text-align: end !important;
+}
+
+
+/* TOOLBAR */
+
+.float-right {
+    float: right !important;
+}
+
+mat-toolbar {
+    background: transparent !important;
+    border-bottom: 1px solid #f6f6f6;
+    p {
+        margin-bottom: 0 !important;
+        line-height: 14px !important;
+    }
+    .title {
+        font-weight: 500;
+    }
+}
+
+.refrlogo {
+    margin-top: -15px !important;
+    .refrT {
+        display: block;
+        text-align: center;
+        line-height: 30px;
+        font-size: 30px;
+    }
+    .cashT {
+        display: block;
+        text-align: center;
+        line-height: 20px;
+        font-size: 18px;
+    }
+}
+
+.green-icon {
+    color: #49AB00;
+    ;
+}
+
+
+/* CARD-BALANCE */
+
+.balance-card {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.layer-one-card {
+    top: 0px;
+    position: inherit;
+    left: -5px;
+    background: #d2a8fa;
+    transform: rotate(1deg);
+    height: 26vh;
+    width: 104%;
+    border-radius: 12px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.layer-two-card {
+    position: absolute;
+    top: 0px;
+    left: -5px;
+    transform: rotate(-3deg);
+    height: 26vh;
+    width: 103%;
+    border-radius: 12px;
+    background: #b05eff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
+.matLicks {
+    display: flex!important;
+    justify-content: space-evenly!important;
+}
+
+.balance-card-footer {
+    position: absolute;
+    bottom: 10px;
+    width: 92%;
+}
+
+.btn-section {
+    background-color: #8200FF;
+    border-radius: 16px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    box-sizing: content-box !important;
+}
+
+.btn-primary {
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: none;
+    padding: 8px 18px 8px 18px;
+    margin: 0.11em;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    font-family: "Jost", sans-serif !important;
+    font-size: 16px;
+}
+
+.transaction-card {
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    padding: 0.3rem;
+    border: none;
+    width: 100%;
+}
+
+.how-button {
+    background: none !important;
+    border: none !important;
+}

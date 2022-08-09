@@ -1,0 +1,78 @@
+.contact {
+    .male,
+    .female {
+        display: none;
+    }
+}
+
+.contact:nth-child(odd) .male {
+    display: inline-block;
+}
+
+.contact:nth-child(even) .female {
+    display: inline-block;
+}
+
+.contact {
+    background: #ffffff;
+    width: 100%;
+    height: 90px;
+    border-bottom: solid 1px rgba(149, 165, 166, 0.2);
+    box-sizing: border-box;
+    padding: 15px 0 0 8px;
+    -webkit-transition: margin 0.3s;
+    z-index: 9999999999;
+}
+
+.contact:hover {
+    box-shadow: 0 0 50px -20px #000000;
+    position: relative;
+    margin: 0 0 0 120px;
+}
+
+.contact:hover .action {
+    opacity: 1;
+    display: block;
+}
+
+.contact img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    float: left;
+}
+
+.contact .action {
+    -webkit-transition: opacity 0.9s;
+    width: 120px;
+    height: 90px;
+    background: rgba(231, 76, 60, 1.0);
+    box-sizing: border-box;
+    position: absolute;
+    margin: -15px 0 0 -128px;
+    padding: 35px 0 0 32px;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0;
+    display: none;
+}
+
+.info {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.info .name {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.info .description {
+    color: rgba(189, 195, 199, 1.0);
+    box-sizing: border-box;
+    padding: 5px 0 0 0;
+}

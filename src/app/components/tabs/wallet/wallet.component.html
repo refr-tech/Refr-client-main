@@ -1,0 +1,199 @@
+<div class="mobile-view" *ngIf="auth.user$ | async as mine" style="padding-top: 14px;">
+
+
+    <div class="px-1 mt-1 ">
+        <div class="container relative m-auto ">
+            <div class="layer-one-card "></div>
+            <div class="layer-two-card "></div>
+            <div class="balance-card b_gradient ">
+                <div class="p-1">
+                    <div class="row">
+                        <div class="col-70">
+                            <div class="c_white fs-14">Available Balance</div>
+                            <div class="row mt-small ">
+
+                                <svg width="20" height="20" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                      fill="#FECB00" />
+                    <path
+                      d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                      fill="#EFA900" />
+                    <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z" fill="#E19100" />
+                    <path d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z" fill="#E19100" />
+                    <path d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z" fill="#FECB00" />
+                    <path d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z" fill="#FECB00" />
+                    <path d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z" fill="#E19100" />
+                    <path d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z" fill="#E19100" />
+                    <path d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z" fill="#FECB00" />
+                    <path d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z" fill="#FECB00" />
+                  </svg>
+
+                                <b class="fs-22 c_white"> {{mine.acBalC| number:'1.2-2'}}</b>
+                            </div>
+                        </div>
+                        <div class="col-30 textR refrlogo c_white"><span class="refrT">Refr</span><span class="cashT">Cash</span></div>
+                    </div>
+                    <div class="row balance-card-footer">
+                        <div class="col-60">
+                            <div class="c_white fs-14"> To Be Credited <svg width="10" height="10" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                      fill="#FECB00" />
+                    <path
+                      d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                      fill="#EFA900" />
+                    <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z" fill="#E19100" />
+                    <path d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z" fill="#E19100" />
+                    <path d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z" fill="#FECB00" />
+                    <path d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z" fill="#FECB00" />
+                    <path d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z" fill="#E19100" />
+                    <path d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z" fill="#E19100" />
+                    <path d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z" fill="#FECB00" />
+                    <path d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z" fill="#FECB00" />
+                  </svg> {{mine.acBalCr| number:'1.2-2'}}
+                            </div>
+                        </div>
+                        <div class="col-40">
+                            <button class="c_white fs-14 row how-button">
+                  <mat-icon class="mat-18">info_outlined</mat-icon>
+  
+                  &nbsp; <span> How it Works </span>
+                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--div class="matLicks mt-3 mb-10">
+            <div class="btn-section">
+                <button mat-button type="button" class="btn-primary b_white c_black" (click)="scanOR()"> <svg width="11" height="11"
+              viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.125 0.625H10.375V3.33333H9.29167V1.70833H7.125V0.625ZM3.875 0.625V1.70833H1.70833V3.33333H0.625V0.625H3.875ZM7.125 10.375V9.29167H9.29167V7.66667H10.375V10.375H7.125ZM3.875 10.375H0.625V7.66667H1.70833V9.29167H3.875V10.375ZM0.625 4.95833H10.375V6.04167H0.625V4.95833Z"
+                fill="#04030F" />
+            </svg>
+            <b> &nbsp;
+              Scan to pay </b> </button>
+            </div>
+            <div class="btn-section">
+                <button mat-button type="button" class="btn-primary b_white c_black" (click)="addWithdraw()">
+          <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8.00886 0.000945075H14.5057C15.3981 0.000945075 15.9995 0.59903 16 1.48632C16 2.48792 16 3.48951 16 4.4911C16 5.32895 15.3841 5.9398 14.5412 5.94086C13.9462 5.94086 13.3508 5.94883 12.7559 5.93607C12.5894 5.93288 12.569 5.98552 12.569 6.13118C12.5738 8.58785 12.5593 11.045 12.5798 13.5017C12.5824 13.6993 12.5449 13.8954 12.4697 14.0784C12.3945 14.2615 12.283 14.4277 12.1418 14.5674C12.0006 14.707 11.8326 14.8172 11.6477 14.8915C11.4627 14.9658 11.2646 15.0026 11.0651 14.9999C9.01865 14.9775 6.97205 14.9775 4.92527 14.9999C4.72693 15.0018 4.53021 14.9645 4.34664 14.8901C4.16308 14.8157 3.99638 14.7057 3.85633 14.5666C3.71628 14.4276 3.6057 14.2622 3.5311 14.0803C3.45649 13.8983 3.41935 13.7034 3.42186 13.507C3.44119 11.0445 3.42723 8.582 3.4326 6.11736C3.4326 5.9701 3.3977 5.93448 3.24951 5.93661C2.64277 5.94618 2.03604 5.94192 1.42877 5.94033C1.24125 5.94167 1.05532 5.90614 0.881771 5.8358C0.70822 5.76546 0.550496 5.66171 0.417744 5.53056C0.284992 5.39942 0.179852 5.24349 0.108419 5.07181C0.0369862 4.90013 0.000682131 4.71612 0.00161079 4.53044C-0.000536931 3.48774 -0.000536931 2.44503 0.00161079 1.40232C0.00153968 1.21812 0.0381751 1.03571 0.109419 0.865546C0.180663 0.695382 0.285115 0.540808 0.416791 0.410678C0.548467 0.280549 0.70478 0.177421 0.876775 0.107203C1.04877 0.0369853 1.23307 0.0010572 1.41911 0.00147682C3.61659 -0.000295284 5.81317 -0.000472608 8.00886 0.000945075ZM10.8589 7.37201C10.8589 5.81717 10.8589 4.26179 10.8589 2.70588C10.8589 2.5969 10.8535 2.54267 10.7134 2.5432C8.905 2.54852 7.09733 2.54852 5.29038 2.5432C5.17494 2.5432 5.1438 2.57032 5.1438 2.68675C5.14702 5.80884 5.14702 8.93128 5.1438 12.0541C5.1438 12.1503 5.16581 12.1912 5.26514 12.221C5.75482 12.3683 6.07859 12.6899 6.22893 13.1742C6.25846 13.2689 6.29551 13.2976 6.39592 13.297C7.46692 13.2928 8.53791 13.2928 9.60891 13.297C9.70878 13.297 9.74583 13.2694 9.77536 13.1742C9.92087 12.7043 10.2307 12.3821 10.7064 12.2343C10.831 12.1955 10.8621 12.1423 10.8616 12.0217C10.8573 10.4707 10.8564 8.92083 10.8589 7.37201ZM8.01638 0.567132C5.84431 0.567132 3.67243 0.567132 1.50072 0.567132C0.953589 0.567132 0.578274 0.922261 0.576664 1.44858C0.572726 2.46789 0.572726 3.4872 0.576664 4.50652C0.573836 4.62034 0.594232 4.73356 0.636632 4.8394C0.679032 4.94523 0.742564 5.04151 0.823424 5.12246C0.904284 5.20342 1.00081 5.26739 1.10722 5.31054C1.21364 5.35369 1.32775 5.37515 1.44273 5.37361C2.06718 5.38052 2.69217 5.37361 3.31662 5.37733C3.41273 5.37733 3.43475 5.34915 3.43367 5.25878C3.42938 4.86431 3.42884 4.4693 3.43367 4.07483C3.43367 3.97861 3.4036 3.95681 3.3134 3.95947C3.08735 3.96479 2.8613 3.95947 2.63472 3.95947C2.38612 3.95947 2.28947 3.86431 2.28894 3.62029C2.28894 3.19498 2.28894 2.77074 2.28894 2.34756C2.28894 2.0658 2.37538 1.97968 2.65888 1.97968C4.34126 1.97968 6.02526 1.97968 7.71086 1.97968C9.59692 1.97968 11.4832 1.97968 13.3696 1.97968C13.6176 1.97968 13.7143 2.07484 13.7148 2.31939C13.7148 2.76117 13.7148 3.20296 13.7148 3.64474C13.7148 3.8574 13.6107 3.95681 13.3975 3.95894C13.1843 3.96107 12.9572 3.96691 12.7371 3.95894C12.6098 3.95256 12.5642 3.97861 12.569 4.11843C12.5808 4.48313 12.5787 4.84889 12.569 5.21412C12.5663 5.34118 12.591 5.38265 12.7301 5.38052C13.3132 5.37095 13.8963 5.3768 14.4794 5.37627C15.0754 5.37627 15.4276 5.0238 15.4282 4.4289C15.4282 3.46877 15.4282 2.50847 15.4282 1.54799C15.4282 0.904718 15.0894 0.568195 14.4413 0.567664L8.01638 0.567132ZM12.0015 8.145V2.9297C12.0015 2.54639 12.0015 2.55437 11.6203 2.5432C11.4683 2.53842 11.4259 2.57085 11.4259 2.73087C11.432 5.94192 11.4334 9.15315 11.4302 12.3646C11.4302 12.6304 11.3598 12.7053 11.0925 12.7319C10.8826 12.7466 10.6852 12.8362 10.537 12.9842C10.3889 13.1321 10.3001 13.3283 10.2871 13.5363C10.265 13.7798 10.1797 13.8606 9.94235 13.8611C8.64512 13.8611 7.3479 13.8611 6.05067 13.8611C5.82301 13.8611 5.73335 13.776 5.71348 13.5474C5.67428 13.0987 5.36555 12.7819 4.92097 12.733C4.63103 12.7016 4.5725 12.6357 4.5725 12.3401V2.93555C4.5725 2.54639 4.5725 2.55437 4.17947 2.54267C4.02859 2.53842 3.99745 2.57936 3.99745 2.72502C4.0021 6.30148 4.00336 9.87794 4.00121 13.4544C4.00121 14.0849 4.34431 14.4268 4.97788 14.4268H11.0135C11.6616 14.4268 12.0015 14.0897 12.0015 13.4475V8.145ZM3.43206 2.98499C3.43206 2.53417 3.43206 2.53842 2.98158 2.54427C2.87419 2.54427 2.8554 2.58148 2.85862 2.67558C2.86506 2.86963 2.86936 3.06474 2.85862 3.26038C2.8511 3.38425 2.89996 3.40073 3.00896 3.40019C3.43206 3.39594 3.43206 3.40019 3.43206 2.98499ZM12.584 2.95841C12.584 3.09876 12.5304 3.28217 12.5985 3.3667C12.6667 3.45123 12.867 3.38159 13.0055 3.39647C13.1097 3.40764 13.1532 3.38265 13.1468 3.26622C13.1349 3.07147 13.1349 2.87618 13.1468 2.68143C13.1548 2.55543 13.1022 2.54214 12.9953 2.54267C12.5728 2.5464 12.5728 2.5432 12.584 2.95841Z"
+              fill="#030303" />
+            <path
+              d="M7.90035 9.25622C7.27644 9.23654 6.64501 8.96116 6.16338 8.30779C5.85518 7.88545 5.69752 7.37366 5.71521 6.85291C5.7329 6.33215 5.92493 5.832 6.2611 5.43113C6.47014 5.17844 6.73271 4.97432 7.03024 4.83322C7.32776 4.69212 7.65297 4.61748 7.98286 4.61459C8.31274 4.6117 8.63923 4.68062 8.93923 4.81649C9.23923 4.95235 9.50541 5.15184 9.71894 5.40083C10.578 6.38488 10.4513 7.92767 9.44081 8.74107C9.00911 9.08822 8.52856 9.25409 7.90035 9.25622ZM8.00129 5.27962C7.61231 5.28653 7.23587 5.41698 6.92743 5.65176C6.7529 5.78729 6.60788 5.95638 6.50108 6.14886C6.39428 6.34135 6.32793 6.55323 6.30601 6.77177C6.28409 6.99031 6.30705 7.21098 6.37352 7.4205C6.44 7.63002 6.5486 7.82406 6.69279 7.99093C7.37738 8.78147 8.64883 8.77456 9.32644 7.97605C9.58296 7.67319 9.71905 7.28805 9.70916 6.89291C9.69928 6.49776 9.5441 6.11977 9.27275 5.82985C8.91515 5.45186 8.48024 5.30088 8.00129 5.27962Z"
+              fill="#0D0C0C" />
+          </svg>
+  
+            <b>
+              &nbsp; Withdraw </b></button>
+            </div>
+        </div-->
+        <br>
+
+        <div class="container card-panel-list" style="margin-bottom: 80px;">
+            <div class="bold fs-18 textL">Latest Transactions
+                <!--a class="fs-12 float-right"> View All</a-->
+            </div> <br>
+
+            <ng-container *ngIf="payments$ | async as payments">
+                <p class="textL" *ngIf="payments.length == 0">You have no transactions</p>
+                <button class="transaction-card b_white c_black" *ngFor="let p of payments; let i = index;" [class.mt-1]="i !== 0">
+          <div class="row">
+            <div class="col-60"><!--p.type.includes('clientAc') -->
+                <ng-container *ngIf="true">
+                  
+                    <div class="bold p-0 m-0 fs-14" *ngIf=" p.journey == 'F2F' && !p.invoice.useRefrCash ">Order Placed via F2F {{p.ordrTYPE}}</div>
+                    <div class="bold p-0 m-0 fs-14" *ngIf=" p.journey == 'F2F' && p.invoice.useRefrCash ">Order Placed via F2F {{p.ordrTYPE}} RC:{{p.invoice.amtRefrCash}}</div>
+                    <div class="bold p-0 m-0 fs-14" *ngIf=" p.journey == 'POS' ">Order Placed via POS</div>
+                    <div class="bold p-0 m-0 fs-14" *ngIf=" p.journey == 'DIRECT' ">Order Placed via DIRECT</div>
+                    <div class="bold p-0 m-0 fs-14" *ngIf=" p.journey == 'BURN' ">Order Placed via BURN</div>
+                    <div class="bold p-0 m-0 fs-14" *ngIf=" p.journey == 'ADMIN' ">Credited RefrCash</div>
+                    <div class="p-0 m-0 fs-14" *ngIf=" p.journey == 'ADMIN' ">by Refr Tech <span class="b_warn c_white" *ngIf="p.status < 0" style="padding: 0 8px;">Failed</span></div>
+                    <div class="p-0 m-0 fs-14" *ngIf=" p.journey !== 'ADMIN' ">at {{p.storeName}} <span class="b_warn c_white" *ngIf="p.status < 0" style="padding: 0 8px;">Failed</span></div>
+                    <div class="p-0 m-0 fs-12">{{p.sin.toDate()|date:'dd, MMM, hh:mm'}}</div>
+                </ng-container>
+                <!--ng-container *ngIf="i == 0">
+                    <div class="bold p-0 m-0 fs-14">Purchase Completed</div>
+                    <div class="p-0 m-0 fs-14">at “Store Name”</div>
+                    <div class="p-0 m-0 fs-12">02 March 2022</div>
+                </ng-container>
+                <ng-container *ngIf="i == 1">
+                    <div class="bold p-0 m-0 fs-14">Recommandation Used</div>
+                    <div class="p-0 m-0 fs-14">by “Freind name”</div>
+                    <div class="p-0 m-0 fs-12">02 March 2022</div>
+                </ng-container>
+                <ng-container *ngIf="i == 2">
+                    <div class="bold p-0 m-0 fs-14">Purchase made using Refr cash</div>
+                    <div class="p-0 m-0 fs-14"> at Dent Heal</div>
+                    <div class="p-0 m-0 fs-12">02 March 2022</div>
+                </ng-container>
+                <ng-container *ngIf="i >= 3 ">
+                    <div class="bold p-0 m-0 fs-14">Recommandation Used</div>
+                    <div class="p-0 m-0 fs-14">by “Freind name”</div>
+                    <div class="p-0 m-0 fs-12">02 March 2022</div>
+                </ng-container-->
+            </div>
+            <div class="col-40 text-end">
+              <div class="bold fs-20" *ngIf=" p.journey == 'POS' || p.journey == 'F2F' ">
+                <span class="green-icon">+</span> {{p.earn}}</div>
+              <div class="bold fs-20" *ngIf=" p.journey == 'ADMIN' ">
+                <span class="green-icon">+</span> {{p.amTotal|number:'1.2-2'}}</div>
+              <div class="bold fs-20" *ngIf=" p.journey == 'POS' || p.journey == 'F2F' || p.journey == 'DIRECT' || p.journey == 'BURN' ">
+                <span class="c_red">-</span>{{p.amTotal|number:'1.2-2'}}</div>
+            </div>
+          </div>
+        </button>
+            </ng-container>
+
+            <!--button class="transaction-card b_white c_black">
+          <div class="row">
+            <div class="col-80">
+              <div class="bold p-0 m-0 fs-14">Purchase Completed</div>
+              <div class="p-0 m-0 fs-14">at “Store Name”</div>
+              <div class="p-0 m-0 fs-12">02 March 2022</div>
+            </div>
+            <div class="col-20 text-end">
+              <div class="bold fs-20 mt-2"><span class="green-icon">+</span>100</div>
+            </div>
+          </div>
+        </button>
+
+            <button class="transaction-card mt-1 b_white c_black">
+          <div class="row">
+            <div class="col-80">
+              <div class="bold p-0 m-0 fs-14">Purchase Completed</div>
+              <div class="p-0 m-0 fs-14">at “Store Name”</div>
+              <div class="p-0 m-0 fs-12">02 March 2022</div>
+            </div>
+            <div class="col-20 text-end">
+  
+              <div class="bold fs-20 mt-2"><span class="green-icon">+</span>100</div>
+            </div>
+          </div>
+        </button>
+
+            <button class="transaction-card mt-1 b_white c_black">
+          <div class="row">
+            <div class="col-80">
+              <div class="bold p-0 m-0 fs-14">Purchase made using Refr cash
+              </div>
+              <div class="p-0 m-0 fs-14"> at Dent Heal</div>
+              <div class="p-0 m-0 fs-12">02 March 2022</div>
+            </div>
+            <div class="col-20 text-end">
+  
+              <div class="bold fs-20 mt-2"><span class="c_red">-</span>50</div>
+            </div>
+          </div>
+        </button-->
+
+        </div>
+        <br> <br>
+
+    </div>
+
+</div>

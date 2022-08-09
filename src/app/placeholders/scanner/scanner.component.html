@@ -1,0 +1,61 @@
+
+
+  <!--header>
+    <mat-form-field appearance="fill">
+      <mat-select [value]="deviceSelected" (valueChange)="onDeviceSelectChange($event)">
+        <mat-option value="">No Device Selected</mat-option>
+        <mat-option *ngFor="let device of availableDevices" [value]="device.deviceId">{{device.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </header-->
+
+  <!--div class="actionBarTop b_accent textC">
+    <h2 class="c_primary">Scan, Share & Earn</h2>
+  </div-->
+  <div class="cameraView b_accent">
+    <zxing-scanner previewFitMode="cover"
+    [device]="deviceCurrent" 
+    [tryHarder]="tryHarder" 
+    (permissionResponse)="onHasPermission($event)"
+    (camerasFound)="onCamerasFound($event)" 
+    (deviceChange)="onDeviceChange($event)" 
+    (scanSuccess)="onCodeResult($event)" ></zxing-scanner>
+  </div>
+  <div class="actionBar">
+      <ng-container *ngFor="let device of availableDevices">
+        <button mat-fab color="primary" 
+        *ngIf="deviceSelected && device.deviceId !== deviceSelected" 
+        (click)="onDeviceSelectChange(device.deviceId)"><mat-icon>camera</mat-icon></button>
+      </ng-container>
+      <span class="divide"></span>
+      <button mat-raised-button color="primary" mat-dialog-close>Cancel</button>
+  </div>
+
+<!--
+  (torchCompatible)="onTorchCompatible($event)"
+  [torch]="torchEnabled" 
+  [formats]="formatsEnabled" 
+  <header>
+    <mat-form-field appearance="fill">
+      <mat-select [value]="deviceSelected" (valueChange)="onDeviceSelectChange($event)">
+        <mat-option value="">No Device Selected</mat-option>
+        <mat-option *ngFor="let device of availableDevices" [value]="device.deviceId">{{device.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  </header>
+
+  <zxing-scanner [torch]="torchEnabled" [device]="deviceCurrent" (deviceChange)="onDeviceChange($event)" (scanSuccess)="onCodeResult($event)"
+  [formats]="formatsEnabled" [tryHarder]="tryHarder" (permissionResponse)="onHasPermission($event)"
+  (camerasFound)="onCamerasFound($event)" (torchCompatible)="onTorchCompatible($event)"></zxing-scanner>
+
+>
+<section class="results" *ngIf="qrResultString">
+  <div>
+    <small>Result</small>
+    <strong>{{ qrResultString }}</strong>
+  </div>
+  <button mat-icon-button (click)="clearResult()">&times;</button>
+</section-->

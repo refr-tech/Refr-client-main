@@ -1,0 +1,1492 @@
+<div class="col col-100">
+    <div class="abc">
+        <div class="headerHold">
+            <div class="head">
+                <div class="header_img">
+                    <div>
+                        <a mat-icon-button routerLink="">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                                fill="#000000">
+                                <path d="M0 0h24v24H0V0z" fill="none" />
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="add_map">
+                        <a mat-icon-button (click)="auth.setLocation()">
+                            <svg width="20" height="24" viewBox="0 0 20 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 10C19 17 10 23 10 23C10 23 1 17 1 10C1 7.61305 1.94821 5.32387 3.63604 3.63604C5.32387 1.94821 7.61305 1 10 1C12.3869 1 14.6761 1.94821 16.364 3.63604C18.0518 5.32387 19 7.61305 19 10Z"
+                                    stroke="url(#paint0_linear_850_13930)" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M10 13C11.6569 13 13 11.6569 13 10C13 8.34315 11.6569 7 10 7C8.34315 7 7 8.34315 7 10C7 11.6569 8.34315 13 10 13Z"
+                                    stroke="url(#paint1_linear_850_13930)" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_850_13930" x1="10" y1="1" x2="10" y2="23"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF415F" />
+                                        <stop offset="1" stop-color="#FF8A2B" />
+                                    </linearGradient>
+                                    <linearGradient id="paint1_linear_850_13930" x1="10" y1="7" x2="10" y2="13"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF415F" />
+                                        <stop offset="1" stop-color="#FF8A2B" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+                        <div>
+                            <p class="address_heading">Address</p>
+                            <p class="address_loc"><span *ngIf="auth.myLoc">{{ auth.myLoc?.locality + ", " + auth.myLoc?.postal_code }}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <span class="divide"></span>
+
+                <div class="coins" *ngIf=" auth.user$ | async as mine">
+                    <button mat-raised-button matTooltip="Info about the action"
+                        aria-label="Button that displays a tooltip when focused or hovered over">
+                        <svg class="coin-img" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                fill="#FECB00" />
+                            <path
+                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                fill="#EFA900" />
+                            <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z" fill="#E19100" />
+                            <path d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                fill="#E19100" />
+                            <path d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                fill="#FECB00" />
+                            <path d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                fill="#FECB00" />
+                            <path d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                fill="#E19100" />
+                            <path d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                fill="#E19100" />
+                            <path d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                fill="#FECB00" />
+                            <path d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                fill="#FECB00" />
+                        </svg>
+
+                        <span class="coin-number">{{mine.acBalC || 0}}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="store$ | async as store">
+    <div class="row">
+        <div class="col col-25 col-sm-none"></div>
+        <div class="col col-50 col-sm-100">
+            <div class="main">
+                <header class="b_white">
+                    <div class="navigator">
+
+                        <div class="statusBar">
+                            <span class="pBar" [style.width]="getWidth()"></span>
+                            <div class="node n0 nConfirm0" [class.done]="true">
+                                <div class="main done m0 nConfirm0" [class.done]="true"></div>
+                                <span class="text t0 nConfirm0" [class.done]="true">Shop</span>
+                            </div>
+                            <div class="node n1 nConfirm1" [class.done]="false">
+                                <div class="main m1 nConfirm1" [class.done]="false"></div>
+                                <span class="text t1 nConfirm1" [class.done]="false">{{ setJourney.journey == 'F2F' ? 'Redeem':'Share'}}</span>
+                            </div>
+                            <div class="node n3 nConfirm3" [class.done]="false">
+                                <div class="main m3 nConfirm3" [class.done]="false"></div>
+                                <span class="text t3 nConfirm3" [class.done]="false">Earn</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </header>
+
+                <div class="b_white">
+
+                    <div class="store_details">
+                        <div>
+                            <div class="store_logo">
+                                <div class="img_container" [style]=" !imagesLoaded.includes(store.logo) ? 'background-image: url( assets/other/locate.svg );' : '' ">
+                                    <img class="imgLoaded" [src]="store.logo" (load)=" imagesLoaded.push(store.logo) " alt="" />
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="name_details" style="display: flex;width: 100%;">
+                            <div>
+                                <p class="store_name">{{store.name}}</p>
+                                <p class="store_category">{{storeCat}}</p>
+                            </div>
+                            <span class="divide"></span>
+                            <p class="store_online_offline" *ngIf=" storeTyp == 'Onli' ">Online store</p>
+                            <p class="store_online_offline" *ngIf=" storeTyp == 'Offl' ">Offline store</p>
+                            <p class="store_online_offline" *ngIf=" storeTyp == 'Both' ">Hybrid store</p>
+                        </div>
+                    </div>
+
+
+                    <!--div class="store_details">
+                        <div class="store_logo">
+                            <div class="img_container" [style]=" !imagesLoaded.includes(store.logo) ? 'background-image: url( assets/other/locate.svg );' : '' ">
+                                <img class="imgLoaded" [src]="store.logo" (load)=" imagesLoaded.push(store.logo) " alt="" />
+                            </div>
+
+                        </div>
+                        <div>
+                            <p class="store_name">{{store.name}}</p>
+                            <p class="store_category">{{storeCat}}</p>
+                        </div>
+                        <span class="divide"></span>
+                        <p class="store_online_offline" *ngIf=" storeTyp == 'Onli' ">online store</p>
+                        <p class="store_online_offline" *ngIf=" storeTyp == 'Offl' ">offline store</p>
+                        <p class="store_online_offline" *ngIf=" storeTyp == 'Both' ">online + offline</p>
+                    </div-->
+
+                    <!-- store banner -->
+
+                    <div class="store_banners">
+
+                        <div class="store_banner" *ngIf="store.banner">
+                            <div class="img-container" [style]=" !imagesLoaded.includes(store.banner) ? 'background-image: url( assets/other/locate.svg );' : '' ">
+                                <img [class.imgLoaded]="imagesLoaded.includes(store.banner)" [src]="store.banner" (load)=" imagesLoaded.push(store.banner) " alt="" />
+                            </div>
+                        </div>
+
+                        <div class="store_banner" *ngFor="let banner of store.banners">
+                            <div class="img-container" [style]=" !imagesLoaded.includes(banner) ? 'background-image: url( assets/other/locate.svg );' : '' ">
+                                <img [class.imgLoaded]="imagesLoaded.includes(banner)" [src]="banner" (load)=" imagesLoaded.push(banner) " alt="" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- recommed by friend -->
+
+                    <div class="recommed" *ngIf=" setJourney.journey == 'F2F' ">
+                        <p>Recommended by <span>{{friend}}</span></p>
+                    </div>
+
+                    <!-- line -->
+
+                    <hr *ngIf=" setJourney.journey == 'F2F' " />
+
+                    <!-- city & time -->
+
+                    <div class="city_time">
+                        <div class="main_div">
+                            <div>
+                                <div class="svg_time">
+                                    <div>
+                                        <a class="prq" target="_" [href]=" mapLink(store.name, currentLocation.lat, currentLocation.lon)  ">
+                                            <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M15.5 8.3335C15.5 14.1668 8 19.1668 8 19.1668C8 19.1668 0.5 14.1668 0.5 8.3335C0.5 6.34437 1.29018 4.43672 2.6967 3.03019C4.10322 1.62367 6.01088 0.833496 8 0.833496C9.98912 0.833496 11.8968 1.62367 13.3033 3.03019C14.7098 4.43672 15.5 6.34437 15.5 8.3335Z"
+                                                    stroke="black" stroke-opacity="0.6" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M8 10.8335C9.38071 10.8335 10.5 9.71421 10.5 8.3335C10.5 6.95278 9.38071 5.8335 8 5.8335C6.61929 5.8335 5.5 6.95278 5.5 8.3335C5.5 9.71421 6.61929 10.8335 8 10.8335Z"
+                                                    stroke="black" stroke-opacity="0.6" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="city_schedule">{{currentLocation.area}}, {{currentLocation.locality}}.</p>
+
+                                            <span class="divide"></span>
+
+                                            <a class="map_icon" mat-icon-button>
+                                                <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g clip-path="url(#clip0_1235_13211)">
+                                                        <path
+                                                            d="M15.3055 7.59599L9.83328 1.86539L8.5382 3.22163L11.8124 6.64089H1.625V12.6538H3.44906V8.5511H11.8124L8.5382 11.9704L9.83328 13.3266L15.3055 7.59599Z"
+                                                            fill="#FF4D4D" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_1235_13211">
+                                                            <rect width="16.1538" height="14" fill="white"
+                                                                transform="matrix(1 0 0 -1 0 14)" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+
+                                            </a>
+
+                                        </a>
+
+
+                                        <!--a class="prq" target="_" [href]=" mapLink(store.name, currentLocation.lat, currentLocation.lon)  ">
+                                            <svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M15.5 8.3335C15.5 14.1668 8 19.1668 8 19.1668C8 19.1668 0.5 14.1668 0.5 8.3335C0.5 6.34437 1.29018 4.43672 2.6967 3.03019C4.10322 1.62367 6.01088 0.833496 8 0.833496C9.98912 0.833496 11.8968 1.62367 13.3033 3.03019C14.7098 4.43672 15.5 6.34437 15.5 8.3335Z"
+                                                    stroke="black" stroke-opacity="0.6" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M8 10.8335C9.38071 10.8335 10.5 9.71421 10.5 8.3335C10.5 6.95278 9.38071 5.8335 8 5.8335C6.61929 5.8335 5.5 6.95278 5.5 8.3335C5.5 9.71421 6.61929 10.8335 8 10.8335Z"
+                                                    stroke="black" stroke-opacity="0.6" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                            <p class="city_schedule">{{currentLocation.area}}, {{currentLocation.locality}}.</p>
+                                            <svg width="17" height="14" viewBox="0 0 17 14" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_1235_13211)">
+                                                    <path
+                                                        d="M15.3055 7.59599L9.83328 1.86539L8.5382 3.22163L11.8124 6.64089H1.625V12.6538H3.44906V8.5511H11.8124L8.5382 11.9704L9.83328 13.3266L15.3055 7.59599Z"
+                                                        fill="#FF4D4D" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_1235_13211">
+                                                        <rect width="16.1538" height="14" fill="white"
+                                                            transform="matrix(1 0 0 -1 0 14)" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </a-->
+
+
+                                        <a *ngIf="store.loc.length > 1" (click)="storeLoc(store.loc)" class="view_loc">
+                                            <span class="view_all">View all locations of this store
+                                            </span>
+                                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.08301 12.0417L10.6247 8.49999L7.08301 4.95833V12.0417Z"
+                                                    fill="#6615FF" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="svg_time">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.0013 17.3337C13.6037 17.3337 17.3346 13.6027 17.3346 9.00033C17.3346 4.39795 13.6037 0.666992 9.0013 0.666992C4.39893 0.666992 0.667969 4.39795 0.667969 9.00033C0.667969 13.6027 4.39893 17.3337 9.0013 17.3337Z"
+                                            stroke="black" stroke-opacity="0.6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M9.00195 4V9L12.3353 10.6667" stroke="black" stroke-opacity="0.6"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+
+                                    <!-- <p class="city_schedule">Mon-Sat: 10am-6pm, Sun closed</p> -->
+                                    <!-- <p class="city_schedule">Mon-Sat: 10am-6pm & 9pm-12pm</p> -->
+                                    <!-- <p class="city_schedule">Mon-Sat: 10am-6pm</p> -->
+                                    <p class="city_schedule nonbold">
+                                        Mon-Sat : 10am-6pm & 9pm-12am, Sun closed
+                                    </p>
+                                </div>
+                            </div>
+
+                            <span class="divide"></span>
+
+                            <!-- refr count -->
+                            <!-- <div>
+                            <p class="refr_count">Refr Count</p>
+                            <div class="svg_coin">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                        fill="#FECB00" />
+                                    <path
+                                        d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                        fill="#EFA900" />
+                                    <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                        fill="#E19100" />
+                                    <path d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                        fill="#E19100" />
+                                    <path d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                        fill="#FECB00" />
+                                    <path d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                        fill="#FECB00" />
+                                    <path d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                        fill="#E19100" />
+                                    <path d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                        fill="#E19100" />
+                                    <path d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                        fill="#FECB00" />
+                                    <path d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                        fill="#FECB00" />
+                                </svg>
+                                <span class="city_schedule">1000</span>
+                            </div>
+    
+                        </div> -->
+                        </div>
+                    </div>
+
+
+
+                    <!-- refer to app -->
+
+                    <div class="refer_to_app">
+
+                        <a mat-icon-button *ngIf="phone || store.userInfo.soWA " target="_" [href]=" 'https://wa.me/' +  ( !store.userInfo?.soWA ? phone : store.userInfo.soWA ) " >
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z"
+                                    stroke="#4CAF50" stroke-linecap="round" stroke-linejoin="round" />
+                                <rect x="2.71484" y="2.68066" width="20.5714" height="20.5714" rx="10.2857"
+                                    fill="url(#paint0_linear_2_51066)" />
+                                <path
+                                    d="M6.76172 18.951L7.64366 15.7484C7.09841 14.8083 6.81237 13.7438 6.81535 12.6555C6.81535 9.24529 9.6042 6.47266 13.0277 6.47266C14.6903 6.47266 16.2515 7.11614 17.4225 8.2845C18.5964 9.45286 19.243 11.0067 19.24 12.6584C19.24 16.0686 16.4512 18.8413 13.0247 18.8413H13.0217C11.9819 18.8413 10.9599 18.5803 10.0511 18.088L6.76172 18.951ZM10.209 16.9701L10.3968 17.0828C11.1893 17.5513 12.0981 17.7974 13.0247 17.8004H13.0277C15.8731 17.8004 18.1912 15.4963 18.1912 12.6614C18.1912 11.2884 17.6549 9.99849 16.6806 9.02585C15.7063 8.0532 14.4072 7.51943 13.0277 7.51943C10.1822 7.51647 7.86415 9.82057 7.86415 12.6555C7.86415 13.6251 8.13529 14.5711 8.65372 15.3896L8.77589 15.5853L8.25447 17.4801L10.209 16.9701Z"
+                                    fill="white" />
+                                <path
+                                    d="M6.97852 18.7348L7.83066 15.6419C7.30329 14.7375 7.02619 13.7085 7.02619 12.6588C7.02917 9.36719 9.71969 6.68945 13.027 6.68945C14.6329 6.68945 16.1376 7.31218 17.2698 8.43903C18.4021 9.56587 19.0248 11.0664 19.0248 12.6617C19.0248 15.9533 16.3313 18.631 13.027 18.631H13.024C12.0199 18.631 11.0337 18.379 10.1577 17.9045L6.97852 18.7348Z"
+                                    fill="url(#paint1_linear_2_51066)" />
+                                <path
+                                    d="M6.76172 18.951L7.64366 15.7484C7.09841 14.8083 6.81237 13.7438 6.81535 12.6555C6.81535 9.24529 9.6042 6.47266 13.0277 6.47266C14.6903 6.47266 16.2515 7.11614 17.4225 8.2845C18.5964 9.45286 19.243 11.0067 19.24 12.6584C19.24 16.0686 16.4512 18.8413 13.0247 18.8413H13.0217C11.9819 18.8413 10.9599 18.5803 10.0511 18.088L6.76172 18.951ZM10.209 16.9701L10.3968 17.0828C11.1893 17.5513 12.0981 17.7974 13.0247 17.8004H13.0277C15.8731 17.8004 18.1912 15.4963 18.1912 12.6614C18.1912 11.2884 17.6549 9.99849 16.6806 9.02585C15.7063 8.0532 14.4072 7.51943 13.0277 7.51943C10.1822 7.51647 7.86415 9.82057 7.86415 12.6555C7.86415 13.6251 8.13529 14.5711 8.65372 15.3896L8.77589 15.5853L8.25447 17.4801L10.209 16.9701Z"
+                                    fill="url(#paint2_linear_2_51066)" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.476 10.0697C11.3598 9.81167 11.2377 9.80574 11.1274 9.80277C11.038 9.7998 10.9338 9.7998 10.8295 9.7998C10.7252 9.7998 10.5583 9.83835 10.4153 9.99255C10.2723 10.1468 9.87305 10.5204 9.87305 11.2825C9.87305 12.0416 10.4302 12.777 10.5077 12.8808C10.5852 12.9846 11.5833 14.5948 13.1595 15.2146C14.4705 15.7306 14.7386 15.6268 15.0217 15.6001C15.3047 15.5734 15.9394 15.2264 16.0705 14.8647C16.1986 14.5029 16.1986 14.1945 16.1599 14.1293C16.1211 14.064 16.0169 14.0255 15.8619 13.9484C15.707 13.8713 14.9442 13.4976 14.8012 13.4443C14.6582 13.3938 14.5539 13.3672 14.4526 13.5214C14.3483 13.6756 14.0504 14.0225 13.961 14.1263C13.8716 14.2301 13.7792 14.2419 13.6243 14.1648C13.4693 14.0877 12.9688 13.9246 12.3759 13.3968C11.914 12.9876 11.6012 12.4805 11.5118 12.3263C11.4224 12.1721 11.5029 12.0891 11.5803 12.012C11.6489 11.9438 11.7353 11.8311 11.8127 11.7421C11.8902 11.6532 11.917 11.5879 11.9677 11.4841C12.0183 11.3804 11.9945 11.2914 11.9557 11.2143C11.917 11.1402 11.6131 10.3751 11.476 10.0697Z"
+                                    fill="white" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_2_51066" x1="13" y1="23.2511" x2="13" y2="2.67994"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#20B038" />
+                                        <stop offset="1" stop-color="#60D66A" />
+                                    </linearGradient>
+                                    <linearGradient id="paint1_linear_2_51066" x1="13.0013" y1="18.7342" x2="13.0013"
+                                        y2="6.68903" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#20B038" />
+                                        <stop offset="1" stop-color="#60D66A" />
+                                    </linearGradient>
+                                    <linearGradient id="paint2_linear_2_51066" x1="13.0021" y1="18.9498" x2="13.0021"
+                                        y2="6.47266" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#F9F9F9" />
+                                        <stop offset="1" stop-color="white" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+
+                        <a mat-icon-button *ngIf="phone" target="_" [href]=" 'tel:' +  phone ">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z"
+                                    stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="12.9986" cy="12.9693" r="10.2857" fill="black" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M10.6457 9.1062C10.4695 8.68256 10.2843 8.67282 10.1171 8.66796C9.98154 8.66309 9.82339 8.66309 9.66525 8.66309C9.50711 8.66309 9.25408 8.72639 9.03719 8.97959C8.82031 9.2328 8.21484 9.84634 8.21484 11.0978C8.21484 12.3443 9.05978 13.5519 9.17726 13.7223C9.29474 13.8928 10.8084 16.5368 13.1986 17.5545C15.1867 18.4018 15.5934 18.2314 16.0226 18.1875C16.4519 18.1437 17.4143 17.574 17.6131 16.9799C17.8074 16.3859 17.8074 15.8795 17.7487 15.7723C17.6899 15.6652 17.5318 15.6019 17.2968 15.4753C17.0619 15.3487 15.9052 14.7352 15.6883 14.6475C15.4714 14.5647 15.3132 14.5209 15.1596 14.7741C15.0015 15.0273 14.5496 15.597 14.4141 15.7675C14.2785 15.9379 14.1385 15.9574 13.9035 15.8308C13.6686 15.7042 12.9095 15.4364 12.0103 14.5696C11.3099 13.8976 10.8355 13.065 10.7 12.8118C10.5644 12.5586 10.6864 12.4222 10.8039 12.2956C10.9078 12.1836 11.0388 11.9986 11.1563 11.8525C11.2738 11.7064 11.3145 11.5993 11.3913 11.4289C11.4681 11.2585 11.4319 11.1124 11.3732 10.9858C11.3145 10.864 10.8536 9.60774 10.6457 9.1062Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+
+                        <a mat-icon-button *ngIf="store.userInfo.soFB" target="_" [href]=" 'https://facebook.com/' +  store.userInfo.soFB ">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z"
+                                    stroke="#1877F2" stroke-linecap="round" stroke-linejoin="round" />
+                                <g clip-path="url(#clip0_2_51079)">
+                                    <rect x="2.58203" y="2.71387" width="20.5714" height="20.5714" rx="10.2857"
+                                        fill="#1877F2" />
+                                    <path
+                                        d="M16.871 15.9725L17.327 12.9993H14.4743V11.0707C14.4743 10.2571 14.8721 9.46359 16.1498 9.46359H17.4475V6.93234C17.4475 6.93234 16.2703 6.73145 15.1453 6.73145C12.7949 6.73145 11.26 8.15578 11.26 10.7332V12.9993H8.64844V15.9725H11.26V23.1605C11.7844 23.2428 12.3208 23.285 12.8672 23.285C13.4136 23.285 13.95 23.2428 14.4743 23.1605V15.9725H16.871Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2_51079">
+                                        <rect x="2.58203" y="2.71387" width="20.5714" height="20.5714" rx="10.2857"
+                                            fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </a>
+
+                        <a mat-icon-button *ngIf="store.userInfo.soIG" target="_" [href]=" 'https://instagram.com/' +  store.userInfo.soIG ">
+                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z"
+                                    stroke="url(#paint0_linear_2_51083)" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M13 23C18.5228 23 23 18.5228 23 13C23 7.47715 18.5228 3 13 3C7.47715 3 3 7.47715 3 13C3 18.5228 7.47715 23 13 23Z"
+                                    fill="url(#paint1_radial_2_51083)" />
+                                <path
+                                    d="M16.9243 6.7793H8.97502C7.87022 6.7793 6.97461 7.67491 6.97461 8.77971V17.2206C6.97461 18.3254 7.87022 19.221 8.97502 19.221H16.9243C18.0291 19.221 18.9247 18.3254 18.9247 17.2206V8.77971C18.9247 7.67491 18.0291 6.7793 16.9243 6.7793Z"
+                                    stroke="#F1F2F2" stroke-width="1.5" stroke-miterlimit="10" />
+                                <path
+                                    d="M12.7863 16.183C14.5441 16.183 15.9691 14.758 15.9691 13.0002C15.9691 11.2424 14.5441 9.81738 12.7863 9.81738C11.0285 9.81738 9.60352 11.2424 9.60352 13.0002C9.60352 14.758 11.0285 16.183 12.7863 16.183Z"
+                                    stroke="#F1F2F2" stroke-width="1.5" stroke-miterlimit="10" />
+                                <path
+                                    d="M17.0536 9.35133C17.4079 9.35133 17.6951 9.06413 17.6951 8.70985C17.6951 8.35556 17.4079 8.06836 17.0536 8.06836C16.6993 8.06836 16.4121 8.35556 16.4121 8.70985C16.4121 9.06413 16.6993 9.35133 17.0536 9.35133Z"
+                                    fill="white" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_2_51083" x1="13" y1="1" x2="13" y2="25"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#9401D6" />
+                                        <stop offset="1" stop-color="#FEC520" />
+                                    </linearGradient>
+                                    <radialGradient id="paint1_radial_2_51083" cx="0" cy="0" r="1"
+                                        gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(6.85405 19.8603) scale(19.8009)">
+                                        <stop stop-color="#FEC053" />
+                                        <stop offset="0.33" stop-color="#F2203E" />
+                                        <stop offset="0.65" stop-color="#B729A8" />
+                                        <stop offset="1" stop-color="#5342D6" />
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </a>
+
+                    </div>
+
+                    <!-- campaign refill -->
+
+
+                    <hr class="hr prod_line" />
+
+                    
+                    <div class="select_one">
+                        <p *ngIf="campaignList.length > 0">Select one Campaign</p>
+                        <div class="textC" *ngIf="campaignList.length == 0">
+                        <p>The Store has No Campaigns.</p>
+                        <button mat-raised-button color="primary" style="margin: 0 auto;"><mat-icon>notifications</mat-icon>Set Reminder</button>
+                        </div>
+                    </div>
+
+                    <div class="normal-container">
+                        <div class="carousel">
+
+
+<ng-container *ngFor="let c of campaign$ | async">
+    
+                            <div class="new-card" *ngIf="c.id && calculateStartExpiry(c.dateS , c.dateE) " (click)="selectedCamp = c.id">
+                                <div>
+                                    <svg class="xyz" width="250" height="90" viewBox="0 0 250 90" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <mask id="path-1-inside-1_567_19032" fill="white">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M7.68831 0H93.0751C95.147 2.18983 97.8103 3.5068 100.716 3.5068C103.621 3.5068 106.285 2.18983 108.356 0H242.312C246.558 0 250 3.44217 250 7.68831V82.3117C250 86.5578 246.558 90 242.312 90H108.814C106.658 87.7217 103.887 86.3516 100.864 86.3516C97.841 86.3516 95.0698 87.7217 92.914 90H7.68831C3.44218 90 0 86.5578 0 82.3117V7.68831C0 3.44217 3.44217 0 7.68831 0Z" />
+                                        </mask>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M7.68831 0H93.0751C95.147 2.18983 97.8103 3.5068 100.716 3.5068C103.621 3.5068 106.285 2.18983 108.356 0H242.312C246.558 0 250 3.44217 250 7.68831V82.3117C250 86.5578 246.558 90 242.312 90H108.814C106.658 87.7217 103.887 86.3516 100.864 86.3516C97.841 86.3516 95.0698 87.7217 92.914 90H7.68831C3.44218 90 0 86.5578 0 82.3117V7.68831C0 3.44217 3.44217 0 7.68831 0Z"
+                                            fill="#FFF0F5" />
+                                        <path
+                                            d="M93.0751 0L93.8015 -0.68727L93.5056 -1H93.0751V0ZM108.356 0V-1H107.926L107.63 -0.68727L108.356 0ZM108.814 90L108.087 90.6873L108.383 91H108.814V90ZM92.914 90V91H93.3445L93.6404 90.6873L92.914 90ZM93.0751 -1H7.68831V1H93.0751V-1ZM100.716 2.5068C98.1289 2.5068 95.7168 1.33713 93.8015 -0.68727L92.3487 0.68727C94.5771 3.04252 97.4917 4.5068 100.716 4.5068V2.5068ZM107.63 -0.68727C105.715 1.33713 103.303 2.5068 100.716 2.5068V4.5068C103.94 4.5068 106.854 3.04252 109.083 0.68727L107.63 -0.68727ZM242.312 -1H108.356V1H242.312V-1ZM251 7.68831C251 2.88989 247.11 -1 242.312 -1V1C246.006 1 249 3.99446 249 7.68831H251ZM251 82.3117V7.68831H249V82.3117H251ZM242.312 91C247.11 91 251 87.1101 251 82.3117H249C249 86.0055 246.006 89 242.312 89V91ZM108.814 91H242.312V89H108.814V91ZM100.864 87.3516C103.568 87.3516 106.088 88.5744 108.087 90.6873L109.54 89.3127C107.228 86.869 104.205 85.3516 100.864 85.3516V87.3516ZM93.6404 90.6873C95.6397 88.5744 98.1595 87.3516 100.864 87.3516V85.3516C97.5224 85.3516 94.5 86.869 92.1877 89.3127L93.6404 90.6873ZM7.68831 91H92.914V89H7.68831V91ZM-1 82.3117C-1 87.1101 2.88989 91 7.68831 91V89C3.99446 89 1 86.0055 1 82.3117H-1ZM-1 7.68831V82.3117H1V7.68831H-1ZM7.68831 -1C2.88989 -1 -1 2.88989 -1 7.68831H1C1 3.99446 3.99446 1 7.68831 1V-1Z"
+                                            fill="url(#paint0_linear_567_19032)"
+                                            mask="url(#path-1-inside-1_567_19032)" />
+                                        <defs>
+                                            <linearGradient id="paint0_linear_567_19032" x1="125" y1="0" x2="125"
+                                                y2="93.6487" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FF3B66" stop-opacity="0.46" />
+                                                <stop offset="1" stop-color="#FF7A4E" stop-opacity="0.44" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+
+                                <div class="newcard-left">
+                                    <p>
+                                        <svg class="radio_inp" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"
+                                            style="
+                        height: 18px;
+                        width: 18px;
+                        display: inline-block;
+                        vertical-align: middle;
+                        border-color: red;
+                      ">
+                                            <path *ngIf="!selectedCamp || selectedCamp !== c.id"
+                                                d="M24 44Q19.9 44 16.25 42.425Q12.6 40.85 9.875 38.125Q7.15 35.4 5.575 31.75Q4 28.1 4 23.95Q4 19.85 5.575 16.2Q7.15 12.55 9.875 9.85Q12.6 7.15 16.25 5.575Q19.9 4 24.05 4Q28.15 4 31.8 5.575Q35.45 7.15 38.15 9.85Q40.85 12.55 42.425 16.2Q44 19.85 44 24Q44 28.1 42.425 31.75Q40.85 35.4 38.15 38.125Q35.45 40.85 31.8 42.425Q28.15 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31.1 41 36.05 36.025Q41 31.05 41 24Q41 16.9 36.05 11.95Q31.1 7 24 7Q16.95 7 11.975 11.95Q7 16.9 7 24Q7 31.05 11.975 36.025Q16.95 41 24 41Z"
+                                                fill="deeppink" />
+                                            <path *ngIf="selectedCamp && selectedCamp == c.id"
+                                                d="M24 33.3Q27.9 33.3 30.6 30.6Q33.3 27.9 33.3 24Q33.3 20.1 30.6 17.4Q27.9 14.7 24 14.7Q20.1 14.7 17.4 17.4Q14.7 20.1 14.7 24Q14.7 27.9 17.4 30.6Q20.1 33.3 24 33.3ZM24 44Q19.9 44 16.25 42.425Q12.6 40.85 9.875 38.125Q7.15 35.4 5.575 31.75Q4 28.1 4 24Q4 19.9 5.575 16.25Q7.15 12.6 9.875 9.875Q12.6 7.15 16.25 5.575Q19.9 4 24 4Q28.1 4 31.75 5.575Q35.4 7.15 38.125 9.875Q40.85 12.6 42.425 16.25Q44 19.9 44 24Q44 28.1 42.425 31.75Q40.85 35.4 38.125 38.125Q35.4 40.85 31.75 42.425Q28.1 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31 41 36 36Q41 31 41 24Q41 17 36 12Q31 7 24 7Q17 7 12 12Q7 17 7 24Q7 31 12 36Q17 41 24 41Z"
+                                                fill="deeppink" />
+                                        </svg>
+                                    </p>
+
+                                    <p class="upto">Get Upto</p>
+                                    <p class="price">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                fill="#FECB00" />
+                                            <path
+                                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                fill="#EFA900" />
+                                            <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                fill="#E19100" />
+                                            <path d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                fill="#E19100" />
+                                            <path d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                fill="#FECB00" />
+                                            <path
+                                                d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                fill="#FECB00" />
+                                            <path d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                fill="#E19100" />
+                                            <path d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                fill="#E19100" />
+                                            <path d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                fill="#FECB00" />
+                                            <path d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                fill="#FECB00" />
+                                        </svg>{{ c.type == 'percent' ? c.max : c.cbNew}}
+                                    </p>
+                                    <p class="min">Min. spend ₹{{c.min}}</p>
+                                </div>
+
+                                <!--div class="dotted-line">
+                                    <svg width="1" height="63" viewBox="0 0 1 63" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <line x1="0.5" y1="0.5" x2="0.5" y2="62.5" stroke="#FF9999"
+                                            stroke-linecap="round" stroke-dasharray="4 4" />
+                                    </svg>
+                                </div-->
+
+                                <div class="newcard-right">
+                                    <p class="earn-cashback">
+                                        Earn
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                fill="#FECB00" />
+                                            <path
+                                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                fill="#EFA900" />
+                                            <path d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                fill="#E19100" />
+                                            <path d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                fill="#E19100" />
+                                            <path d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                fill="#FECB00" />
+                                            <path
+                                                d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                fill="#FECB00" />
+                                            <path d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                fill="#E19100" />
+                                            <path d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                fill="#E19100" />
+                                            <path d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                fill="#FECB00" />
+                                            <path d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                fill="#FECB00" />
+                                        </svg>
+                                        {{c.cbNew}}{{ c.type == 'percent' ? '%' : ''}} Cashback
+                                    </p>
+                                    <p class="every-success">
+                                        For every successful recommendation
+                                    </p>
+
+                                    <div class="date-select">
+                                        <p class="date">Valid till : {{ c.dateE.toDate() | date:'dd MMM yyyy' }}</p>
+                                    </div>
+                                </div>
+                            </div>
+</ng-container>
+
+
+                        </div>
+                    </div>
+
+                    <!-- download the app -->
+
+                    <div class="normal-container d-none d-lg-block d-md-block">
+                        <!-- <br><br><br><br><br>
+                        <br><br><br><br><br> -->
+                        <div class="download-app-container">
+                            <div class="row">
+                                <div class="col-8">
+                                    <b>Online ordering is only supported on the mobile</b>
+                                    <button mat-button>Download the App</button>
+                                </div>
+                                <div class="col-4">
+                                    <img src="assets/other/mobile-body.svg" alt="">
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- toggle -->
+
+                    <div class="normal-container" *ngIf="storeTyp === 'Both'">
+                        <div class="row">
+                            <div class="col-12 mx-auto">
+                                <div class="segment-container">
+                                    <button mat-button (click)="changeViewTyp('Offline')"
+                                        [ngClass]="{ active: viewTyp === 'Offline' }">
+                                        <svg class="svgColor" [class.svgColorActive]="viewTyp === 'Offline'" width="16"
+                                            height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_718_18932)">
+                                                <path
+                                                    d="M14.0993 1.69196C13.9567 1.46683 13.7556 1.2805 13.5155 1.15091C13.2753 1.02132 13.0041 0.95287 12.7281 0.952148H4.03365C3.47526 0.952148 2.94966 1.23558 2.66246 1.69196L0.49526 5.13119C0.420264 5.2496 0.380704 5.3853 0.38086 5.52358C0.384055 6.25898 0.668455 6.96808 1.18086 7.51824V13.9045C1.18086 14.745 1.89846 15.4284 2.78085 15.4284H13.9809C14.8632 15.4284 15.5808 14.745 15.5808 13.9045V7.51824C16.0932 6.96808 16.3776 6.25898 16.3809 5.52358C16.381 5.3853 16.3414 5.2496 16.2665 5.13119L14.0993 1.69196ZM14.7681 5.71482C14.7186 6.08268 14.5303 6.42083 14.2383 6.66607C13.9461 6.91132 13.5702 7.04686 13.1808 7.04739C12.2985 7.04739 11.5809 6.36396 11.5809 5.52358C11.5809 5.47176 11.5608 5.42605 11.5497 5.3773L11.5656 5.37424L10.9569 2.47596H12.7281L14.7681 5.71482ZM7.43606 2.47596H9.32486L9.97526 5.5731C9.94725 6.38987 9.24485 7.04739 8.38085 7.04739C7.51685 7.04739 6.81446 6.38987 6.78645 5.5731L7.43606 2.47596ZM4.03365 2.47596H5.80485L5.19686 5.37424L5.21286 5.3773C5.20086 5.42605 5.18085 5.47176 5.18085 5.52358C5.18085 6.36396 4.46325 7.04739 3.58086 7.04739C3.19146 7.04686 2.81558 6.91132 2.52348 6.66607C2.23138 6.42083 2.04304 6.08268 1.99366 5.71482L4.03365 2.47596ZM6.78086 13.9045V11.6188H9.98085V13.9045H6.78086ZM11.5809 13.9045V11.6188C11.5809 10.7784 10.8633 10.095 9.98085 10.095H6.78086C5.89845 10.095 5.18085 10.7784 5.18085 11.6188V13.9045H2.78085V8.46301C3.03765 8.52624 3.30246 8.57119 3.58086 8.57119C4.0351 8.57142 4.48418 8.47931 4.89806 8.30101C5.31194 8.12271 5.6811 7.86235 5.98086 7.5373C6.56726 8.17119 7.42646 8.57119 8.38085 8.57119C9.33525 8.57119 10.1944 8.17119 10.7808 7.5373C11.0806 7.86235 11.4498 8.12271 11.8636 8.30101C12.2775 8.47931 12.7266 8.57142 13.1808 8.57119C13.4592 8.57119 13.7241 8.52624 13.9809 8.46301V13.9045H11.5809Z"
+                                                    fill="" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_718_18932">
+                                                    <rect width="16" height="16" fill="green" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+
+                                        Visit Store
+                                    </button>
+                                    <button mat-button (click)="changeViewTyp('Online')"
+                                        [ngClass]="{ active: viewTyp === 'Online' }">
+                                        <svg class="svgColor" [class.svgColorActive]="viewTyp === 'Online'" width="19"
+                                            height="19" viewBox="0 0 19 19" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M17.7616 9.26273L15.8531 4.71851C15.8044 4.60118 15.723 4.50106 15.6189 4.43064C15.5148 4.36023 15.3927 4.32262 15.2679 4.32252H13.3594V3.02417C13.3594 2.852 13.2924 2.68688 13.173 2.56514C13.0537 2.44339 12.8919 2.375 12.7232 2.375H0.636161C0.46744 2.375 0.30563 2.44339 0.186327 2.56514C0.0670239 2.68688 0 2.852 0 3.02417V14.0601C0 14.2323 0.0670239 14.3974 0.186327 14.5192C0.30563 14.6409 0.46744 14.7093 0.636161 14.7093H1.99754C2.14404 15.2594 2.46385 15.745 2.90763 16.0912C3.35142 16.4374 3.89451 16.625 4.45313 16.625C5.01174 16.625 5.55483 16.4374 5.99862 16.0912C6.4424 15.745 6.76221 15.2594 6.90871 14.7093H10.9038C11.0503 15.2594 11.3701 15.745 11.8139 16.0912C12.2577 16.4374 12.8008 16.625 13.3594 16.625C13.918 16.625 14.4611 16.4374 14.9049 16.0912C15.3486 15.745 15.6685 15.2594 15.815 14.7093H17.1763C17.3451 14.7093 17.5069 14.6409 17.6262 14.5192C17.7455 14.3974 17.8125 14.2323 17.8125 14.0601V9.5159C17.8123 9.42888 17.795 9.34279 17.7616 9.26273ZM13.3594 5.62087H14.848L16.2094 8.86673H13.3594V5.62087ZM4.45313 15.3585C4.20148 15.3585 3.95549 15.2823 3.74626 15.1397C3.53703 14.997 3.37395 14.7942 3.27765 14.557C3.18135 14.3197 3.15616 14.0587 3.20525 13.8068C3.25434 13.555 3.37552 13.3236 3.55346 13.142C3.7314 12.9605 3.9581 12.8368 4.20491 12.7867C4.45171 12.7366 4.70753 12.7623 4.94002 12.8606C5.17251 12.9589 5.37122 13.1253 5.51102 13.3388C5.65083 13.5523 5.72545 13.8033 5.72545 14.0601C5.72545 14.4045 5.5914 14.7347 5.35279 14.9782C5.11419 15.2217 4.79057 15.3585 4.45313 15.3585ZM10.9038 13.4109H6.90871C6.76221 12.8609 6.4424 12.3752 5.99862 12.029C5.55483 11.6828 5.01174 11.4952 4.45313 11.4952C3.89451 11.4952 3.35142 11.6828 2.90763 12.029C2.46385 12.3752 2.14404 12.8609 1.99754 13.4109H1.27232V3.67335H12.0871V11.827C11.7974 11.9985 11.5437 12.2268 11.3407 12.4986C11.1376 12.7704 10.9892 13.0804 10.9038 13.4109ZM13.3594 15.3585C13.1077 15.3585 12.8617 15.2823 12.6525 15.1397C12.4433 14.997 12.2802 14.7942 12.1839 14.557C12.0876 14.3197 12.0624 14.0587 12.1115 13.8068C12.1606 13.555 12.2818 13.3236 12.4597 13.142C12.6376 12.9605 12.8644 12.8368 13.1112 12.7867C13.358 12.7366 13.6138 12.7623 13.8463 12.8606C14.0788 12.9589 14.2775 13.1253 14.4173 13.3388C14.5571 13.5523 14.6317 13.8033 14.6317 14.0601C14.6317 14.4045 14.4976 14.7347 14.259 14.9782C14.0204 15.2217 13.6968 15.3585 13.3594 15.3585ZM16.5402 13.4109H15.815C15.6743 12.8549 15.357 12.3622 14.9127 12.0098C14.4683 11.6574 13.9221 11.4653 13.3594 11.4634V10.1651H16.5402V13.4109Z"
+                                                fill="" />
+                                        </svg>
+
+                                        Delivery
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--div class="mt-8" *ngIf="viewTyp == 'Offline'">
+                        <p class="vist_and_redeem textC">
+                            Visit Store & Redeem on Purchase
+                        </p>
+                    </div-->
+
+  <!-- pay starts -->
+
+  <div *ngIf="viewTyp == 'Offline'">
+    <div class="mt-1">
+        <div class="amnt_box">
+
+            <div>
+                <div class="inp_btn">
+                    <input type="number" placeholder="Type Amount" required>
+                    <button mat-button>pay</button>
+                </div>
+                <div class="pay_via">
+                    <p>
+                        <span>Pay via Refr cash <small class="balance">(Balance: <svg width="18"
+                                    height="18" viewBox="0 0 18 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                        fill="#FECB00" />
+                                    <path
+                                        d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                        fill="#EFA900" />
+                                    <path
+                                        d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                        fill="#E19100" />
+                                    <path
+                                        d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                        fill="#E19100" />
+                                    <path
+                                        d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                        fill="#FECB00" />
+                                    <path
+                                        d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                        fill="#FECB00" />
+                                    <path
+                                        d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                        fill="#E19100" />
+                                    <path
+                                        d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                        fill="#E19100" />
+                                    <path
+                                        d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                        fill="#FECB00" />
+                                    <path
+                                        d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                        fill="#FECB00" />
+                                </svg>
+                                1000)</small></span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="broad_line"></div>
+
+<!-- pay ends-->
+
+                    
+                    <div class="abnokshion" *ngIf="viewTyp=='Offline'">
+                        <div class='visit_store_shoutout'>
+
+
+
+
+
+                            <div class="main_type" (click)="howRedeem()" *ngIf="friend">
+                                    <div class="dflex_aligncenter">
+                                        <div>
+                                            <svg style="margin: -5px 0 0 0;" width="24" height="26" viewBox="0 0 24 26"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M11.5734 25.0151C11.5513 24.944 11.4816 24.9531 11.4326 24.9386C11.0477 24.8276 10.698 24.6188 10.4178 24.3324C9.95856 23.8824 9.48863 23.4423 9.03325 22.9893C8.79828 22.7543 8.53271 22.6831 8.21049 22.7359C7.52703 22.84 6.84281 22.9395 6.15705 23.0206C5.62107 23.0838 5.08097 22.9425 4.64468 22.6248C4.20838 22.3071 3.90802 21.8365 3.8036 21.307C3.67502 20.6534 3.55792 19.996 3.45919 19.337C3.40255 18.9543 3.22958 18.701 2.87905 18.5288C2.31805 18.2517 1.76929 17.9479 1.21747 17.6517C0.0947035 17.0494 -0.302514 15.8424 0.247008 14.6967C0.524831 14.1173 0.803419 13.5379 1.09655 12.9662C1.17546 12.8285 1.21737 12.6728 1.21817 12.5141C1.21898 12.3554 1.17866 12.1993 1.10114 12.0608C0.811838 11.496 0.538608 10.9227 0.259254 10.3518C-0.313229 9.16623 0.082458 7.9654 1.24809 7.34623C1.79378 7.05616 2.33489 6.75538 2.88824 6.48138C3.22882 6.31377 3.39949 6.06044 3.4546 5.69077C3.54338 5.08768 3.65206 4.48688 3.76074 3.8876C4.01101 2.54059 5.05342 1.81121 6.40809 2.02091C7.02649 2.11658 7.64643 2.20153 8.2656 2.29261C8.39826 2.31613 8.53467 2.30665 8.6628 2.26501C8.79093 2.22337 8.90685 2.15084 9.00033 2.05382C9.47103 1.59461 9.94708 1.1354 10.4216 0.676188C11.3553 -0.224631 12.6296 -0.226161 13.5687 0.676188C14.0455 1.12928 14.5185 1.5793 14.9777 2.03851C15.0793 2.14423 15.206 2.22253 15.3459 2.26616C15.4859 2.30978 15.6346 2.3173 15.7783 2.28802C16.4617 2.18546 17.1452 2.07984 17.8317 2.00407C19.0042 1.87473 20 2.6286 20.2158 3.79347C20.336 4.44095 20.4515 5.08921 20.5556 5.73976C20.5721 5.8934 20.6279 6.04022 20.7176 6.16608C20.8073 6.29193 20.9278 6.39261 21.0676 6.45842C21.6478 6.75232 22.2203 7.06152 22.792 7.37684C23.9178 7.98912 24.3028 9.18154 23.751 10.3342C23.4662 10.9281 23.1785 11.5212 22.883 12.1098C22.814 12.2345 22.7778 12.3748 22.7778 12.5173C22.7778 12.6599 22.814 12.8001 22.883 12.9249C23.1792 13.5127 23.4662 14.1058 23.751 14.6997C24.2967 15.8393 23.914 17.0363 22.8057 17.644C22.2279 17.9609 21.6478 18.2724 21.06 18.5701C20.7538 18.7232 20.6054 18.962 20.5526 19.2926C20.4546 19.9105 20.3467 20.5271 20.2288 21.1425C19.9709 22.4872 18.953 23.2043 17.6037 23.0053C16.9761 22.912 16.3485 22.8224 15.7209 22.7313C15.5883 22.7077 15.4519 22.7176 15.3242 22.7601C15.1964 22.8026 15.0812 22.8764 14.9892 22.9747C14.6961 23.2694 14.3869 23.5464 14.096 23.8426C13.594 24.3539 13.0881 24.8552 12.3526 25.0182L11.5734 25.0151ZM6.00169 3.43222C5.58227 3.4261 5.29144 3.65264 5.21644 4.03914C5.10852 4.58943 4.98683 5.14049 4.9279 5.69613C4.81233 6.71558 4.32098 7.43578 3.38112 7.8659C2.88671 8.09551 2.41448 8.3695 1.93384 8.62513C1.4532 8.88076 1.33304 9.25502 1.57107 9.74561C1.83664 10.2951 2.09763 10.8469 2.37928 11.3873C2.7742 12.1473 2.76961 12.8935 2.37469 13.652C2.09686 14.1877 1.83894 14.7311 1.57719 15.2722C1.33151 15.7766 1.45091 16.1485 1.94226 16.4103C2.53082 16.7241 3.12243 17.0325 3.70869 17.3501C4.00393 17.5004 4.25976 17.7179 4.45558 17.9851C4.65139 18.2523 4.78172 18.5617 4.83606 18.8885C4.96387 19.5773 5.07714 20.2661 5.20878 20.9549C5.29833 21.4226 5.62896 21.656 6.0897 21.5917C6.70964 21.506 7.33034 21.4218 7.94798 21.32C8.78068 21.183 9.48786 21.4011 10.0841 22.0035C10.5142 22.4367 10.9604 22.8538 11.3989 23.2778C11.8168 23.6819 12.1896 23.6804 12.612 23.2732C13.0712 22.827 13.535 22.3777 13.9988 21.9323C14.5086 21.4425 15.1101 21.2083 15.8211 21.3017C16.4977 21.3912 17.1751 21.4823 17.8501 21.5825C18.3705 21.6591 18.7104 21.4356 18.8045 20.9236C18.9201 20.2914 19.0341 19.6592 19.1389 19.0255C19.266 18.2487 19.6655 17.6754 20.3635 17.3103C20.9337 17.0142 21.5001 16.7111 22.0664 16.4072C22.5524 16.1462 22.671 15.7812 22.4315 15.2883C22.1537 14.7181 21.8797 14.1456 21.595 13.5793C21.236 12.8659 21.2383 12.1611 21.595 11.4485C21.8781 10.8898 22.1468 10.3242 22.42 9.76015C22.6688 9.2466 22.557 8.893 22.0557 8.6236C21.4893 8.31746 20.9217 8.01642 20.3528 7.72049C19.664 7.35847 19.2629 6.79211 19.1351 6.02523C19.0264 5.3757 18.9124 4.72694 18.793 4.07894C18.7088 3.61973 18.3659 3.37865 17.9075 3.44293C17.2799 3.53095 16.6516 3.6182 16.0255 3.71693C15.202 3.84781 14.5024 3.62738 13.9139 3.02811C13.4914 2.58957 13.0445 2.17322 12.6051 1.74921C12.1873 1.34664 11.8161 1.34893 11.3928 1.75686C10.9696 2.1648 10.5387 2.56048 10.1315 2.98143C9.50087 3.63198 8.75389 3.85546 7.86608 3.69397C7.23467 3.57917 6.59484 3.51105 6.00169 3.42839V3.43222Z"
+                                                    fill="#945CFF" />
+                                                <path
+                                                    d="M7.24371 17.9866C6.94981 17.9782 6.72404 17.8519 6.59928 17.5833C6.53807 17.4624 6.51308 17.3265 6.52734 17.1918C6.5416 17.0571 6.59449 16.9294 6.67965 16.824C6.73652 16.7548 6.79815 16.6895 6.8641 16.6289C9.95407 13.5389 13.0441 10.4486 16.134 7.35815C16.2978 7.19436 16.4647 7.04589 16.7142 7.0367C17.0203 7.02675 17.2537 7.14691 17.3969 7.41938C17.54 7.69184 17.5055 7.96967 17.3119 8.21687C17.27 8.26683 17.225 8.31412 17.1772 8.35847C14.0699 11.4658 10.9628 14.5731 7.85599 17.6804C7.68379 17.8511 7.50316 17.9927 7.24371 17.9866Z"
+                                                    fill="#945CFF" />
+                                                <path
+                                                    d="M14.8781 13.7197C15.4012 13.7178 15.9131 13.8711 16.3489 14.1603C16.7847 14.4495 17.1249 14.8616 17.3263 15.3443C17.5278 15.827 17.5814 16.3587 17.4804 16.8719C17.3794 17.3851 17.1283 17.8568 16.759 18.2272C16.3897 18.5976 15.9187 18.85 15.4058 18.9525C14.8929 19.055 14.3611 19.0029 13.8778 18.8029C13.3945 18.6029 12.9814 18.2639 12.6909 17.8289C12.4005 17.3939 12.2456 16.8825 12.2461 16.3594C12.2455 16.0133 12.3131 15.6704 12.4451 15.3503C12.577 15.0303 12.7708 14.7394 13.0152 14.4943C13.2596 14.2491 13.55 14.0545 13.8696 13.9216C14.1893 13.7888 14.532 13.7201 14.8781 13.7197V13.7197ZM14.8781 17.5519C15.0351 17.5547 15.1911 17.5263 15.337 17.4684C15.4829 17.4105 15.6159 17.3242 15.7281 17.2144C15.8404 17.1047 15.9298 16.9738 15.9911 16.8293C16.0524 16.6847 16.0843 16.5294 16.0851 16.3725C16.0892 16.1346 16.0225 15.9008 15.8934 15.7009C15.7644 15.501 15.5788 15.344 15.3603 15.2498C15.1419 15.1556 14.9003 15.1285 14.6664 15.1719C14.4324 15.2153 14.2167 15.3272 14.0465 15.4935C13.8763 15.6598 13.7594 15.8729 13.7106 16.1058C13.6618 16.3387 13.6834 16.5808 13.7725 16.8014C13.8617 17.022 14.0144 17.2111 14.2112 17.3447C14.4081 17.4784 14.6402 17.5505 14.8781 17.5519Z"
+                                                    fill="#945CFF" />
+                                                <path
+                                                    d="M9.11659 11.3032C8.43177 11.2814 7.7822 10.9944 7.30495 10.5028C6.8277 10.0112 6.56009 9.35341 6.5586 8.66824C6.55711 7.98308 6.82185 7.32414 7.29697 6.83047C7.77208 6.33679 8.4204 6.04699 9.10511 6.02223C9.45938 6.00942 9.81261 6.06804 10.1438 6.1946C10.4749 6.32115 10.7772 6.51306 11.0326 6.75888C11.2881 7.00471 11.4914 7.29942 11.6305 7.62548C11.7697 7.95153 11.8418 8.30225 11.8426 8.65676C11.8433 9.01126 11.7728 9.3623 11.635 9.68895C11.4973 10.0156 11.2952 10.3112 11.0409 10.5581C10.7865 10.8051 10.4851 10.9983 10.1545 11.1263C9.82389 11.2543 9.47092 11.3144 9.11659 11.3032ZM10.3121 8.66959C10.3143 8.51257 10.2852 8.35668 10.2266 8.21101C10.1679 8.06535 10.0808 7.93283 9.9704 7.82118C9.85997 7.70954 9.7284 7.62101 9.58339 7.56076C9.43837 7.50051 9.28281 7.46976 9.12577 7.47028C8.80894 7.46659 8.50354 7.58852 8.27636 7.80939C8.04917 8.03026 7.9187 8.33211 7.91346 8.64892C7.9121 8.80642 7.94178 8.96264 8.0008 9.10866C8.05981 9.25469 8.14701 9.38766 8.25742 9.49998C8.36783 9.61231 8.49928 9.70179 8.64426 9.76331C8.78925 9.82484 8.94494 9.8572 9.10243 9.85856C9.42051 9.8613 9.72664 9.73757 9.95349 9.5146C10.0658 9.40419 10.1553 9.27274 10.2168 9.12775C10.2783 8.98277 10.3107 8.82708 10.3121 8.66959Z"
+                                                    fill="#945CFF" />
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <div class="give_shoutout">
+                                                    <p>Shop and avail double benefits<br> using friends recommendations</p>
+                                                </div>
+                                                <div class="earn_cash">
+                                                    <p>Get <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                                fill="#EFA900" />
+                                                            <path
+                                                                d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                                fill="#E19100" />
+                                                            <path
+                                                                d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                                fill="#FECB00" />
+                                                            <path
+                                                                d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                                fill="#FECB00" />
+                                                        </svg>
+                                                        200 now</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="divide"></span>
+                                        <div class="knwmore_btn">
+                                            <button mat-button>Know more</button>
+                                        </div>
+                                    </div>
+                            </div>
+
+
+
+
+                            <!-- Direct Browsing -->
+                            <div class="main_type" (click)="howitworks()" *ngIf="!friend">
+
+
+
+                                <div class="dflex_aligncenter">
+                                    <div>
+                                        <svg width="25" height="26" viewBox="0 0 25 26" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M16.8935 1.74512C17.2885 1.90989 17.3292 1.97904 17.2878 2.42849C17.1881 3.43871 17.0862 4.44794 16.9821 5.4562C16.9531 5.74014 16.7643 5.90345 16.5072 5.87844C16.2668 5.85563 16.1129 5.65334 16.1398 5.37896C16.2443 4.31088 16.3576 3.24573 16.4585 2.17618C16.4832 1.92607 16.6582 1.83192 16.8499 1.74512H16.8935Z"
+                                                fill="#945CFF" />
+                                            <path
+                                                d="M10.0517 17.2843C10.0582 17.3696 10.1243 17.4233 10.1664 17.488C11.0219 18.7699 11.8785 20.0513 12.7363 21.3323C13.1343 21.9266 13.1924 22.5563 12.8816 23.1999C12.4306 24.1371 11.2288 24.4372 10.3661 23.8421C10.1374 23.6866 9.94014 23.4881 9.78521 23.2573C8.80924 21.7945 7.83038 20.3323 6.84861 18.871C6.78688 18.779 6.75639 18.6966 6.60825 18.782C4.56919 19.9589 2.37545 18.3296 2.37109 16.2728C2.37109 15.2879 2.79227 14.5133 3.58451 13.9513C4.16544 13.5416 4.75218 13.1465 5.34037 12.7508C5.46052 12.6716 5.55677 12.5604 5.61849 12.4293C6.70773 10.1924 7.80424 7.96206 8.8746 5.71775C9.21372 5.00717 9.88687 4.66732 10.6174 4.71072C11.2128 4.74676 11.756 4.95347 12.2723 5.23961C13.5068 5.92593 14.4944 6.90501 15.3563 8.01649C16.4565 9.43546 17.3235 10.9832 17.7817 12.7405C17.9995 13.5872 18.1179 14.4456 17.8957 15.3151C17.704 16.0676 17.1136 16.7127 16.1725 16.7694C14.1785 16.8878 12.1881 17.0805 10.1955 17.2431C10.1468 17.249 10.0931 17.2401 10.0517 17.2843ZM17.1231 14.1837C17.1221 13.8257 17.0812 13.4688 17.0011 13.1201C16.7578 12.0012 16.2684 10.9868 15.6816 10.0225C14.8829 8.70575 13.9389 7.51334 12.7167 6.57031C12.1815 6.1569 11.6122 5.80235 10.9471 5.63904C10.1134 5.43381 9.53976 5.8428 9.44609 6.70419C9.36912 7.41551 9.48094 8.1055 9.6908 8.77783C10.417 11.0957 11.7088 13.0443 13.5075 14.6442C14.116 15.1864 14.7892 15.6395 15.5887 15.8535C16.1914 16.0146 16.6874 15.7667 16.9473 15.1915C17.08 14.8733 17.1401 14.5288 17.1231 14.1837ZM8.63932 8.17097C8.62517 8.19134 8.61208 8.21246 8.60011 8.23423C7.87395 9.73926 7.1444 11.244 6.41146 12.7486C6.35554 12.8619 6.38604 12.9325 6.44631 13.023C7.18942 14.1268 7.92962 15.2329 8.66692 16.3412C8.69497 16.3945 8.73895 16.4375 8.79256 16.4639C8.84617 16.4903 8.90666 16.4989 8.96537 16.4884C10.2594 16.3802 11.5541 16.2787 12.8489 16.175C13.212 16.1456 13.575 16.1132 13.9381 16.0816C11.2252 14.0793 9.46279 11.4554 8.63932 8.17097ZM3.22288 16.3361C3.27444 17.0717 3.62808 17.7036 4.3252 18.0883C5.00416 18.4627 5.68602 18.3921 6.32722 17.9566C6.83554 17.6109 7.33949 17.2578 7.84781 16.9113C7.93131 16.8547 7.96617 16.8201 7.89501 16.7157C7.20322 15.6937 6.51554 14.668 5.83198 13.6387C5.77679 13.5563 5.73976 13.5151 5.63664 13.5886C5.08113 13.9807 4.50819 14.35 3.96647 14.7568C3.46615 15.126 3.24031 15.6535 3.22288 16.339V16.3361ZM12.2222 22.3753C12.2273 22.1547 12.1365 21.9671 12.016 21.7869C11.072 20.3745 10.1192 18.9629 9.18394 17.5425C9.0634 17.3608 8.93705 17.3321 8.75478 17.3637C8.69943 17.3781 8.64802 17.405 8.60447 17.4424C8.27043 17.6712 7.94003 17.9066 7.59946 18.1251C7.46802 18.2097 7.47238 18.2722 7.55516 18.3906C8.00248 19.0446 8.44035 19.7051 8.88113 20.3628C9.44827 21.2087 10.011 22.0546 10.5833 22.8976C10.693 23.0631 10.8539 23.1869 11.0407 23.2496C11.2275 23.3124 11.4296 23.3104 11.6151 23.2441C11.7933 23.1818 11.9477 23.0644 12.0566 22.9086C12.1655 22.7528 12.2234 22.5663 12.2222 22.3753Z"
+                                                fill="#945CFF" />
+                                            <path
+                                                d="M18.7226 7.85911C18.6283 7.86536 18.5346 7.83921 18.4568 7.78489C18.3789 7.73056 18.3214 7.65124 18.2935 7.55973C18.2267 7.36994 18.3015 7.18236 18.4953 7.0529C19.1494 6.61154 19.8053 6.1746 20.4632 5.74207C20.7639 5.54149 21.065 5.34117 21.3666 5.14108C21.6302 4.96748 21.8858 4.99985 22.031 5.22421C22.1763 5.44856 22.1036 5.6994 21.8415 5.87447C20.9033 6.50022 19.9639 7.12499 19.0233 7.74877C18.9376 7.81773 18.832 7.85647 18.7226 7.85911Z"
+                                                fill="#945CFF" />
+                                            <path
+                                                d="M19.481 9.86097L21.2753 10.1861C21.8134 10.2839 22.3515 10.3832 22.8903 10.4803C23.1539 10.5267 23.326 10.7201 23.2977 10.9548C23.2902 11.0168 23.2701 11.0765 23.2387 11.1303C23.2073 11.184 23.1652 11.2305 23.1151 11.2669C23.065 11.3033 23.0079 11.3287 22.9476 11.3416C22.8873 11.3545 22.825 11.3545 22.7647 11.3417C21.6304 11.1397 20.4973 10.933 19.3655 10.7216C19.1063 10.6731 18.9545 10.473 18.9792 10.2479C19.0053 10.0074 19.197 9.8492 19.481 9.86097Z"
+                                                fill="#945CFF" />
+                                            <path
+                                                d="M12.321 8.94043C13.5061 8.94043 14.3833 9.56054 14.7116 10.5131C14.8686 10.9715 14.8814 11.468 14.7481 11.934C14.6147 12.4 14.3419 12.8127 13.9672 13.1149C13.8888 13.1907 13.7948 13.2479 13.692 13.2827C13.597 13.3076 13.4965 13.2989 13.407 13.258C13.3176 13.217 13.2447 13.1463 13.2004 13.0576C13.1525 12.9659 13.14 12.8596 13.1652 12.7591C13.1905 12.6586 13.2517 12.5713 13.3369 12.514C13.6804 12.2506 13.907 11.9196 13.9593 11.4841C14.0319 10.8956 13.8256 10.4168 13.3507 10.0791C12.8758 9.74149 12.361 9.72016 11.8381 9.97689C11.7735 10.0085 11.7147 10.0504 11.6501 10.085C11.5546 10.1306 11.4458 10.1387 11.3449 10.1076C11.2439 10.0766 11.1579 10.0086 11.1036 9.91694C11.0493 9.82527 11.0306 9.71644 11.051 9.61157C11.0715 9.50669 11.1297 9.41327 11.2144 9.34942C11.5985 9.07799 12.0255 8.94337 12.321 8.94043Z"
+                                                fill="#945CFF" />
+                                        </svg>
+
+                                    </div>
+                                    <div>
+
+                                        <div class="give_shoutout">
+                                            <p>Visit store and give a shoutout</p>
+                                        </div>
+
+                                        <div class="earn_cash">
+                                            <p>Get upto <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M9.00026 15.0454C12.4543 15.0454 15.2544 12.2454 15.2544 8.79128C15.2544 5.3372 12.4543 2.53711 9.00026 2.53711C5.54618 2.53711 2.74609 5.3372 2.74609 8.79128C2.74609 12.2454 5.54618 15.0454 9.00026 15.0454Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M8.87299 13.6362C11.5373 13.6362 13.6972 11.4764 13.6972 8.81208C13.6972 6.14777 11.5373 3.98792 8.87299 3.98792C6.20868 3.98792 4.04883 6.14777 4.04883 8.81208C4.04883 11.4764 6.20868 13.6362 8.87299 13.6362Z"
+                                                        fill="#EFA900" />
+                                                    <path
+                                                        d="M6.50336 6.77167H8.87253V12.5604L5.50586 8.37L6.50336 6.77167Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M11.5196 6.83752H9.15039V12.6267L12.5171 8.43586L11.5196 6.83752Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M6.50336 6.63165H8.87253V12.1637L5.50586 8.15915L6.50336 6.63165Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M11.4746 6.68292L9.10547 6.68334V12.2154L12.4721 8.21084L11.4746 6.68292Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M10.2749 5.37292L9.28906 6.30418L11.2836 6.30709L10.2749 5.37292Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M7.78466 5.37292L6.79883 6.30418L8.79341 6.30709L7.78466 5.37292Z"
+                                                        fill="#E19100" />
+                                                    <path
+                                                        d="M10.2999 5.18292L9.31445 6.11417L11.3086 6.11709L10.2999 5.18292Z"
+                                                        fill="#FECB00" />
+                                                    <path
+                                                        d="M7.78466 5.18292L6.79883 6.11417L8.79341 6.11709L7.78466 5.18292Z"
+                                                        fill="#FECB00" />
+                                                </svg>
+                                                200</p>
+                                        </div>
+                                    </div>
+                                    <span class="divide"></span>
+                                    <div class="knwmore_btn">
+                                        <button mat-button>Know more</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+                    <div *ngIf="viewTyp == 'Offline'">
+                        <div class="mt-1">
+                            <div class="d-flex" (click)="about_store = !about_store">
+                                <p class="about_store">About Store</p>
+
+                                <mat-icon>{{about_store ?'expand_less':'expand_more'}}</mat-icon>
+                            </div>
+
+                            <div class="mt-1 new_desc" *ngIf="about_store">
+                                <a class="desc_aboutstore">{{store.about}}</a>
+                                <a class="desc_store">Return & Refund Policy</a>
+                                <a class="desc_aboutstore" *ngIf="store.typeORDER.refund">This store offers returns for a period of 14 days from the day of delivery </a>
+                                <a class="desc_aboutstore" *ngIf="!store.typeORDER.refund">This store does not offer returns & refunds</a>
+                                <!--a class="desc_store" (click)="openBottomSheet()">Terms & Conditions</a-->
+                            </div>
+                        </div>
+                        <!-- line >
+
+                        <hr class="hr prod_line" /-->
+
+                        <!-- visit store  -->
+
+                        <!--div class="mt-1 b_white">
+                            <div class="d-flex" (click)="howRedeem()">
+                                <p class="about_store">How to redeem</p>
+
+                                <mat-icon>chevron_right</mat-icon>
+                            </div>
+
+                            < <div class="mt-1" *ngIf="highlights">
+                                    <p class="desc_store">
+                                        <app-highlight></app-highlight>
+                                    </p>
+                                </div> >
+                        </div-->
+
+
+                        <!-- line -->
+
+                        <hr class="hr prod_line" />
+
+                        <!-- visit store  -->
+
+                        <div class="mt-1 b_white">
+                            <div class="d-flex" (click)="termncondition()">
+                                <p class="about_store">Terms and conditions</p>
+
+                                <mat-icon>chevron_right</mat-icon>
+                            </div>
+
+                            <!-- <div class="mt-1" *ngIf="highlights">
+                                                            <p class="desc_store">
+                                                                <app-highlight></app-highlight>
+                                                            </p>
+                                                        </div> -->
+                        </div>
+
+
+
+                        <!-- line -->
+
+                        <hr class="hr prod_line" />
+
+                        <div class="mt-1 b_white">
+                            <div class="d-flex" (click)="highlights = !highlights">
+                                <p class="about_store">Highlights</p>
+
+                                <mat-icon>{{highlights ?'expand_less':'expand_more'}}</mat-icon>
+                            </div>
+
+                            <div class="mt-1" *ngIf="highlights">
+                                <p class="desc_store">No Highlights
+                                    <!--app-highlight></app-highlight-->
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="mt-1 b_white" >
+                            <div class="d-flex">
+                                <p class="about_store">User tips</p>
+                            </div>
+
+                            <div>
+
+                                <div class="d-flex-align-center">
+                                    <div class="img_contain"
+                                        style="background-image: url('assets/other/locate.svg');">
+                                        <img class="imgLoaded" src="assets/Avatar1.svg" alt="">
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <p class="user_name">aditya kirtane</p>
+                                            <p class="user_review">It was very special. Great quality products</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex-align-center">
+                                    <div class="img_contain"
+                                        style="background-image: url('assets/other/locate.svg');">
+                                        <img class="imgLoaded" src="assets/Avatar1.svg" alt="">
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <p class="user_name">aditya kirtane</p>
+                                            <p class="user_review">It was very special. Great quality products</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <!-- delivery section -->
+
+                    <!-- search field -->
+
+                    <div class="hello" *ngIf="viewTyp == 'Online'">
+                        <div class="search mt-5 textC">
+                            <input type="text" [(ngModel)]="searchTHEM" name="" id="" placeholder="Search" />
+                            <mat-icon>search</mat-icon>
+                        </div>
+                        <div>
+
+
+
+                            <div class="all_products" *ngFor="let s of proCat">
+                                <div class="product_section" (click)="showAccordion(s)" *ngIf=" showCat(products, s) && searchTHEM.length == 0 ">
+                                    <p>{{s}}</p>
+                                    <mat-icon>{{openedAccordianLists.includes(s) ? 'expand_less' : 'expand_more'}}</mat-icon>
+                                </div>
+                                <hr class="hr"  *ngIf=" showCat(products, s) && openedAccordianLists.includes(s)" />
+
+                                
+
+                                <div *ngFor="let x of products">
+                                    <ng-container *ngIf="!openedAccordianLists.includes(x.category)  && searchTHEM.length == 0 || searchTHEM.length > 0 && checkSearch(x.title) ">
+
+                                    <div class="col-card" *ngIf="x.category == s && !x.burn && !x.reqBurn ">
+                                        <div class="products_details">
+                                            <div class="products_summary">
+                                                <p class="product_name" (click)="openDetail(x.id, x.variants, x)" >{{x.title}}</p>
+                                                <p class="halft_para product_desc">{{x.description}}</p>
+                                                <div class="discount_final">
+                                                    <p class="dis_price">₹{{x.price}}</p>
+                                                    <p class="final_price">₹{{x.cost}}</p>
+                                                    <p class="off">{{ (( (x.price - x.cost) / x.price ) * 100) | number:'1.0-0' }}% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="img_add" [style]="x.banners.length > 0 && !imagesLoaded.includes(x.id) ? 'background-image: url(assets/other/locate.svg);' : '' ">
+                                                <img (click)="openDetail(x.id, x.variants, x)" [class.imgLoaded]="imagesLoaded.includes(x.id)" *ngIf="x.banners.length > 0" [src]="x.banners[0]" (load)="imagesLoaded.push(x.id)" alt="" />
+
+                                                <div class="add_button">
+                                                    <ng-container *ngIf="!auth.myCart.includes(x.id)">
+                                                        <button class="add-to-card-button" mat-button (click)="showAndHideAddToCard(x.id, x.variants, true, x)">
+                                                            Add
+                                                        </button>
+                                                    </ng-container>
+
+                                                    <ng-container  *ngIf="auth.myCart.includes(x.id)">
+                                                        <div class="add-sub-button-container">
+                                                            <button class="add-sub-button" (click)="showAndHideAddToCard(x.id, x.variants, false, x)">-</button>
+                                                            <button class="add-sub-button">{{getCartItemLength(x.id)}}</button>
+                                                            <button class="add-sub-button" (click)="showAndHideAddToCard(x.id, x.variants, true, x)">+</button>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="hr" *ngIf="x.category == s && !x.burn && !x.reqBurn" />
+                                    </ng-container>
+                                </div>
+                            </div>
+                            
+                            
+
+
+
+
+
+                            <!--
+                            <div class="all_products">
+                                <div class="product_section" (click)="products = !products">
+                                    <p>Quick Bites</p>
+                                    <mat-icon>expand_more</mat-icon>
+                                </div>
+
+                                
+
+                                <div>
+                                    <div class="col-card">
+                                        <div class="products_details" (click)="productpop()">
+                                            <div class="products_summary">
+                                                <p class="product_name">farmhouse</p>
+                                                <p class="halft_para product_desc">
+                                                    Lorem ipsum dolor sit consectetur adipisicing elit. Saepe
+                                                    quos nemo,
+                                                    aperiam voluptatum, odio quisquam in eum et totam
+                                                    velit tempore laborum iste. Nesciunt quo rerum
+                                                    officiis blanditiis sapiente. Ullam.
+                                                </p>
+                                                <div class="discount_final">
+                                                    <p class="dis_price">₹500</p>
+                                                    <p class="final_price">₹300</p>
+                                                    <p class="off">10% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="img_add"
+                                                style="background-image: url('assets/other/locate.svg');">
+
+
+                                                <img class="imgLoaded"
+                                                    src="../../../assets/img/storepage/Rectangle 109.png" alt="" />
+                                                <div class="add_button">
+                                                    <ng-container *ngIf="!showAddToCard">
+                                                        <button class="add-to-card-button" mat-button
+                                                            (click)="showAndHideAddToCard()">
+                                                            Add
+                                                        </button>
+                                                    </ng-container>
+
+                                                    <ng-container *ngIf="showAddToCard">
+                                                        <div class="add-sub-button-container">
+                                                            <button class="add-sub-button">-</button>
+                                                            <button class="add-sub-button">1</button>
+                                                            <button class="add-sub-button">+</button>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="hr" />
+
+                                    <div class="col-card">
+                                        <div class="products_details">
+                                            <div class="products_summary">
+                                                <p class="product_name">farmhouse</p>
+                                                <p class="product_desc" [ngClass]="{'limitTextHeight': isReadMore}">
+                                                    Lorem ipsum dolor sitconsectetur adipisicing elit. Saepe
+                                                    quos nemo,
+                                                    aperiam voluptatum, odio quisquam in eum et totam
+                                                    velit tempore laborum iste. Nesciunt quo rerum
+                                                    officiis blanditiis sapiente. Ullam.
+                                                </p>
+                                                <span class="read_more" (click)="showText()">{{
+                                                    isReadMore ? 'Read More': 'Read Less' }}</span>
+                                                <div class="discount_final">
+                                                    <p class="dis_price">₹500</p>
+                                                    <p class="final_price">₹300</p>
+                                                    <p class="off">10% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="blank_img">
+
+                                                <div class="blank_add add_button">
+                                                    <ng-container *ngIf="!showAddToCard">
+                                                        <button class="add-to-card-button" mat-button
+                                                            (click)="showAndHideAddToCard()">
+                                                            Add
+                                                        </button>
+                                                    </ng-container>
+
+                                                    <ng-container *ngIf="showAddToCard">
+                                                        <div class="add-sub-button-container">
+                                                            <button class="add-sub-button">-</button>
+                                                            <button class="add-sub-button">1</button>
+                                                            <button class="add-sub-button">+</button>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="x_line"></div>
+
+                            <div class="all_products">
+                                <div class="product_section" (click)="deserts = !deserts">
+                                    <p>Desserts</p>
+                                    <mat-icon>expand_more</mat-icon>
+                                </div>
+
+
+                                <div *ngIf="deserts">
+                                    <div class="col-card">
+                                        <div class="products_details">
+                                            <div class="products_summary">
+                                                <p class="product_name">farmhouse</p>
+                                                <p class="product_desc">description</p>
+                                                <div class="discount_final">
+                                                    <p class="dis_price">₹500</p>
+                                                    <p class="final_price">₹300</p>
+                                                    <p class="off">10% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="img_add"
+                                                style="background-image: url('assets/other/locate.svg');">
+
+
+                                                <img class="imgLoaded"
+                                                    src="../../../assets/img/storepage/Rectangle 109.png" alt="" />
+                                                <div class="add_button">
+                                                    <ng-container *ngIf="!showAddToCard">
+                                                        <button class="add-to-card-button" mat-button
+                                                            (click)="showAndHideAddToCard()">
+                                                            Add
+                                                        </button>
+                                                    </ng-container>
+
+                                                    <ng-container *ngIf="showAddToCard">
+                                                        <div class="add-sub-button-container">
+                                                            <button class="add-sub-button">-</button>
+                                                            <button class="add-sub-button">1</button>
+                                                            <button class="add-sub-button">+</button>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="hr" />
+
+                                    <div class="col-card">
+                                        <div class="products_details">
+                                            <div class="products_summary">
+                                                <p class="product_name">farmhouse</p>
+                                                <p class="product_desc">description</p>
+                                                <div class="discount_final">
+                                                    <p class="dis_price">₹500</p>
+                                                    <p class="final_price">₹300</p>
+                                                    <p class="off">10% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="img_add"
+                                                style="background-image: url('assets/other/locate.svg');">
+
+
+                                                <img class="imgLoaded"
+                                                    src="../../../assets/img/storepage/Rectangle 109.png" alt="" />
+                                                <div class="add_button">
+                                                    <ng-container *ngIf="!showAddToCard">
+                                                        <button class="add-to-card-button" mat-button
+                                                            (click)="showAndHideAddToCard()">
+                                                            Add
+                                                        </button>
+                                                    </ng-container>
+
+                                                    <ng-container *ngIf="showAddToCard">
+                                                        <div class="add-sub-button-container">
+                                                            <button class="add-sub-button">-</button>
+                                                            <button class="add-sub-button">1</button>
+                                                            <button class="add-sub-button">+</button>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="x_line"></div>
+
+                            <div class="all_products">
+                                <div class="product_section" (click)="products = !products">
+                                    <p>Quick Bites</p>
+                                    <mat-icon>expand_more</mat-icon>
+                                </div>
+
+
+                                <div *ngIf="products">
+                                    <div class="col-card">
+                                        <div class="products_details">
+                                            <div class="products_summary">
+                                                <p class="product_name">farmhouse</p>
+                                                <p class="product_desc" (click)="desc = !desc">
+                                                    Lorem ipsum dolor sit
+                                                    <span id="more" *ngIf="desc">consectetur adipisicing elit. Saepe
+                                                        quos nemo,
+                                                        aperiam voluptatum, odio quisquam in eum et totam
+                                                        velit tempore laborum iste. Nesciunt quo rerum
+                                                        officiis blanditiis sapiente. Ullam.</span>
+                                                </p>
+                                                <div class="discount_final">
+                                                    <p class="dis_price">₹500</p>
+                                                    <p class="final_price">₹300</p>
+                                                    <p class="off">10% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="img_add"
+                                                style="background-image: url('assets/other/locate.svg');">
+
+
+                                                <img class="imgLoaded"
+                                                    src="../../../assets/img/storepage/Rectangle 109.png" alt="" />
+                                                <div class="add_button">
+                                                    <ng-container *ngIf="!showAddToCard">
+                                                        <button class="add-to-card-button" mat-button
+                                                            (click)="showAndHideAddToCard()">
+                                                            Add
+                                                        </button>
+                                                    </ng-container>
+
+                                                    <ng-container *ngIf="showAddToCard">
+                                                        <div class="add-sub-button-container">
+                                                            <button class="add-sub-button">-</button>
+                                                            <button class="add-sub-button">1</button>
+                                                            <button class="add-sub-button">+</button>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="hr" />
+
+                                    <div class="col-card">
+                                        <div class="products_details">
+                                            <div class="products_summary">
+                                                <p class="product_name">farmhouse</p>
+                                                <p class="product_desc">description</p>
+                                                <div class="discount_final">
+                                                    <p class="dis_price">₹500</p>
+                                                    <p class="final_price">₹300</p>
+                                                    <p class="off">10% off</p>
+                                                </div>
+                                            </div>
+                                            <div class="img_add"
+                                                style="background-image: url('assets/other/locate.svg');">
+
+
+                                                <img class="imgLoaded"
+                                                    src="../../../assets/img/storepage/Rectangle 109.png" alt="" />
+                                                <div class="add_button">
+                                                    <ng-container *ngIf="!showAddToCard">
+                                                        <button class="add-to-card-button" mat-button
+                                                            (click)="showAndHideAddToCard()">
+                                                            Add
+                                                        </button>
+                                                    </ng-container>
+
+                                                    <ng-container *ngIf="showAddToCard">
+                                                        <div class="add-sub-button-container">
+                                                            <button class="add-sub-button">-</button>
+                                                            <button class="add-sub-button">1</button>
+                                                            <button class="add-sub-button">+</button>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-25 col-sm-none"></div>
+        <div class="b_white" style="height: 90px; width: 100%; display: inline-block;">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<ng-container *ngIf=" auth.user$ | async as mine">
+<div *ngIf="viewTyp == 'Offline' && iMinStore" style="
+height: 100vh;
+height: 100vh;
+width: 100vw;
+position: fixed;
+top: 0;
+z-index: 1000;
+background: white;
+opacity: 0.8;
+"></div>
+        <div>
+
+            <div class="store_abc" *ngIf="viewTyp == 'Offline' && friend ">
+                <div class="visit_store">
+                    <p> <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.5632 2.1043C13.437 1.895 13.259 1.72176 13.0463 1.60129C12.8337 1.48082 12.5936 1.41717 12.3492 1.4165H4.651C4.15658 1.4165 3.69121 1.68 3.43692 2.1043L1.51804 5.30171C1.45164 5.4118 1.41661 5.53794 1.41675 5.6665C1.41958 6.3502 1.67139 7.00944 2.12508 7.52092V13.4582C2.12508 14.2395 2.76046 14.8748 3.54175 14.8748H13.4584C14.2397 14.8748 14.8751 14.2395 14.8751 13.4582V7.52092C15.3288 7.00944 15.5806 6.3502 15.5834 5.6665C15.5836 5.53794 15.5485 5.4118 15.4821 5.30171L13.5632 2.1043ZM14.1554 5.8443C14.1117 6.18629 13.9449 6.50067 13.6863 6.72867C13.4277 6.95667 13.0949 7.08268 12.7501 7.08317C11.9688 7.08317 11.3334 6.4478 11.3334 5.6665C11.3334 5.61834 11.3157 5.57584 11.3058 5.5305L11.32 5.52767L10.7809 2.83317H12.3492L14.1554 5.8443V5.8443ZM7.66354 2.83317H9.33592L9.91179 5.71255C9.887 6.47188 9.26508 7.08317 8.50008 7.08317C7.73508 7.08317 7.11317 6.47188 7.08837 5.71255L7.66354 2.83317ZM4.651 2.83317H6.21925L5.68092 5.52767L5.69508 5.5305C5.68446 5.57584 5.66675 5.61834 5.66675 5.6665C5.66675 6.4478 5.03137 7.08317 4.25008 7.08317C3.9053 7.08268 3.5725 6.95667 3.31386 6.72867C3.05523 6.50067 2.88847 6.18629 2.84475 5.8443L4.651 2.83317ZM7.08342 13.4582V11.3332H9.91675V13.4582H7.08342ZM11.3334 13.4582V11.3332C11.3334 10.5519 10.698 9.9165 9.91675 9.9165H7.08342C6.30212 9.9165 5.66675 10.5519 5.66675 11.3332V13.4582H3.54175V8.39925C3.76912 8.45805 4.00358 8.49984 4.25008 8.49984C4.65228 8.50005 5.0499 8.41441 5.41636 8.24865C5.78281 8.08289 6.10967 7.84083 6.37508 7.53863C6.89429 8.12796 7.65504 8.49984 8.50008 8.49984C9.34512 8.49984 10.1059 8.12796 10.6251 7.53863C10.8905 7.84083 11.2174 8.08289 11.5838 8.24865C11.9503 8.41441 12.3479 8.50005 12.7501 8.49984C12.9966 8.49984 13.231 8.45805 13.4584 8.39925V13.4582H11.3334Z"
+                                fill="#874BF9" />
+                        </svg>
+                        Visit store</p>
+                </div>
+
+
+                <div class="i_am_store">
+                    <div class="input">
+                        <p (click)="show = !show"
+                            (click)="!makeChanges ? (iMinStore = !iMinStore) : true" style="
+min-width: 40%;
+padding: 0 !important;
+margin: 0 !important;
+">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  vertical-align: middle;
+">
+                                <path *ngIf="!iMinStore"
+                                    d="M9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Z" />
+                                <path *ngIf="iMinStore"
+                                    d="M9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H39Q40.2 6 41.1 6.9Q42 7.8 42 9V39Q42 40.2 41.1 41.1Q40.2 42 39 42ZM9 39H39Q39 39 39 39Q39 39 39 39V9Q39 9 39 9Q39 9 39 9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39ZM20.95 31.35Q21.25 31.35 21.5 31.25Q21.75 31.15 22 30.9L34.35 18.55Q34.75 18.15 34.775 17.5Q34.8 16.85 34.35 16.4Q33.9 15.95 33.275 15.95Q32.65 15.95 32.2 16.4L20.95 27.65L16.05 22.75Q15.65 22.35 15.025 22.325Q14.4 22.3 13.95 22.75Q13.5 23.2 13.5 23.825Q13.5 24.45 13.95 24.9L19.9 30.9Q20.15 31.15 20.4 31.25Q20.65 31.35 20.95 31.35ZM9 39Q9 39 9 39Q9 39 9 39V9Q9 9 9 9Q9 9 9 9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39Z" />
+                            </svg>
+                            &nbsp;I'm at the store
+                        </p>
+                    </div>
+                    <span class="divide"></span>
+                    <div class="redeem_btn">
+                        <button mat-button [disabled]="makeChanges" (click)=" startAtStoreF2F(mine) ">redeem</button>
+                    </div>
+                </div>
+
+                <div *ngIf="show" class="storefront">
+                    <p></p>
+                    <div class="triangle"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="cart_section" *ngIf="viewTyp == 'Online' && auth.myCart.length > 0">
+            <button mat-button class="view_cart" [disabled]="makeChanges" (click)="openCart()">
+                <div class="view_btn">
+                    <div class="item_price">
+                        <p>{{auth.myCart.length}} ITEMS</p>
+                        <p>₹ {{ auth.myCart.length > 0 ? totalCost() : 0}}</p>
+                    </div>
+
+                    <div class="view_cart_section">
+                        <svg width="22" height="21" viewBox="0 0 22 21" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8.2407 20C8.74039 20 9.14546 19.5949 9.14546 19.0952C9.14546 18.5955 8.74039 18.1904 8.2407 18.1904C7.74101 18.1904 7.33594 18.5955 7.33594 19.0952C7.33594 19.5949 7.74101 20 8.2407 20Z"
+                                stroke="#FFFBFB" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M18.1899 20C18.6896 20 19.0947 19.5949 19.0947 19.0952C19.0947 18.5955 18.6896 18.1904 18.1899 18.1904C17.6902 18.1904 17.2852 18.5955 17.2852 19.0952C17.2852 19.5949 17.6902 20 18.1899 20Z"
+                                stroke="#FFFBFB" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M1 1H4.61905L7.04381 13.1148C7.12655 13.5313 7.35315 13.9055 7.68397 14.1718C8.01478 14.4381 8.42873 14.5796 8.85333 14.5714H17.6476C18.0722 14.5796 18.4862 14.4381 18.817 14.1718C19.1478 13.9055 19.3744 13.5313 19.4571 13.1148L20.9048 5.52381H5.52381"
+                                stroke="#FFFBFB" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                        view cart
+                    </div>
+                </div>
+            </button>
+        </div>
+
+</ng-container>

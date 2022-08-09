@@ -1,0 +1,118 @@
+.container {
+    font-family: "Jost", sans-serif !important;
+}
+
+.d-flex-row {
+    display: flex !important;
+}
+
+.p-small {
+    padding: 0.5rem !important;
+}
+
+.px-1 {
+    padding: 1rem !important;
+}
+
+.mt-2 {
+    margin-top: 2rem !important;
+}
+
+.mt-1 {
+    margin-top: 1rem !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-small {
+    margin-bottom: 0.7rem !important;
+}
+
+.mt-small {
+    margin-top: 0.3rem !important;
+}
+
+.m-0 {
+    margin: 0px !important;
+}
+
+.p-0 {
+    padding: 0px !important;
+}
+
+.bold {
+    font-weight: 600 !important;
+}
+
+.bold-500 {
+    font-weight: 500 !important;
+}
+
+.fs-16 {
+    font-size: 16px !important;
+}
+
+.fs-14 {
+    font-size: 14px !important;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.head {
+    border-radius: 15px 15px 0px 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    img {
+        vertical-align: bottom;
+    }
+}
+
+.row {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.media-box {
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding: 0.3rem;
+    margin: 0.3rem 0.3rem 0.3rem 0.3rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    width: 95%;
+}
+
+.media-box {
+    img {
+        margin-right: 5px !important;
+    }
+    span {
+        font-size: 13px !important;
+    }
+}
+
+.bottom-line {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4F4F4F;
+    span {
+        color: #7D7AEF
+    }
+}
+
+.share {
+    width: 100% !important;
+    //background: linear-gradient(90deg, #7472ED 1.37%, #908BF2 48.85%, #C3B1F8 99.39%) !important;
+    font-size: 18px;
+    font-family: "Jost", sans-serif !important;
+    padding: 5px;
+}

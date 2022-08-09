@@ -1,0 +1,25 @@
+<header style="display: flex;padding: 24px 8px 8px 0;">
+    <span style="    line-height: 40px;
+    font-size: 24px;
+    padding: 0 0 0 16px;">Notifications</span>
+    <span class="divide"></span>
+    <button mat-icon-button (click)="clearNotifications()"><mat-icon>clear_all</mat-icon></button>
+    <button mat-icon-button (click)="openLink()"><mat-icon>close</mat-icon></button>
+</header>
+
+<a mat-button *ngFor="let note of notes" style="
+display: block;
+    width: 100%;
+    text-align: left;
+    padding: 16px 0 8px 0;
+    margin: 0;
+">
+<div style="display: flex;">
+    <h4><mat-icon style="vertical-align: middle;">alternate_email</mat-icon>{{note.by}}</h4>
+    <span class="divide"></span>
+    <h4 style="font-size: 12px !important;
+    margin-left: 0 !important;">{{note.sin | date:'dd MMM, hh:mm'}}&nbsp;<mat-icon style="vertical-align: middle;">event</mat-icon></h4>
+</div>
+<p>{{note.info}}</p>
+</a>
+<p *ngIf="notes.length == 0">No Notifications Received</p>

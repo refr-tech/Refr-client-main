@@ -1,0 +1,436 @@
+<div class="container" [style.height.px]="auth.resource.getHeight - 66">
+  <!--div class="profil-container b_primary textL c_white">
+    <h3>My Profile</h3>
+  </div-->
+
+  <div class="row">
+<ng-container *ngIf="auth.user$ | async as mine">
+
+    <div class="col col-100 textC" style="margin-top: 0; padding-top: 0;">
+
+      <img class="profile-picture" *ngIf="themeService.colorScheme == 'dark'" [src]=" auth.resource.env.avatarW " alt="Profile Picture White">
+      <img class="profile-picture" *ngIf="themeService.colorScheme == 'light'" [src]="  auth.resource.env.avatarB " alt="Profile Picture Black">
+
+      <div class="container-info b_persist c_invert">
+          <ul>
+            <li><p id="name">{{mine.name}}&nbsp; 
+                <svg *ngIf="mine.axess.includes('google')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107" />
+                    <path d="M3.15295 7.3455L6.43845 9.755C7.32745 7.554 9.48045 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C8.15895 2 4.82795 4.1685 3.15295 7.3455Z" fill="#FF3D00" />
+                    <path d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5718 17.5742 13.3038 18.001 12 18C9.39904 18 7.19053 16.3415 6.35853 14.027L3.09753 16.5395C4.75253 19.778 8.11354 22 12 22Z" fill="#4CAF50" />
+                    <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2" />
+                </svg>
+                
+                <svg *ngIf="mine.axess.includes('facebook')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M13.397 20.997V12.801H16.162L16.573 9.59199H13.397V7.54799C13.397 6.62199 13.655 5.98799 14.984 5.98799H16.668V3.12699C15.8487 3.03918 15.0251 2.99678 14.201 2.99999C11.757 2.99999 10.079 4.49199 10.079 7.23099V9.58599H7.33203V12.795H10.085V20.997H13.397Z" fill="#3C5895" />
+                </svg>
+                
+                <svg *ngIf="mine.axess.includes('phone')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="f_green">
+                  <path d="M23,11.99l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,11.99l2.44,2.79 l-0.34,3.7l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,11.99z M19.05,13.47l-0.56,0.65l0.08,0.85 l0.18,1.95l-1.9,0.43l-0.84,0.19l-0.44,0.74l-0.99,1.68l-1.78-0.77L12,18.85l-0.79,0.34l-1.78,0.77l-0.99-1.67l-0.44-0.74 l-0.84-0.19l-1.9-0.43l0.18-1.96l0.08-0.85l-0.56-0.65l-1.29-1.47l1.29-1.48l0.56-0.65L5.43,9.01L5.25,7.07l1.9-0.43l0.84-0.19 l0.44-0.74l0.99-1.68l1.78,0.77L12,5.14l0.79-0.34l1.78-0.77l0.99,1.68l0.44,0.74l0.84,0.19l1.9,0.43l-0.18,1.95l-0.08,0.85 l0.56,0.65l1.29,1.47L19.05,13.47z"/><polygon points="10.09,13.75 7.77,11.42 6.29,12.91 10.09,16.72 17.43,9.36 15.95,7.87"/>
+                </svg>
+            </p></li>
+            <li id="mail">{{!mine.phone ? mine.email : mine.phone }}</li>
+            
+            <li class="goDayNight">
+              <input type="checkbox" id="switch" style="display: none;"
+              (click)="themeService.update(themeService.colorScheme == 'dark' ? 'light' : 'dark')">
+              <div class="content">
+                      <!--div class="circle">
+                        <div class="crescent"></div>
+                      </div-->
+                      
+                      <label for="switch">
+                        <div class="toggle" 
+                        [class.b_persist]="themeService.colorScheme == 'light'" 
+                        [class.b_accent]="themeService.colorScheme == 'dark'"
+                        [class.toggleDark]="themeService.colorScheme == 'dark'"
+                        ></div>
+                        <div class="names"
+                        [class.nameDark]="themeService.colorScheme == 'dark'">
+                          <span class="light">Day Light</span>
+                          <span class="dark">Night Sky</span>
+                        </div>
+                      </label>
+              </div>
+            </li>
+
+            <!--li class="logInfo">
+              <table class="textC">
+                <tr>
+                  <td>
+                    < !--a mat-icon-button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="f_green">
+                      <path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"/>
+                    </svg> {{0}}</a><br>Consumer leads-- >
+                  </td>
+                  <td style="width: 30%;">
+                    <a (click)="themeService.update(themeService.colorScheme == 'dark' ? 'light' : 'dark')" mat-button><mat-icon>{{ ( !themeService.colorScheme ? '' : (themeService.colorScheme == 'dark' ? 'dark_mode' : 'light_mode') ) }}</mat-icon><!--svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="f_green">
+                      <path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"/>
+                    </svg-- > {{ themeService.colorScheme == 'dark' ? 'Night Sky':'Day Light'}}</a>
+                    < !--div class="info">
+                      <button mat-button
+                      (click)="themeService.update(themeService.colorScheme == 'dark' ? 'light' : 'dark')"><mat-icon>{{ ( !themeService.colorScheme ? '' : (themeService.colorScheme == 'dark' ? 'dark_mode' : 'light_mode') ) }}</mat-icon><br>{{ themeService.colorScheme == 'dark' ? 'Night Sky':'Day Light'}}</button>
+                    </div-- >
+                  </td>
+                  <td>
+                    < !--a mat-icon-button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="f_primary">
+                      <path d="M12 1c-6.338 0-12 4.226-12 10.007 0 2.05.738 4.063 2.047 5.625.055 1.83-1.023 4.456-1.993 6.368 2.602-.47 6.301-1.508 7.978-2.536 9.236 2.247 15.968-3.405 15.968-9.457 0-5.812-5.701-10.007-12-10.007zm0 15c-.565 0-1.024-.459-1.024-1.025 0-.565.459-1.024 1.024-1.024.566 0 1.024.459 1.024 1.024 0 .566-.458 1.025-1.024 1.025zm1.606-4.858c-.74.799-.775 1.241-.766 1.785h-1.643c-.006-1.208.016-1.742 1.173-2.842.469-.446.84-.799.788-1.493-.047-.66-.599-1.004-1.117-1.004-.581 0-1.261.432-1.261 1.649h-1.646c0-1.966 1.155-3.237 2.941-3.237.849 0 1.592.278 2.09.783.468.473.709 1.125.7 1.883-.013 1.134-.704 1.878-1.259 2.476z"/>
+                    </svg> {{0}}</a><br>Raised Tickets-- >
+                    < !--a href="#" mat-icon-button></a>
+                    <a href="#" mat-icon-button></a>
+                    <a href="#" mat-icon-button></a>
+                    <a href="#" mat-icon-button></a-- >
+                  </td>
+                </tr>
+              </table>
+
+
+            </li-->
+      
+          </ul>
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+    <div class="col col-100 textC" style="margin-top: 0; padding-top: 0;">
+      <div class="container-next b_persist c_invert">
+        <h3>Socials login</h3>
+
+        <div class="social-buttons">
+                <a mat-button (click)="addGoogle( mine.axess.includes('google'), mine.axess.includes('facebook') )" class="b_accent"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107" />
+                    <path d="M3.15295 7.3455L6.43845 9.755C7.32745 7.554 9.48045 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C8.15895 2 4.82795 4.1685 3.15295 7.3455Z" fill="#FF3D00" />
+                    <path d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.5718 17.5742 13.3038 18.001 12 18C9.39904 18 7.19053 16.3415 6.35853 14.027L3.09753 16.5395C4.75253 19.778 8.11354 22 12 22Z" fill="#4CAF50" />
+                    <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2571 15.1082 16.5467 16.0766 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2" />
+                </svg>&nbsp;<span>Sign with Google</span> &nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="active" [class.f_green]="mine.axess.includes('google')">
+                  <path *ngIf="mine.axess.includes('google')" d="M23,11.99l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,11.99l2.44,2.79 l-0.34,3.7l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,11.99z M19.05,13.47l-0.56,0.65l0.08,0.85 l0.18,1.95l-1.9,0.43l-0.84,0.19l-0.44,0.74l-0.99,1.68l-1.78-0.77L12,18.85l-0.79,0.34l-1.78,0.77l-0.99-1.67l-0.44-0.74 l-0.84-0.19l-1.9-0.43l0.18-1.96l0.08-0.85l-0.56-0.65l-1.29-1.47l1.29-1.48l0.56-0.65L5.43,9.01L5.25,7.07l1.9-0.43l0.84-0.19 l0.44-0.74l0.99-1.68l1.78,0.77L12,5.14l0.79-0.34l1.78-0.77l0.99,1.68l0.44,0.74l0.84,0.19l1.9,0.43l-0.18,1.95l-0.08,0.85 l0.56,0.65l1.29,1.47L19.05,13.47z"/>
+                  <polygon *ngIf="mine.axess.includes('google')" points="10.09,13.75 7.77,11.42 6.29,12.91 10.09,16.72 17.43,9.36 15.95,7.87"/>
+                  
+                  <path *ngIf="!mine.axess.includes('google')" d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z"/>
+                </svg></a>
+                
+                <a mat-button (click)="addFacebook( mine.axess.includes('facebook'), mine.axess.includes('google') )" class="b_accent"><svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+                    <path d="M13.397 20.997V12.801H16.162L16.573 9.59199H13.397V7.54799C13.397 6.62199 13.655 5.98799 14.984 5.98799H16.668V3.12699C15.8487 3.03918 15.0251 2.99678 14.201 2.99999C11.757 2.99999 10.079 4.49199 10.079 7.23099V9.58599H7.33203V12.795H10.085V20.997H13.397Z" fill="#3C5895" />
+                </svg>&nbsp;<span>Sign with Facebook</span> &nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="active" [class.f_green]="mine.axess.includes('facebook')">
+                  <path *ngIf="mine.axess.includes('facebook')" d="M23,11.99l-2.44-2.79l0.34-3.69l-3.61-0.82L15.4,1.5L12,2.96L8.6,1.5L6.71,4.69L3.1,5.5L3.44,9.2L1,11.99l2.44,2.79 l-0.34,3.7l3.61,0.82L8.6,22.5l3.4-1.47l3.4,1.46l1.89-3.19l3.61-0.82l-0.34-3.69L23,11.99z M19.05,13.47l-0.56,0.65l0.08,0.85 l0.18,1.95l-1.9,0.43l-0.84,0.19l-0.44,0.74l-0.99,1.68l-1.78-0.77L12,18.85l-0.79,0.34l-1.78,0.77l-0.99-1.67l-0.44-0.74 l-0.84-0.19l-1.9-0.43l0.18-1.96l0.08-0.85l-0.56-0.65l-1.29-1.47l1.29-1.48l0.56-0.65L5.43,9.01L5.25,7.07l1.9-0.43l0.84-0.19 l0.44-0.74l0.99-1.68l1.78,0.77L12,5.14l0.79-0.34l1.78-0.77l0.99,1.68l0.44,0.74l0.84,0.19l1.9,0.43l-0.18,1.95l-0.08,0.85 l0.56,0.65l1.29,1.47L19.05,13.47z"/>
+                  <polygon *ngIf="mine.axess.includes('facebook')" points="10.09,13.75 7.77,11.42 6.29,12.91 10.09,16.72 17.43,9.36 15.95,7.87"/>
+
+                  <path *ngIf="!mine.axess.includes('facebook')" d="M11,7L9.6,8.4l2.6,2.6H2v2h10.2l-2.6,2.6L11,17l5-5L11,7z M20,19h-8v2h8c1.1,0,2-0.9,2-2V5c0-1.1-0.9-2-2-2h-8v2h8V19z"/>
+                </svg></a>
+        </div>
+
+        <!--
+        <p>New Social Setup</p>
+          *ngIf="mine.axess.includes('google')"
+          *ngIf="mine.axess.includes('facebook')"
+        <p id="mail" *ngIf="mine.email">{{mine.email}}</p>
+        -->
+
+      </div>
+    </div>
+
+    <div class="col col-100 textC" style="margin-top: 0; padding-top: 0; display: none;"  *ngIf="!mine.axess.includes('pass')">
+      <div class="container-next b_persist c_invert">
+        <h3>Setup password for login</h3>
+        <table>
+
+        <!--tr *ngIf="step == 0">
+            <td colspan="2" class="textL">
+            <form (submit)="step0()">
+                <p class="textC">
+                    <button class="b_accent c_invert inputPhone inputPhone1 textC" type="button" [disabled]="auth.stepDisable" [matMenuTriggerFor]="menuNations">+{{phoneNumber.country}}</button>
+
+                    <input cdkFocusInitial type="tel" name="phone" [(ngModel)]="phoneNumFull" placeholder="phone number" [title]=" phoneNumber.digits + ' digit phone number'"
+                    class="b_accent c_invert inputPhone fullPhoneInput textL" [disabled]="auth.stepDisable"
+                    [class.inputPhoneError]="auth.resource.invalidPhone(phoneNumber.country + phoneNumber.area + phoneNumber.prefix + phoneNumber.line)"
+                    [maxlength]=" phoneNumber.digits " 
+                    [minlength]=" phoneNumber.digits "
+                    (keydown)=" setContactNumber() "
+                    (keyup)=" setContactNumber() ">
+                </p>
+
+          
+                <div class="textC" style="margin: 20px 0 0 0;">
+                <button mat-raised-button color="primary" type="submit" 
+                style="width: -webkit-fill-available; max-width: 90px;"
+                [disabled]=" auth.stepDisable || phoneNumber.country?.length == 0 || phoneNumber.area?.length !== 3 || phoneNumber.prefix?.length !== 3 || phoneNumber.line?.length !== (phoneNumber.digits - 6) ">Send OTP</button>
+                </div>
+            </form>
+            <mat-menu #menuNations="matMenu" overlapTrigger="false">
+              <button mat-menu-item *ngFor="let n of auth.resource.foreignMarks" (click)=" phoneNumber.country = n.c; phoneNumber.iso = n.iso; phoneNumber.iso = n.coin; phoneNumber.digits = n.d; "><mat-icon>{{ phoneNumber.country == n.c ? 'check_box' : 'check_box_outline_blank'}}</mat-icon> {{n.nat}}</button>
+            </mat-menu>
+            </td>
+        </tr-->
+      
+                <!--label for="phone" class="labelPhone c_primary">Enter Phone Number*</label-->
+                    <!--input cdkFocusInitial matInput type="tel" [(ngModel)]="phoneNumber.area" autocomplete="off"
+                    class="b_accent c_invert inputPhone inputPhone2 textL" 
+                    [class.inputPhoneError]="auth.resource.invalidPhone(phoneNumber.country + phoneNumber.area + phoneNumber.prefix + phoneNumber.line)" 
+                    name="area" [disabled]="auth.stepDisable" placeholder="000"  maxlength="3" (keyup)=" phoneNumber.area?.length == 3 && !auth.resource.invalidPhone(phoneNumber.country + phoneNumber.area + phoneNumber.prefix + phoneNumber.line) ? prefix.focus() : null ">
+                    <input matInput type="tel" [(ngModel)]="phoneNumber.prefix" autocomplete="off"
+                    class="b_accent c_invert inputPhone inputPhone3 textC"
+                    [class.inputPhoneError]="auth.resource.invalidPhone(phoneNumber.country + phoneNumber.area + phoneNumber.prefix + phoneNumber.line)" name="prefix" [disabled]="auth.stepDisable" placeholder="000"  maxlength="3" #prefix (keyup)=" phoneNumber.prefix?.length == 3 && !auth.resource.invalidPhone(phoneNumber.country + phoneNumber.area + phoneNumber.prefix + phoneNumber.line) ? line.focus() : null ">
+                    <input matInput type="tel" [(ngModel)]="phoneNumber.line" autocomplete="off"
+                    class="b_accent c_invert inputPhone inputPhone4 textL"
+                    [class.inputPhoneError]="auth.resource.invalidPhone(phoneNumber.country + phoneNumber.area + phoneNumber.prefix + phoneNumber.line)" name="line" [disabled]="auth.stepDisable" 
+                    [placeholder]=" ( (phoneNumber.digits - 6) == 1 ? '0':'' ) + ( (phoneNumber.digits - 6) == 2 ? '00':'' ) + ( (phoneNumber.digits - 6) == 3 ? '000':'' ) + ( (phoneNumber.digits - 6) == 4 ? '0000':'' ) + ( (phoneNumber.digits - 6) == 5 ? '00000':'' ) + ( (phoneNumber.digits - 6) == 6 ? '000000':'' ) + ( (phoneNumber.digits - 6) == 7 ? '0000000':'' ) " 
+                    [maxlength]=" phoneNumber.digits - 6 " #line-->
+                <!--h6 class="textR" style="color: rgba(0,0,0,.6);" 
+                *ngIf=" !auth.resource.invalidPhone(phoneNumber.country + phoneNumber.area + phoneNumber.prefix + phoneNumber.line) ">Use* 0-9</h6>
+                <h6 class="c_warn" 
+                *ngIf=" auth.resource.invalidPhone(phoneNumber.country + phoneNumber.area + phoneNumber.prefix + phoneNumber.line) ">Use* 0-9</h6-->
+
+                  <!--span class="divide"></span>
+                  <span class="progress" *ngIf="auth.stepDisable">
+                    <span class="progress1">|</span>
+                    <span class="progress2">|</span>
+                    <span class="progress3">|</span>
+                  </span-->
+      
+        <tr *ngIf="step == 1">
+          
+          <td colspan="2">
+            <form (submit)="step1()">
+      
+                <mat-form-field class="fullWidth">
+                  <mat-label>Set Password</mat-label>
+                  <input matInput placeholder="New Password" name="password" [formControl]="auth.resource.pass" [type]=" auth.lock ? 'password' : 'text' " required>
+                  <a mat-icon-button matSuffix (click)=" auth.lock = !auth.lock "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path *ngIf="auth.lock" d="M17 9.761v-4.761c0-2.761-2.238-5-5-5-2.763 0-5 2.239-5 5v4.761c-1.827 1.466-3 3.714-3 6.239 0 4.418 3.582 8 8 8s8-3.582 8-8c0-2.525-1.173-4.773-3-6.239zm-5 8.239c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2zm3-9.413c-.927-.376-1.938-.587-3-.587s-2.073.211-3 .587v-3.587c0-1.654 1.346-3 3-3s3 1.346 3 3v3.587z"/>
+                    <path *ngIf="!auth.lock" d="M12 8c-1.062 0-2.073.211-3 .587v-3.587c0-1.654 1.346-3 3-3s3 1.346 3 3v1h2v-1c0-2.761-2.238-5-5-5-2.763 0-5 2.239-5 5v4.761c-1.827 1.466-3 3.714-3 6.239 0 4.418 3.582 8 8 8s8-3.582 8-8-3.582-8-8-8zm0 10c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2z"/>
+                </svg></a>
+                <mat-error>{{ auth.resource.pass.value?.length < 8 ? 'min 8 & max 14' : 'Use* 0-9A-Za-z@' }}</mat-error>
+                <mat-hint align="end">{{auth.resource.pass.value?.length}}/14</mat-hint>
+                </mat-form-field>
+      
+                <div style="display: flex;margin: 20px 0 0 0;">
+                <!--button mat-button mat-dialog-close type="button">CLOSE</button-->
+                  <span class="divide"></span>
+                  <span class="progress" *ngIf="auth.stepDisable">
+                    <span class="progress1">|</span>
+                    <span class="progress2">|</span>
+                    <span class="progress3">|</span>
+                  </span>
+      
+                <button mat-raised-button color="primary" type="submit" [disabled]=" auth.stepDisable || auth.resource.pass.invalid ">Get OTP</button>
+                </div>
+            </form>
+            
+          </td>
+          
+        </tr>
+
+        
+        <tr *ngIf="step == 2">
+
+          <td colspan="2">
+            <form (submit)="step2()">
+              <mat-form-field class="fullWidth">
+                <mat-label>One Time Password</mat-label>
+                <input matInput placeholder="Enter OTP" name="code" [(ngModel)]="verificationCode" [disabled]="auth.stepDisable" [type]=" auth.lock ? 'password' : 'text' " required>
+                <a mat-icon-button matSuffix (click)=" auth.lock = !auth.lock "><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path *ngIf="auth.lock" d="M17 9.761v-4.761c0-2.761-2.238-5-5-5-2.763 0-5 2.239-5 5v4.761c-1.827 1.466-3 3.714-3 6.239 0 4.418 3.582 8 8 8s8-3.582 8-8c0-2.525-1.173-4.773-3-6.239zm-5 8.239c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2zm3-9.413c-.927-.376-1.938-.587-3-.587s-2.073.211-3 .587v-3.587c0-1.654 1.346-3 3-3s3 1.346 3 3v3.587z"/>
+                  <path *ngIf="!auth.lock" d="M12 8c-1.062 0-2.073.211-3 .587v-3.587c0-1.654 1.346-3 3-3s3 1.346 3 3v1h2v-1c0-2.761-2.238-5-5-5-2.763 0-5 2.239-5 5v4.761c-1.827 1.466-3 3.714-3 6.239 0 4.418 3.582 8 8 8s8-3.582 8-8-3.582-8-8-8zm0 10c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2z"/>
+              </svg></a>
+              <mat-error>OTP required!</mat-error>
+              <mat-hint>OTP sent on {{ phoneNumber.e164 }}</mat-hint>
+              </mat-form-field>
+      
+              <div style="display: flex;margin: 20px 0 0 0;">
+                <!--button mat-button mat-dialog-close type="button">CLOSE</button-->
+                  <span class="divide"></span>
+                  <span class="progress" *ngIf="auth.stepDisable">
+                    <span class="progress1">|</span>
+                    <span class="progress2">|</span>
+                    <span class="progress3">|</span>
+                  </span>
+      
+                <button mat-raised-button color="primary" type="submit" [disabled]=" auth.stepDisable || !verificationCode ">Complete</button>
+              </div>
+            </form>
+          </td>
+          
+        </tr>
+
+      </table>
+      <div id="recaptcha-container"></div>
+      <!--
+        <p>New Password Setup</p>
+        <p id="mail" *ngIf="mine.phone">{{mine.phone}}</p>
+      -->
+      </div>
+    </div>
+
+    <!--div class="col col-100 textC" style="margin-top: 0; padding-top: 0;">
+      <div class="container-next b_persist c_invert">
+        <h3><mat-icon style="vertical-align: middle;">double_arrow</mat-icon> Right to be forgotten</h3>
+        <p style="font-size: 12px !important;">The right to be forgotten is the right to have private information about a person be removed from Internet searches and other directories under some circumstances.
+        <br>We will delete all your data form refr after 30 days.<br>You can cancel the RTF anytime between this days.</p>
+        <button mat-button color="primary">Apply for RTF</button>
+      </div>
+    </div-->
+
+    <div class="col col-100 textC" style="margin-top: 0; padding-top: 0;">
+      <div class="container-next b_persist c_invert">
+      
+        <h3>Contact information</h3>
+
+        <form (submit)="updateName(mine.uid)">
+        
+            <mat-form-field appearance="legacy" class="fullWidth">
+              <mat-label>Name</mat-label>
+              <input matInput maxlength="30" placeholder="Your Name" name="firstname" [formControl]="auth.resource.first" autocomplete="off" required>
+              <button mat-icon-button color="primary" type="submit" matSuffix [disabled]=" makingChanges || 
+              auth.resource.first.value == dataCurrent.name || 
+              auth.resource.first.invalid "><mat-icon>{{dataCurrent.name == auth.resource.first.value ? 'edit':'save'}}</mat-icon></button>
+              <mat-error>issue: {{ auth.resource.first.value?.length < 2 ? 'min 2 & max 30' : 'Use* A-Za-z' }}</mat-error>
+              <mat-hint align="end">{{auth.resource.first.value?.length}}/30</mat-hint>
+            </mat-form-field>
+        
+            <!--mat-form-field appearance="legacy" class="halfWidth">
+              <mat-label>Last Name</mat-label>
+              <input matInput maxlength="12" placeholder="Your Surname" name="lastname" [formControl]="auth.resource.last" autocomplete="off" required>
+              <mat-error>issue: {{ auth.resource.last.value?.length < 2 ? 'min 2 & max 12' : 'Use* A-Za-z' }}</mat-error>
+              <mat-hint align="end">{{auth.resource.last.value?.length}}/12</mat-hint>
+            </mat-form-field-->
+        <!--.split(' ')[0] && auth.resource.last.value == dataCurrent.name.split(' ')[1] || auth.resource.last.invalid -->
+            <!--div class="commands textR">
+                <span class="progress" *ngIf="makingChanges && ( auth.resource.first.value !== dataCurrent.name.split(' ')[0] || auth.resource.last.value !== dataCurrent.name.split(' ')[1] ) ">
+                  <span class="progress1">|</span>
+                  <span class="progress2">|</span>
+                  <span class="progress3">|</span>
+                </span>
+                <button mat-raised-button color="primary" type="submit" [disabled]=" makingChanges || 
+                  auth.resource.first.value == dataCurrent.name || 
+                  auth.resource.first.invalid ">Update</button>
+            </div-->
+        </form>
+        
+
+        <form *ngIf="mine.axess.includes('phone')">
+        <mat-form-field appearance="legacy" class="fullWidth">
+          <mat-label>Phone number</mat-label>
+          <input matInput [value]="mine.phone" placeholder="Your phone number" readonly>
+          <mat-icon matSuffix class="c_primary">verified</mat-icon>
+        </mat-form-field>
+        </form>
+        <!--p *ngIf="!mine.axess.includes('phone')">You have not saved any phone numbers.</p-->
+        
+        <form *ngIf="mine.axess.includes('facebook') || mine.axess.includes('google')">
+        <mat-form-field appearance="legacy" class="fullWidth">
+          <mat-label>Primary Email</mat-label>
+          <input matInput [value]="mine.email" placeholder="Your email address" readonly>
+          <mat-icon matSuffix class="c_primary">verified</mat-icon>
+        </mat-form-field>
+        </form>
+        <!--p *ngIf="!mine.axess.includes('facebook') && !mine.axess.includes('google')">You have not saved any email address.</p-->
+
+
+        <!--h3>KYC details</h3>
+        <form>
+        <mat-form-field appearance="legacy" class="fullWidth">
+          <mat-label>Aadhar Card</mat-label>
+          <input matInput [value]="'499118665246'" placeholder="Your email address" readonly>
+          <mat-icon matSuffix class="c_primary">verified</mat-icon>
+        </mat-form-field>
+        </form>
+
+        <form>
+        <mat-form-field appearance="legacy" class="fullWidth">
+          <mat-label>Pan Card</mat-label>
+          <input matInput [value]="'AAAPZ1234C'" placeholder="Your email address" readonly>
+          <mat-icon matSuffix class="c_primary">verified</mat-icon>
+        </mat-form-field>
+        </form-->
+
+
+        <!--h3>Logistics service</h3>
+        <p>You have no logistics partner.</p-->
+
+      </div>
+    </div>
+
+
+    <!--div class="col col-100 textC" style="margin-top: 0; padding-top: 0;">
+      <div class="container-next b_persist c_invert">
+
+        <h3>Social media</h3>
+
+        <form>
+        <mat-form-field appearance="legacy" class="fullWidth">
+          <input matInput [value]="dataCurrent.soIG" placeholder="username" #insta>
+          <mat-icon matPrefix><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="f_invert iconSocial">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg></mat-icon>
+          <span matPrefix>instagram.com/</span>
+          <button mat-icon-button matSuffix><mat-icon>{{dataCurrent.soIG == insta.value ? 'edit':'save'}}</mat-icon></button>
+        </mat-form-field>
+        </form>
+
+        <form>
+        <mat-form-field appearance="legacy" class="fullWidth">
+          <input matInput [value]="dataCurrent.soYT" placeholder="channel" #yt>
+          <mat-icon matPrefix><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="f_invert iconSocial">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+          </svg></mat-icon>
+          <span matPrefix>youtube.com/</span>
+          <button mat-icon-button matSuffix><mat-icon matSuffix>{{dataCurrent.soYT == yt.value ? 'edit':'save'}}</mat-icon></button>
+        </mat-form-field>
+        </form>
+
+        <form>
+        <mat-form-field appearance="legacy" class="fullWidth">
+          <input matInput [value]="dataCurrent.soTW" placeholder="username" #tweet>
+          <mat-icon matPrefix><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="f_invert iconSocial">
+            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+          </svg></mat-icon>
+          <span matPrefix>twitter.com/</span>
+          <button mat-icon-button matSuffix><mat-icon matSuffix>{{dataCurrent.soTW == tweet.value ? 'edit':'save'}}</mat-icon></button>
+        </mat-form-field>
+        </form>
+
+        <form>
+        <mat-form-field appearance="legacy" class="fullWidth">
+          <input matInput [value]="dataCurrent.soWA" placeholder="number" #whatsup>
+          <mat-icon matPrefix><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="f_invert iconSocial">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg></mat-icon>
+          <span matPrefix>whatsapp.com/</span>
+          <button mat-icon-button matSuffix><mat-icon matSuffix>{{dataCurrent.soWA == whatsup.value ? 'edit':'save'}}</mat-icon></button>
+        </mat-form-field>
+        </form>
+
+      </div>
+    </div-->
+
+    <div class="col col-100 textC" style="margin-top: 0; padding-top: 0; margin-bottom: 180px;">
+        <button mat-button (click)="auth.signOut()" aria-label=""><mat-icon>logout</mat-icon><span> Sign out</span></button>    
+    </div>
+
+
+</ng-container>
+  </div>
+</div>
+
+
+
+
+  <!--button mat-icon-button (click)="themeService.update(themeService.colorScheme == 'dark' ? 'light' : 'dark')" aria-label="">
+    <mat-icon>{{ ( !themeService.colorScheme ? '' : (themeService.colorScheme == 'dark' ? 'dark_mode' : 'light_mode') ) }}</mat-icon>
+  </button>
+
+  <button mat-icon-button (click)="auth.signOut()" aria-label="">
+    <mat-icon>logout</mat-icon>
+  </button>  
+<p>profile works!</p-->
+
+
+

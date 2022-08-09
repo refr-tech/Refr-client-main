@@ -1,0 +1,49 @@
+
+<header>
+    <p style="display: flex; align-items: center;
+    padding: 4px 0 !important;
+    margin: 0 0 4px 0 !important;" class="b_white"><button mat-icon-button [routerLink]=" '/burn' " ><mat-icon>arrow_back_ios_new</mat-icon></button> {{title}}</p>
+
+</header>
+
+<div class="container" style="margin-top: 50px;">
+    <div class="row" style="margin-bottom: 80px;">
+
+        <div class="col col-100 adiCurated">
+            <div class="curated">
+                <p>CURATED</p>
+                <p>FOR YOU</p>
+            </div>
+            <div class="adiFlex-container">
+
+                <div class="curated-for-you" *ngFor="let x of curated$ | async">
+
+                    <a class="card1 curated-card" [routerLink]=" '/burn-shop/' + x.id ">
+                        <div class="img-curated" style="background-image: url('assets/other/locate.svg');">
+                            <img *ngIf="x.burnPic" [src]="x.burnPic" (load)=" imgLoaded.push( x.burnPic  ) " [class.imgLoaded]="imgLoaded.includes(x.burnPic)" />
+                        </div>
+                        <div>
+                            <p class="prod-text">{{x.title}}</p>
+                        </div>
+
+                        <div>
+                            <p class="prod-desc">{{x.burnAbout}}</p>
+                        </div>
+
+                        <div class="rupees">
+                            <p class="prod-rup">Rs.{{x.price}}</p>
+                            <p class="dis-rup">Rs.{{x.cost}}</p>
+                        </div>
+
+                        <div>
+                            <p class="off">{{ (( (x.price - x.cost) / x.price ) * 100)  | number:'1.0-0' }}% Off</p>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

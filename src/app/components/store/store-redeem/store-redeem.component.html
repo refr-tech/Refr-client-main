@@ -1,0 +1,343 @@
+<ng-container *ngIf="payment">
+
+    <div *ngIf="payment?.status == 0" class="logo_container">
+
+        <div style="text-align: center;">
+
+            <app-preload></app-preload>
+
+            <p>Good Things take time</p>
+            <button mat-stroked-button (click)="cancelTranz(payment?.id)" [disabled]="makeChanges" style="
+            position: fixed;
+            bottom: 50px;
+            left: 30%;
+            right: 30%;
+            width: 40%;
+            ">Cancel</button>
+        </div>
+
+    </div>
+
+    <div class="shrey" *ngIf="payment?.status == 10">
+
+        <div class="gift-card-container" *ngIf="auth.user$ | async as mine">
+            <div class="normal-container">
+                <div class="row">
+                    <div class="col-6 my-auto">
+                        <img src="assets/shreyansh/refr-logo.svg" alt="">
+                    </div>
+                    <div class="col-6 textR my-auto">
+                        <button class="btn-primary ml-auto">
+                    <img src="assets/lucky/svg/coin.svg" alt="">&nbsp;&nbsp;{{mine.acBalC}}
+                </button>
+                
+                        <a mat-icon-button class="c_white" [routerLink]=" '/home' " style="z-index: 10000001;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" height="38px" fill="#ffffff"><path d="M16.5 33.6 24 26.1 31.5 33.6 33.6 31.5 26.1 24 33.6 16.5 31.5 14.4 24 21.9 16.5 14.4 14.4 16.5 21.9 24 14.4 31.5ZM24 44Q19.75 44 16.1 42.475Q12.45 40.95 9.75 38.25Q7.05 35.55 5.525 31.9Q4 28.25 4 24Q4 19.8 5.525 16.15Q7.05 12.5 9.75 9.8Q12.45 7.1 16.1 5.55Q19.75 4 24 4Q28.2 4 31.85 5.55Q35.5 7.1 38.2 9.8Q40.9 12.5 42.45 16.15Q44 19.8 44 24Q44 28.25 42.45 31.9Q40.9 35.55 38.2 38.25Q35.5 40.95 31.85 42.475Q28.2 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31 41 36 36Q41 31 41 24Q41 17 36 12Q31 7 24 7Q17 7 12 12Q7 17 7 24Q7 31 12 36Q17 41 24 41Z"/></svg></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 textC my-3">
+                        <b class="congratulations">Congratulations !!</b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="normal-container">
+                <div class="row">
+                    <div class="col-12 align-gift-box">
+                        <div class="giftBox">
+                            <div class="giftMain">
+                                <div [ngClass]="capClass">
+                                    <svg width="182" viewBox="0 0 106 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M101.5 28.665H4.23857C1.89767 28.665 0 30.5627 0 32.9036V39.3037C0 41.6446 1.89767 43.5423 4.23857 43.5423H101.5C103.841 43.5423 105.739 41.6446 105.739 39.3037V32.9036C105.739 30.5627 103.841 28.665 101.5 28.665Z"
+                                    fill="#6A52A2" />
+                                <path d="M59.6684 24.3562H44.3118V43.7117H59.6684V24.3562Z"
+                                    fill="url(#paint0_linear_543_315)" />
+                                <path
+                                    d="M51.9912 24.3553C51.9912 24.3553 45.4125 0.361796 37.1139 1.95948C37.1139 1.95948 28.9563 -0.277274 23.0167 5.31932C19.5148 8.58343 17.3481 13.0305 16.9361 17.8001C16.9361 17.8001 16.4662 23.3967 26.057 27.2358C35.6478 31.0749 45.093 33.9555 45.093 33.9555L51.9912 24.3553Z"
+                                    fill="url(#paint1_linear_543_315)" />
+                                <path
+                                    d="M50.5491 22.8387C50.5491 22.8387 57.1043 -1.15472 65.4216 0.442965C65.4216 0.442965 73.5839 -1.7985 79.5189 3.8028C83.0209 7.06492 85.1876 11.5106 85.5995 16.2788C85.5995 16.2788 86.0694 21.8801 76.4786 25.7193C66.8877 29.5584 57.4426 32.439 57.4426 32.439L50.5491 22.8387Z"
+                                    fill="url(#paint2_linear_543_315)" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_543_315" x1="51.9901" y1="24.3562" x2="51.9901"
+                                        y2="43.7117" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF3369" />
+                                        <stop offset="1" stop-color="#FA876A" />
+                                    </linearGradient>
+                                    <linearGradient id="paint1_linear_543_315" x1="34.4618" y1="1.51807" x2="34.4618"
+                                        y2="33.9555" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF3369" />
+                                        <stop offset="1" stop-color="#FA876A" />
+                                    </linearGradient>
+                                    <linearGradient id="paint2_linear_543_315" x1="68.0761" y1="0" x2="68.0761"
+                                        y2="32.4389" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF3369" />
+                                        <stop offset="1" stop-color="#FA876A" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                                </div>
+                                <div [ngClass]="giftBoxClass">
+                                    <svg width="160" height="94" viewBox="0 0 93 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M89.443 0.995361H3.94329C2.1422 0.995361 0.682129 2.45543 0.682129 4.25652V52.0414C0.682129 53.8425 2.1422 55.3026 3.94329 55.3026H89.443C91.244 55.3026 92.7041 53.8425 92.7041 52.0414V4.25652C92.7041 2.45543 91.244 0.995361 89.443 0.995361Z"
+                                    fill="#6A52A2" />
+                                <path d="M53.4884 4.19507H38.1318V55.3069H53.4884V4.19507Z"
+                                    fill="url(#paint0_linear_543_311)" />
+                                <path opacity="0.54" d="M92.7041 3.71606H0.682129V4.67467H92.7041V3.71606Z"
+                                    fill="black" />
+                                <defs>
+                                    <linearGradient id="paint0_linear_543_311" x1="45.8101" y1="4.19507" x2="45.8101"
+                                        y2="55.3069" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FF3369" />
+                                        <stop offset="1" stop-color="#FA876A" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gift-footer">
+                <div class="coin-container" [class.showEarns]="completeANIM">
+                    <img src="assets/lucky/svg/coin.svg" alt="">
+                    <p>{{payment?.earn}}</p>
+                </div>
+                <p class="desc" *ngIf=" payment.journey == 'POS' || payment.journey == 'DIRECT' ">Spend this cashback on other stores or on specially curated deals in the burn section.</p>
+                <p *ngIf="  payment.journey == 'F2F'  ">Help your community discover this store and Get Rewarded</p>
+                <button *ngIf="  payment.journey == 'F2F'  " mat-button [disabled]="makeChanges" class="b_white c_primary" [routerLink]=" '/b1/' + payment.sid " >Refr Now</button>
+            </div>
+        </div>
+
+
+
+
+
+        
+        <div class="offline-store-container">
+            <div class="normal-container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="d-flex">
+                            <b class="secondary-heading">Other stores to Shop & Share</b>
+                        </div>
+                        <p class="sub-heading">Visit these stores & recommend post purchase to get an instant cashback</p>
+                    </div>
+                    <div class="col-2 textR my-auto">
+                        <a class="see-all" [routerLink]=" '/discover/stores/all/hybrid' ">See all</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <br>
+                <div class="col-box" *ngFor="let s of storeBoth$ | async" [routerLink]=" '/store/' + s.id ">
+                    <div class="card shadow">
+                        <div class="card-img-container" style="background-image: url(assets/other/locate.svg);">
+                            <img [src]="s.banner" (load)="imgLoaded.push(s.banner)" [class.imgLoaded]="imgLoaded.includes(s.banner)" />
+                            <!--div class="offer-tag purple-offer-tag">
+                                <h6>
+                                    Get 40%
+                                </h6>
+                                <p>
+                                    Upto <img src="assets/lucky/svg/coin.svg" width="12px" alt=""> 100
+                                </p>
+                            </div-->
+                        </div>
+                        <div class="card-inner">
+                            <div class="row d-flex">
+                                <div class="col-50">
+                                    <b class="tertiary-font-size">
+                                        {{s.name}}
+                            </b>
+                                    <div class="d-flex">
+                                        <p class="text-muted">{{ getSubCat(s.cat, s.subCat) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--div class="col-box">
+            <div class="card shadow">
+                <div class="card-img-container" style="background-image: url(../../../assets/images/electronic-items.png);">
+                    <div class="offer-tag purple-offer-tag">
+                        <h5 class="inline">
+                            Get&nbsp; <span style="font-size: 8px!important;">Upto &nbsp;</span>
+                            <img src="../../../assets/svg/coin.svg" width="12px" alt=""> &nbsp;100
+                        </h5>
+                    </div>
+                </div>
+                <div class="card-inner">
+                    <div class="row d-flex">
+                        <div class="col-50">
+                            <b class="tertiary-font-size">
+                                Fashion Store
+                            </b>
+                            <div class="d-flex">
+                                <p class="text-muted">Fashion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div-->
+
+            </div>
+        </div>
+
+        <div class="offline-store-container">
+            <div class="normal-container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="d-flex">
+                            <b class="secondary-heading">Online Stores</b>
+                        </div>
+                        <p class="sub-heading">Visit these stores & recommend post purchase to get an instant cashback</p>
+                    </div>
+                    <div class="col-2 textR my-auto">
+                        <a class="see-all" [routerLink]=" '/discover/stores/all/online' ">See all</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <br>
+
+                <div class="col-box" *ngFor="let s of storeOnli$ | async" [routerLink]=" '/store/' + s.id ">
+                    <div class="card shadow">
+                        <div class="card-img-container" style="background-image: url(assets/other/locate.svg);">
+                            <img [src]="s.banner" (load)="imgLoaded.push(s.banner)" [class.imgLoaded]="imgLoaded.includes(s.banner)" />
+                            <!--div class="offer-tag purple-offer-tag">
+                                <h6>
+                                    Get 40%
+                                </h6>
+                                <p>
+                                    Upto <img src="assets/lucky/svg/coin.svg" width="12px" alt=""> 100
+                                </p>
+                            </div-->
+                        </div>
+                        <div class="card-inner">
+                            <div class="row d-flex">
+                                <div class="col-50">
+                                    <b class="tertiary-font-size">
+                                        {{s.name}}
+                            </b>
+                                    <div class="d-flex">
+                                        <p class="text-muted">{{ getSubCat(s.cat, s.subCat) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--div class="col-box">
+            <div class="card shadow">
+                <div class="card-img-container" style="background-image: url(../../../assets/images/electronic-items.png);">
+                    <div class="offer-tag purple-offer-tag">
+                        <h5 class="inline">
+                            Get&nbsp; <span style="font-size: 8px!important;">Upto &nbsp;</span>
+                            <img src="../../../assets/svg/coin.svg" width="12px" alt=""> &nbsp;100
+                        </h5>
+                    </div>
+                </div>
+                <div class="card-inner">
+                    <div class="row d-flex">
+                        <div class="col-50">
+                            <b class="tertiary-font-size">
+                                Fashion Store
+                            </b>
+                            <div class="d-flex">
+                                <p class="text-muted">Fashion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div-->
+            </div>
+        </div>
+
+
+        <div class="offline-store-container">
+            <div class="normal-container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="d-flex">
+                            <b class="secondary-heading">Offline Stores</b>
+                        </div>
+                        <p class="sub-heading">Shop from these stores and recommend post purchase to get an instant cashback</p>
+                    </div>
+                    <div class="col-2 textR my-auto">
+                        <a class="see-all" [routerLink]=" '/discover/stores/all/offline' " >See all</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <br>
+
+                <div class="col-box" *ngFor="let s of storeOffl$ | async" [routerLink]=" '/store/' + s.id ">
+                    <div class="card shadow">
+                        <div class="card-img-container" style="background-image: url(assets/other/locate.svg);">
+                            <img [src]="s.banner" (load)="imgLoaded.push(s.banner)" [class.imgLoaded]="imgLoaded.includes(s.banner)" />
+                            <!--div class="offer-tag purple-offer-tag">
+                                <h6>
+                                    Get 40%
+                                </h6>
+                                <p>
+                                    Upto <img src="assets/lucky/svg/coin.svg" width="12px" alt=""> 100
+                                </p>
+                            </div-->
+                        </div>
+                        <div class="card-inner">
+                            <div class="row d-flex">
+                                <div class="col-50">
+                                    <b class="tertiary-font-size">
+                                        {{s.name}}
+                            </b>
+                                    <div class="d-flex">
+                                        <p class="text-muted">{{ getSubCat(s.cat, s.subCat) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--div class="col-box">
+            <div class="card shadow">
+                <div class="card-img-container" style="background-image: url(../../../assets/images/electronic-items.png);">
+                    <div class="offer-tag purple-offer-tag">
+                        <h5 class="inline">
+                            Get&nbsp; <span style="font-size: 8px!important;">Upto &nbsp;</span>
+                            <img src="../../../assets/svg/coin.svg" width="12px" alt=""> &nbsp;100
+                        </h5>
+                    </div>
+                </div>
+                <div class="card-inner">
+                    <div class="row d-flex">
+                        <div class="col-50">
+                            <b class="tertiary-font-size">
+                                Fashion Store
+                            </b>
+                            <div class="d-flex">
+                                <p class="text-muted">Fashion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div-->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</ng-container>

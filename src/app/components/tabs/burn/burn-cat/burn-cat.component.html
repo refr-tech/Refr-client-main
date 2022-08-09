@@ -1,0 +1,168 @@
+<!--div class="col col-100">
+    <div class="header">
+        <p>
+            <mat-icon>
+
+                arrow_back_ios_new
+
+            </mat-icon>
+        </p>
+    </div>
+
+</div-->
+
+<header>
+    <p style="display: flex; align-items: center;
+    padding: 4px 0 !important;
+    margin: 0 0 4px 0 !important;" class="b_white"><button mat-icon-button [routerLink]=" '/burn' " ><mat-icon>arrow_back_ios_new</mat-icon></button> {{title}}</p>
+
+</header>
+
+<div class="container" style="margin-top: 50px;">
+    <div class="row" *ngIf="burnCat$ | async as cat">
+        <div class="main">
+
+
+<div class="accessories">
+    <div class="access-img "><!-- [routerLink]=" x.url " -->
+
+        <a *ngFor="let x of cat.banners" >
+            <img [src]="x.img" alt="">
+        </a>
+        
+
+    </div>
+</div>
+            
+            <div class="accessories">
+                <div class="burncattitle">NEW IN</div>
+                <div class="access-img">
+                    <a *ngFor="let x of cat.newIN" [routerLink]=" x.url ">
+                        <img [src]="x.img" alt="">
+                    </a>
+                    
+                </div>
+            </div>
+
+            <div class="accessories" *ngIf="cat.spot.length > 0">
+                <p>BRANDS <br>
+                    SPOTLIGHT</p>
+                <div class="col col-100">
+
+                    <div class="col col-30 col-sm-50 col-card" *ngFor="let x of cat.spot">
+                        <div class="card-box">
+
+                            <a class="anchor_img" [routerLink]=" x.url ">
+                                <img class="brand_img" [src]="x.img" alt="">
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+            <!--div>
+                <a href="/" class="explore_more">
+                    <p>explore more brands here</p>
+                    <mat-icon>
+                        chevron_right
+                    </mat-icon>
+                </a>
+            </div-->
+
+
+
+<ng-container *ngFor="let s of cat.subCat">
+
+            <div>
+                <div class="footwear_all">
+                    <p class="footwear">{{s.tit}}</p>
+                    <a class="see_all c_black">see all</a>
+                </div>
+
+                <div class="flex-container">
+
+                    <div class="footwear1" *ngFor="let p of getSubcat(s.id, s.subCat)">
+                        <a href="/" class="footwears_card footwear_card">
+                            <div class="img_footwear">
+                                <img src="assets/aditya/curated.png" alt="">
+                            </div>
+                            <div>
+                                <p class="footwear_text">Bold Core
+                                </p>
+                            </div>
+
+                            <div>
+                                <p class="footwear_desc">Lorem ipsum dolor sit amet</p>
+                            </div>
+
+                            <div class="footwear_rupees">
+                                <p class="footwear_rup">Rs.500</p>
+                                <p class=" footwear_dis_rup">Rs.450</p>
+                            </div>
+                            <div>
+                                <p class="footwear_off">83% Off</p>
+
+                            </div>
+                            <div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+
+</ng-container>
+
+
+
+        </div>
+
+
+
+
+        <div class="col col-100 adiCurated">
+            <div class="curated">
+                <div class="burncattitle">CURATED<br>FOR YOU</div>
+            </div>
+            <div class="adiFlex-container">
+
+                <div class="curated-for-you" *ngFor="let x of curated$ | async">
+
+                    <a class="card1 curated-card" [routerLink]=" '/burn-shop/' + x.id ">
+                        <div class="img-curated" style="background-image: url('assets/other/locate.svg');">
+                            <img *ngIf="x.burnPic" [src]="x.burnPic" (load)=" imgLoaded.push( x.burnPic  ) " [class.imgLoaded]="imgLoaded.includes(x.burnPic)" />
+                        </div>
+                        <div>
+                            <p class="prod-text">{{x.burnBrand}}</p>
+                        </div>
+
+                        <div>
+                            <p class="prod-desc">{{x.title}}</p>
+                        </div>
+
+                        <div class="rupees">
+                            <span class="prod-rup">₹{{x.price}}</span>
+                            <span class="dis-rup">₹{{x.cost}}</span>
+                        </div>
+
+                        <div>
+                            <p class="off">{{ (( (x.price - x.cost) / x.price ) * 100) | number:'1.0-0'  }}% Off</p>
+                        </div>
+                    </a>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,195 @@
+<div class="container" *ngIf="product">
+    <div class="row">
+        <div class="main">
+
+
+            <div class="content-section">
+                <div class="content-img">
+                    <div class="img-container" *ngFor="let banner of product.banners" 
+                    [style]="!imagesLoaded.includes(banner) ? 'background-image: url(assets/other/locate.svg);' : '' ">
+                        <img [class.imgLoaded]="imagesLoaded.includes(banner)" [src]="banner" (load)="imagesLoaded.push(banner)" alt="">
+                    </div>
+                </div>
+
+                <div class="content">
+                    <p class="content-text">{{product.title}}</p>
+                    <!-- <p class="content-desc" [ngClass]="{'limitTextHeight': isReadMore}">Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Inventore culpa
+                        quod animi esse. Quasi assumenda, doloremque sequi ullam cumque illum rerum placeat, veritatis
+                        quam minima quidem corporis, itaque laborum fugit.</p>
+                    <button class="read_more" type="button" (click)="showText()">{{
+                        isReadMore ? 'Read More': 'Read Less' }}</button> -->
+                    <div class="pricing">
+                        <p class="cut">₹{{product.price}}</p>
+                        <p class="price">₹{{product.cost}}</p>
+                        <p class="taxes">(incl.all Taxes)</p>
+
+                    </div>
+
+<ng-container *ngIf="variantsMode">
+
+                    <div class="size" *ngIf="colorList.length > 0">
+                        <div class="prod_size">
+                            <p>Color:                             
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#ff0000' ">Red</span>
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#ffa500' ">Orange</span>
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#ffff00' ">Yellow</span>
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#008000' ">Green</span>
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#0000ff' ">Blue</span>
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#4b0082' ">Purple</span>
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#ee82ee' ">Pink</span>
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#ffffff' ">White</span>
+                            <span class="size-text" *ngIf=" getNowSelected('palete') == '#000000' ">Black</span>
+                            <span *ngIf="!getNowSelected('palete')">No Color Selected</span></p>
+                        </div>
+                    </div>
+                    <div class="box-color" *ngIf="colorList.length > 0">
+                        
+                        <div *ngFor="let c of colorList" (click)="selectVar(c.type, c.name)">
+                            <p class="baseColor" [style]=" 'background:' + c.name + '; border: 1px solid' + c.name + ';' "></p>
+                            <p class="size-text" *ngIf=" c.name == '#ff0000' ">Red</p>
+                            <p class="size-text" *ngIf=" c.name == '#ffa500' ">Orange</p>
+                            <p class="size-text" *ngIf=" c.name == '#ffff00' ">Yellow</p>
+                            <p class="size-text" *ngIf=" c.name == '#008000' ">Green</p>
+                            <p class="size-text" *ngIf=" c.name == '#0000ff' ">Blue</p>
+                            <p class="size-text" *ngIf=" c.name == '#4b0082' ">Purple</p>
+                            <p class="size-text" *ngIf=" c.name == '#ee82ee' ">Pink</p>
+                            <p class="size-text" *ngIf=" c.name == '#ffffff' ">White</p>
+                            <p class="size-text" *ngIf=" c.name == '#000000' ">Black</p>
+                        </div>
+                        
+                    </div>
+
+</ng-container>
+
+                </div>
+
+                <!--div class="size" *ngFor="let o of otherList">
+                    <div class="prod_size">
+                        <p>{{o}}: <span>XXX</span></p>
+                        <div class="sizes">
+                            <button class="all_sizes" *ngFor="let v of getOptions(o)" mat-button>{{v.name}}</button>
+                        </div>
+                    </div>
+                </div-->
+
+                <div class="size" *ngFor="let o of otherList">
+                    <div class="prod_size">
+                        <p>{{o}}: <span>{{ getNowSelected(o) || ("No " + o + " Selected") }}</span></p>
+                        <div style=" margin: 0 16px 8px 16px !important; ">
+                            <button *ngFor="let v of getOptions(o)" mat-button (click)="selectVar(v.type, v.name)" style="background: #eeeeee;" >{{v.name}}</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="spaces">
+                </div-->
+
+                <!--div class="prod_details">
+                    <div class="prod_det_heading">
+                        <p>Product details</p>
+
+                        <div>
+
+                            <div class="prod_det">
+                                <p class="prod_primary">Material</p>
+                                <p class="prod_secondary">Material</p>
+                            </div>
+
+                            <div class="prod_det">
+                                <p class="prod_primary">Shelf Life</p>
+                                <p class="prod_secondary">24 months</p>
+                            </div>
+
+                            <div class="prod_det">
+                                <p class="prod_primary">Ingredients</p>
+                                <p class="prod_secondary">Shea butter</p>
+                            </div>
+
+                            <div class="prod_det">
+                                <p class="prod_primary">Dimension</p>
+                                <p class="prod_secondary">Shea butter</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div-->
+
+                <div class="spaces">
+                </div>
+
+                <div class="prod_details">
+                    <div class="prod_det_heading">
+                        <p>About this Product</p>
+
+                        <div>
+
+                            <div class="prod_det">
+                                <!-- <p class="prod_primary">Material</p> -->
+                                <p class="prod_desc" [ngClass]="{'limitTextHeight': isReadMore}">{{product.description}}</p>
+                                <p class="read_more" (click)="showText()" *ngIf="product.description?.length > 100">{{
+                                    isReadMore ? 'Read More': 'Read Less' }}</p>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spaces">
+                </div>
+
+                <div class="pay_products">
+                    <div class="svg_text">
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="13" cy="13" r="13" fill="#8200FF" />
+                            <path
+                                d="M13 6L6 8.25V12.8175C6 16.605 8.98375 20.1375 13 21C17.0163 20.1375 20 16.605 20 12.8175V8.25L13 6ZM18.25 12.8175C18.25 15.8175 16.0188 18.5925 13 19.44C9.98125 18.5925 7.75 15.825 7.75 12.8175V9.2325L13 7.6425L18.25 9.2325V12.8175ZM10.2175 12.4425L8.975 13.5L12.0725 16.155L17.025 11.91L15.7912 10.8525L12.0812 14.0325L10.2175 12.4425Z"
+                                fill="white" />
+                        </svg>
+                        <p>Secure Payments</p>
+                    </div>
+                    <div class="svg_text">
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="13" cy="13" r="13" fill="#8200FF" />
+                            <path
+                                d="M13.0375 18.75C12.9062 18.9075 12.704 18.9906 12.499 18.9906C12.3614 18.9906 12.223 18.9531 12.1031 18.8763C11.8058 18.6831 11.742 18.3162 11.9598 18.0544L12.7239 17.1444C12.9424 16.8837 13.3596 16.8269 13.6568 17.02C13.9555 17.2113 14.0194 17.5794 13.7994 17.8406L13.0375 18.75ZM12.4522 16.9756C12.6707 16.7144 12.6061 16.3462 12.3096 16.1531C12.0109 15.9606 11.5944 16.0181 11.3752 16.28L10.614 17.1856C10.3947 17.4475 10.46 17.8162 10.7573 18.0087C11.0531 18.2006 11.4717 18.145 11.6902 17.8825L12.4522 16.9756ZM11.1042 16.1081C11.3234 15.8475 11.2581 15.4787 10.9602 15.2862C10.6636 15.0944 10.2457 15.1513 10.0279 15.4125L9.25959 16.3256C9.04108 16.5875 9.11132 16.9475 9.40787 17.1406C9.70655 17.3331 10.1173 17.2837 10.3358 17.0219L11.1042 16.1081ZM9.75764 15.2419C9.97615 14.98 9.91301 14.6125 9.61362 14.42C9.31635 14.2269 8.89919 14.2838 8.68068 14.5456L7.91801 15.4525C7.69949 15.7138 7.76405 16.0825 8.06132 16.2744C8.35858 16.4662 8.77645 16.4106 8.99426 16.1481L9.75764 15.2419ZM22.027 9.96812C22.027 9.96812 20.9238 10.1562 20.1349 10.2675C18.6124 10.4825 17.1949 10.0075 15.622 9.29125C15.3063 9.14813 14.9431 9 14.5876 9C14.2606 9 13.9399 9.13062 13.671 9.39937C12.7019 10.3663 12.1386 11.2213 10.9857 11.8144C10.4174 12.1069 11.085 13.0231 12.3053 12.6462C12.9282 12.4537 13.5369 12.0869 14.2251 11.5981C14.7657 11.2137 15.0906 11.2706 15.5582 11.6825C16.4365 12.4562 19.3921 15.0269 19.3921 15.0269C20.3265 14.5194 21.1104 14.2069 22.0263 13.9069V9.96812H22.027ZM14.5607 17.8819C14.4486 18.1687 14.1222 18.5075 13.8846 18.7913C14.0953 18.9381 14.3159 19 14.5103 19C15.019 19 15.3531 18.5806 14.8948 18.1762L14.5607 17.8819ZM19.1764 15.7175C18.4173 15.0581 15.8193 12.8006 15.0594 12.1469C14.9424 12.0462 14.7607 12.0344 14.6281 12.1194C14.1747 12.4094 13.151 13.0475 12.5394 13.2369C11.344 13.6056 10.3295 13.0981 10.1117 12.3875C9.97544 11.9425 10.1776 11.5056 10.6274 11.2744C11.3426 10.9062 11.803 10.415 12.3699 9.7975C11.8768 9.46063 11.4121 9.34 10.9573 9.34C9.74699 9.34 8.60405 10.1938 7.17166 10.1094C6.19757 10.0531 5 9.8575 5 9.8575V13.8156C6.04716 14.0163 6.74172 14.1056 7.78108 14.565L8.10885 14.175C8.36709 13.865 8.78213 13.68 9.21845 13.68C9.83568 13.68 10.3692 14.0413 10.5388 14.5475C11.2134 14.5475 11.7214 14.9237 11.8853 15.4144C12.4713 15.395 13.0495 15.7387 13.2311 16.28C14.0619 16.28 14.6621 16.855 14.6366 17.5344L15.4652 18.2644C15.7256 18.4944 16.1484 18.4937 16.4095 18.2644C16.6706 18.0344 16.6706 17.6619 16.4095 17.4319L15.2134 16.3775C15.0573 16.24 15.2935 16.0319 15.4496 16.1694L16.8913 17.44C17.1523 17.67 17.5745 17.67 17.8355 17.44C18.0966 17.21 18.0966 16.8381 17.8355 16.6081L16.0612 15.0444C15.9044 14.9081 16.1414 14.6988 16.2974 14.8363L18.213 16.5244C18.4741 16.7544 18.8962 16.7544 19.1573 16.5244C19.4113 16.3019 19.4134 15.9481 19.1764 15.7175Z"
+                                fill="white" />
+                        </svg>
+
+                        <p>Trusted Products</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+            <div class="over_abc" *ngIf="variantsMode">
+                <div class="btn-lay">
+                    <div class="plus-minus">
+                        <span class="divide"></span>
+                        <div class="number" *ngIf="countQ > 0">
+                            <span class="minus" (click)="changeQuntity(false)">-</span>
+                            <input class="counter" type="number" [value]="countQ" readonly />
+                            <span class="plus" (click)="changeQuntity(true)">+</span>
+                        </div>
+                        <div class="add-item">
+                            <button mat-button class="item-add" (click)="changeQuntity(true)" *ngIf="countQ == 0">Add item</button>
+                            <button mat-button class="item-add" (click)="doneWithIt()" *ngIf="countQ > 0">Done</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>

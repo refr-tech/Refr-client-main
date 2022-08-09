@@ -1,0 +1,39 @@
+.logo {
+    position: relative;
+    clip-path: url(#logopogo);
+    background-color: rgb(236, 236, 236);
+    display: inline-block;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    left: -70px;
+    background-color: rgb(126, 32, 233);
+    border-radius: 30%;
+    transform: translatey(200px);
+    animation: liquid 4.93s ease-in-out infinite;
+}
+
+.logo::after {
+    content: "";
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    left: -70px;
+    background-color: black;
+    border-radius: 30%;
+    transform: translatey(200px);
+    animation: liquid 5s ease-in-out infinite;
+}
+
+@keyframes liquid {
+    from {
+        transform: translatey(200px) rotate(0deg);
+    }
+    to {
+        transform: translatey(-100px) rotate(180deg);
+    }
+}

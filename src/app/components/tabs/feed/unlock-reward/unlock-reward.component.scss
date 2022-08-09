@@ -1,0 +1,202 @@
+.boxDIRECT {
+    width: 289px;
+    height: 290px;
+    overflow: hidden;
+  
+    background: linear-gradient(180deg, #fff7dc 0%, #ffc5b3 100%);
+  
+  .upper_img {
+    img {
+      position: fixed;
+      margin: -46px 0 0 219px;
+      width: 107px;
+    }
+  }
+  
+  .main {
+    padding: 58px 3px 0 3px;
+  }
+  
+  .text {
+    p {
+      //font-family: "Jost";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 17px !important;
+      line-height: 30px !important;
+      text-align: center;
+      color: #2b2b2b;
+      width: 100%;
+      margin: 0 auto !important;
+      // max-width: 205px;
+      span {
+        background: linear-gradient(244.02deg, #ff3269 19.71%, #ff794d 78.29%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        svg {
+          margin: -3px;
+        }
+      }
+    }
+  }
+  
+  .second_heading {
+    p {
+      //font-family: "Jost";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px !important;
+      line-height: 19px !important;
+      text-align: center;
+      color: #2a2a2a;
+      margin: 0 !important;
+      padding: 9px !important;
+    }
+  }
+  
+  //
+  
+  .accept_del {
+    p {
+      //font-family: "Jost";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px !important;
+      line-height: 26px !important;
+  
+      text-align: center;
+  
+      color: #2b2b2b;
+      margin: 0 !important;
+      padding: 10px 0 !important;
+    }
+  }
+  
+  .btns {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+    .active {
+      background: #8200ff;
+      color: #ffff;
+    }
+    button {
+      box-shadow: 2px 4px 11px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      padding: 2px 20px;
+      text-transform: capitalize;
+      // border: 1px solid #3e3e3e;
+    }
+  }
+  
+  .return_period {
+    p {
+      //font-family: "Jost";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 11px !important;
+      line-height: 16px !important;
+      /* identical to box height */
+  
+      color: #8200ff;
+    }
+  }
+  }
+
+  .boxF2F{
+      width: 289px;
+      height: 290px;
+      overflow: hidden;
+    
+      background: linear-gradient(180deg, #fff7dc 0%, #ffc5b3 100%);
+    
+    
+    .upper_img {
+      img {
+        position: fixed;
+        margin: -46px 0 0 219px;
+        width: 107px;
+      }
+    }
+    
+    .main {
+      padding: 58px 3px 0 3px;
+    }
+    
+    .text {
+      p {
+        font-family: "Jost";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17px !important;
+        line-height: 20px !important;
+        text-align: center;
+        color: #2b2b2b;
+        width: 100%;
+        margin: 0 auto !important;
+        max-width: 205px;
+        span {
+          background: linear-gradient(244.02deg, #ff3269 19.71%, #ff794d 78.29%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+          svg {
+            margin: -3px;
+          }
+        }
+      }
+    }
+    
+    .second_heading {
+      p {
+        font-family: "Jost";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px !important;
+        line-height: 19px !important;
+        text-align: center;
+        color: #2a2a2a;
+        margin: 0 !important;
+        padding: 9px !important;
+      }
+    }
+    
+    //
+    
+    .accept_del {
+      p {
+        font-family: "Jost";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px !important;
+        line-height: 26px !important;
+    
+        text-align: center;
+    
+        color: #2b2b2b;
+        margin: 0 !important;
+        padding: 10px 0 !important;
+      }
+    }
+    
+    .btns {
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+      .active {
+        background: #8200ff;
+        color: #ffff;
+      }
+      button {
+        box-shadow: 2px 4px 11px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        padding: 2px 37px;
+        text-transform: capitalize;
+        border: 1px solid #3e3e3e;
+      }
+    }
+  }

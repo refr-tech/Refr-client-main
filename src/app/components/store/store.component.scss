@@ -1,0 +1,14 @@
+nav {
+    height: 50px;
+    margin: 0 0 0 0;
+    .navigator {
+        display: flex;
+        align-items: center;
+        max-width: 1180px;
+        padding: 0 10px;
+        margin: 0 auto;
+        img {
+            height: 40px;
+        }
+    }
+}

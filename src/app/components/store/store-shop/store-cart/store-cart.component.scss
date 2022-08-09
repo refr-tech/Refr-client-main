@@ -1,0 +1,460 @@
+.header {
+    display: flex;
+    align-items: center;
+    // padding-top: 10px;
+    // padding-bottom: 10px;
+    // padding-top: 17px;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    padding: 7px;
+    margin: 0 0 16px 0;
+}
+
+.pro-details {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px !important;
+    line-height: 23px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+ ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #874bf9 !important;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.coins {
+    margin-bottom: 6px;
+    margin-right: 13px;
+    button {
+        border-radius: 8px;
+        background-image: linear-gradient(rgba(255, 61, 101, 0.6), #ff7250);
+        border: none;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        // padding: 6px;
+        height: 28px;
+        font-size: 14px;
+        padding-right: 6px;
+        padding-left: 10px;
+    }
+}
+
+.coin-img {
+    max-width: 20px;
+    margin-right: 10px;
+}
+
+.coin-number {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.mycart {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 23px;
+}
+
+.section {
+    background: #fff;
+    margin-top: 2px;
+    height: 100%;
+}
+
+//
+.line {
+    width: 100%;
+}
+
+.card-box {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px;
+}
+
+.col-card .card-box {
+    margin: 0 !important;
+}
+
+.prod-name {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px !important;
+    line-height: 18px !important;
+    margin-left: 0 !important;
+}
+
+.prod-img {
+    width: 118px;
+    border-radius: 8px;
+}
+
+.prod-content {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    margin-right: 60px;
+}
+
+// .prod-btn {
+//   width: 50%;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.minus {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 18px;
+}
+
+.close {
+    width: 22px;
+}
+
+.desc {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.rupee {
+    color: #94969f;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px !important;
+    line-height: 18px;
+    text-decoration: line-through;
+    margin-right: 0px !important;
+}
+
+.price {
+    display: flex;
+}
+
+.add-remove {
+    display: flex;
+    align-items: center;
+    margin-left: -9px !important;
+    margin-bottom: 0 !important;
+}
+
+.rup {
+    margin-right: 0px !important;
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 18px;
+    color: #000000;
+    margin-left: 0px !important;
+}
+
+.off {
+    color: #874bf9 !important;
+    font-size: 15px !important;
+    margin-left: 7px !important;
+}
+
+.ship-add {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    color: #000000;
+    .checkbox {
+        vertical-align: middle;
+        margin: 0 0 0 -16px;
+    }
+}
+
+//
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+form .fullWidth {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    line-height: 26px;
+    font-size: 18px; //padding-bottom: 10px;
+    a svg {
+        height: 20px;
+        line-height: 20px;
+        padding: 5px;
+    }
+}
+
+form .halfWidth {
+    width: 50%;
+    line-height: 26px;
+    font-size: 18px; //padding-bottom: 10px;
+}
+
+//
+.ship-change {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    //   max-width: 97%;
+}
+
+.change {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #874bf9;
+    margin-right: 11px;
+}
+
+.home {
+    // border: 1px solid #874bf9;
+    // color: #874bf9;
+    border: 1px solid #282c3f;
+    font-weight: 500;
+    margin-right: 20px;
+    border-radius: 20px;
+    width: 80px;
+    line-height: 25px;
+}
+
+.save-add-btn button:focus {
+    border: 1px solid #874bf9;
+    color: #874bf9;
+}
+
+.work {
+    border-radius: 20px;
+    border: 1px solid #282c3f;
+    width: 80px;
+}
+
+.save-add-btn {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+//
+.cashback {
+    height: 15px;
+    background: linear-gradient( 90deg, #dccef8 46.77%, rgba(236, 227, 253, 0.36) 99.13%);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px !important;
+    line-height: 15px;
+    padding: 8px;
+    border-radius: 8px;
+    margin-right: 19px;
+    margin-top: 15px;
+}
+
+.bill {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-left: 7px;
+    margin-right: 4px;
+}
+
+.table {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.other-charges {
+    color: gray !important;
+}
+
+.bill-order {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px !important;
+    line-height: 18px !important;
+    /* identical to box height, or 120% */
+    margin-bottom: 0 !important;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.drop-down {
+    display: flex;
+    align-items: center;
+}
+
+.drop-down-content {
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+//
+.checkbox {
+    width: 20px;
+}
+
+.pay {
+    display: flex;
+    justify-content: space-between;
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.75);
+    margin-left: 5px;
+    margin-right: 15px;
+}
+
+.ent-amount {
+    border: 1px solid gray;
+    margin-left: 35px;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    width: 100px;
+    padding: 5px;
+    //   margin-bottom: 20px;
+}
+
+//
+.refr {
+    display: flex;
+    align-items: center;
+}
+
+.cash {
+    /* display: flex;
+    justify-content: space-between;
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(0, 0, 0, 0.75);
+    margin-left: 20px;
+    margin-right: 20px; */
+    margin-left: 20px;
+    margin-right: 20px;
+    svg {
+        vertical-align: middle;
+        height: 24px;
+    }
+}
+
+.payable {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: none;
+    border-right: none;
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    padding-top: 10px;
+    color: #874bf9;
+    margin-left: 20px;
+    margin-right: 4px;
+    margin-top: 15px;
+}
+
+//
+.use {
+    margin-left: 10px !important;
+    margin-bottom: 0px !important;
+}
+
+input {
+    margin: 0 !important;
+}
+
+.submit {
+    background: #874bf9;
+    height: 42px;
+    border-radius: 4px;
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #ffffff;
+    width: 60%;
+}
+
+.place-order-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 786px) {
+    .prod-content {
+        margin-right: 0 !important;
+    }
+    .price {
+        width: 115%;
+    }
+}
+
+//
+.card-size {
+    width: 90% !important;
+}
+
+.card1 {
+    display: flex;
+    justify-content: center;
+}
+
+.card-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-img {
+    margin: 6px;
+    img {
+        width: 80px;
+        border-radius: 8px;
+    }
+}
+
+.caret {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}

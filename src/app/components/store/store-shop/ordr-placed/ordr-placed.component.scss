@@ -1,0 +1,158 @@
+.header {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+.header-img {
+    margin-left: 6px;
+}
+.header-details {
+    display: flex;
+    justify-content: center;
+    // text-align: center;
+    width: 100%;
+    margin-right: 10%;
+.pro-details {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px !important;
+    line-height: 23px !important;
+    margin-bottom: 0px !important;
+    color: #000000;
+}
+}
+}
+
+
+
+
+//
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #7ac142;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 4% auto 4% auto;
+    box-shadow: inset 0px 0px 0px #7ac142;
+    animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes scale {
+    0%,
+    100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #7ac142;
+    }
+}
+
+.order-confirm {
+    text-align: center;
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px !important;
+    line-height: 35px !important;
+    color: #737373;
+}
+
+.saved {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px !important;
+    line-height: 27px !important;
+    text-align: center;
+}
+
+//
+.card {
+    // width: 428px;
+    // height: 177px;
+    background: #e1d5fa;
+    margin-top: 120px;
+    position: relative;
+    .stamps {
+        position: absolute;
+        right: 0;
+        top: -99px;
+    }
+}
+
+.tell {
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px !important;
+    line-height: 30px !important;
+    margin-left: 35px !important;
+    padding-top: 36px !important;
+}
+
+.feed-section {
+    width: 79%;
+    margin: 10px 56px !important;
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px !important;
+    line-height: 25px !important;
+}
+
+.earn {
+    display: flex;
+    align-items: center;
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px !important;
+    line-height: 29px !important;
+    width: 94%;
+}
+
+.get {
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    //font-family: "Jost";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px !important;
+    line-height: 25px !important;
+    margin-top: 100px !important;
+}
